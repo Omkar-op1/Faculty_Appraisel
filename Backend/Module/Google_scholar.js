@@ -11,6 +11,12 @@ const API_KEY = 'd660c81506a488b9fa048c86e9c3a85c5272c8a4fb61f1a06540f49e9fe0349
 // const AUTHOR_ID = 'K2BMBtcAAAAJ';
 
 
+
+
+
+
+
+
 async function fetch(AUTHOR_ID) {
     const response = await axios.get('https://serpapi.com/search.json', {
     params: {
@@ -59,8 +65,6 @@ async function addResearchData(facultyId, researchData) {
       console.error('Error adding research data:', error);
     }
   }
-
-fetch('cGQcqZAAAAAJ&hl');
 // const fetchPublications = async () => {
 //     try {
 //         // Proxy server se data fetch karo

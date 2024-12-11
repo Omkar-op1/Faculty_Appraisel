@@ -6,18 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+async function fetchdata1() {
 
-async function fetchData() {
-  try {
-    // Replace with your actual backend API endpoint
     const response = await fetch('http://localhost:5000/api/get-details', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
-        'type': t,
       },
     });
+  
+}
+async function fetchData() {
+  try {
+    // Replace with your actual backend API endpoint
+  
     if (!response.ok) throw new Error('Failed to fetch data');
 
     const data = await response.json();

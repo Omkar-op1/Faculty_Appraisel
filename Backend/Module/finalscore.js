@@ -92,7 +92,7 @@ const updatescore = async (faculty) => {
       entry['score']=points;
 
 
-      if(entry.semester==='odd')
+      if(entry.semester==='Odd')
         {
                      if(s1<points)
                     {
@@ -131,7 +131,7 @@ const updatescore = async (faculty) => {
       });
       let iscore;
     faculty.instituteActivities.forEach((entry, index) => {
-      entry['score']=5;
+      entry['score']=5; 
       iscore+=5;
       });
       let rscore=0;

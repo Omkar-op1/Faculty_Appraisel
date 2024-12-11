@@ -611,3 +611,9 @@ th {
   border-radius: 6px;
   margin-right: 5px;
 }
+.score-input .score-badge {
+  background-color: var(--color-accent);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
