@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="ImportantLinks.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> -->
+ 
+   
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links"><br>
+            <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html" class="><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li><br>
+          </ul>  
+      
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Important Links</h2>  
+</div>
+<main>
+    <main>
+    <section id="faculty-appraisal-links">
+        <ul>
+            <li>
+                <a href="FacultyHomePage.html">Faculty Home Page</a>
+                <p>Explore your personal faculty dashboard, manage your academic records, and view professional achievements.</p>
+            </li>
+            <li>
+                <a href="FacultyProfilePage.html">Faculty Profile</a>
+                <p>Upload and manage your personal information, including qualifications, experience, and professional milestones.</p>
+            </li>
+            <li>
+                <a href="TeachingProcess.html">Faculty Appraisal Form</a>
+                <p>Begin the appraisal process by documenting your teaching methodologies, educational strategies, and related academic activities.</p>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+</main>
+
+<style>
+.score-section {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-container h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.fetch-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fetch-btn:hover {
+  background: #283593;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fetch-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fetch-btn i {
+  font-size: 0.9rem;
+}
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-input span {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.score-input input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+  color: #333;
+  font-weight: 500;
+}
+
+.score-input input:focus {
+  outline: none;
+  border-color: #1a237e;
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+</style>   
+</body>
+</html>
+
+ 

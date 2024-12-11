@@ -1,0 +1,204 @@
+:root {
+  /* Expanded Color Palette */
+  --primary-color: #263A6D;
+  --secondary-color: #2C5282;
+  --accent-color: #3182CE;
+  --background-light: #F7FAFC;
+  --text-dark: #2D3748;
+  --white: #FFFFFF;
+  --border-color: #E2E8F0;
+  --gradient-start: #2C5282;
+  --gradient-end: #3182CE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Enhanced Header */
+.header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.emblem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-text h2 {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Navigation Redesign */
+.navigation {
+  background-color: var(--primary-color);
+  padding: 0.75rem 2rem;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Login Container */
+.login-container {
+  max-width: 450px;
+  margin: 4rem auto;
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  border: 1px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+}
+
+.login-container h1 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-container input {
+  padding: 1rem 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+}
+
+.login-container button {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  color: var(--white);
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0,0,0,0.1);
+}
+
+.login-container p {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-dark);
+}
+
+.login-container a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.login-container a:hover {
+  color: var(--secondary-color);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login-container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem 1.5rem;
+  }
+}
+
+:root {
+  /* Updated Color Palette */
+  --primary-color: #201E43;
+  --secondary-color: #134B70;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
+  --white: #FFFFFF;
+  --border-color: #C0C0C0;
+}

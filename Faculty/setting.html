@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile & Settings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Previous CSS styles remain the same -->
+     <link rel="stylesheet" href="setting.css">
+    <style>
+        /* Add these new styles */
+        .edit-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: var(--primary);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .profile-image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .security-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .security-item:last-child {
+            border-bottom: none;
+        }
+
+        .security-info h3 {
+            margin-bottom: 0.25rem;
+        }
+
+        .security-info p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        .notification-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--light);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <img src="" alt="Profile" class="profile-image">
+                    <div class="edit-overlay" id="changeProfilePhoto">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                </div>
+                <h2 class="profile-name">John Doe</h2>
+                <p class="profile-email">john.doe@example.com</p>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#profile" class="nav-link active" data-section="profile">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#security" class="nav-link" data-section="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#notifications" class="nav-link" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span>Notifications</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" id="logoutBtn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <!-- Profile Section -->
+            <div class="section-content active" id="profile">
+                <div class="settings-header">
+                    <h1 class="settings-title">Profile Information</h1>
+                </div>
+                <div class="settings-card">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" class="form-input" value="John Doe" name="fullName">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" value="john.doe@example.com" name="email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone</label>
+                            <input type="tel" class="form-input" value="+1 234 567 890" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Bio</label>
+                            <textarea class="form-input" rows="4" name="bio">Professional software developer with 5 years of experience.</textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Security Section -->
+            <div class="section-content" id="security">
+                <div class="settings-header">
+                    <h1 class="settings-title">Security Settings</h1>
+                </div>
+                <div class="settings-card">
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>Change Password</h3>
+                            <p>Update your password regularly to keep your account secure</p>
+                        </div>
+                        <button class="btn btn-outline" id="changePasswordBtn">Change</button>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>Two-Factor Authentication</h3>
+                            <p>Add an extra layer of security to your account</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="twoFactorToggle">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="security-item">
+                        <div class="security-info">
+                            <h3>Active Sessions</h3>
+                            <p>Manage your active sessions across devices</p>
+                        </div>
+                        <button class="btn btn-danger" id="logoutAllBtn">Logout All</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications Section -->
+            <div class="section-content" id="notifications">
+                <div class="settings-header">
+                    <h1 class="settings-title">Notification Preferences</h1>
+                </div>
+                <div class="settings-card">
+                    <div class="notification-item">
+                        <div class="security-info">
+                            <h3>Email Notifications</h3>
+                            <p>Receive updates about your account activity</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="notification-item">
+                        <div class="security-info">
+                            <h3>Push Notifications</h3>
+                            <p>Get instant notifications on your device</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="notification-item">
+                        <div class="security-info">
+                            <h3>Marketing Communications</h3>
+                            <p>Receive updates about new features and promotions</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.id === 'logoutBtn') return; // Skip for logout button
+                
+                e.preventDefault();
+                // Update active nav link
+                document.querySelector('.nav-link.active').classList.remove('active');
+                this.classList.add('active');
+                
+                // Show corresponding section
+                const sectionId = this.getAttribute('data-section');
+                document.querySelector('.section-content.active').classList.remove('active');
+                document.getElementById(sectionId).classList.add('active');
+            });
+        });
+
+        // Profile photo change
+        document.getElementById('changeProfilePhoto').addEventListener('click', () => {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        document.querySelector('.profile-image').src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            if (confirm('Are you sure you want to logout?')) {
+                // Add your logout logic here
+                alert('Logging out...');
+            }
+        });
+
+        // Form submission
+        document.getElementById('profileForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Profile updated successfully!');
+        });
+    </script>
+</body>
+</html>
