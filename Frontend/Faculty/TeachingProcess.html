@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="TeachingProcess.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+  <nav class="navigation">
+    <div class="nav-content">
+        <ul class="nav-links">
+        <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="FacultyProfilePage.html" ><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+        <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+        <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+      </ul>
+          <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="./setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+           <div class="notification-container">
+  <div class="notification-bell">
+    <i class="fas fa-bell"></i>
+    <span class="notification-badge">3</span>
+  </div>
+  
+  <div class="notification-box">
+    <div class="notification-header">
+      <h3>Notifications</h3>
+      <span class="mark-as-read">Mark all as read</span>
+    </div>
+    
+    <div class="notification-content">
+      <div class="notification-item unread">
+        <div class="notification-avatar">
+          <img src="pr.png" alt="User avatar">
+        </div>
+        <div class="notification-text">
+          <p><strong>John Doe</strong> commented on your post</p>
+          <span class="notification-time">2 minutes ago</span>
+        </div>
+        <div class="notification-dot"></div>
+      </div>
+
+      <div class="notification-item unread">
+        <div class="notification-avatar">
+          <img src="pr.png" alt="User avatar">
+        </div>
+        <div class="notification-text">
+          <p><strong>Jane Smith</strong> liked your photo</p>
+          <span class="notification-time">15 minutes ago</span>
+        </div>
+        <div class="notification-dot"></div>
+      </div>
+
+      <div class="notification-item">
+        <div class="notification-avatar">
+          <img src="pr.png" alt="User avatar">
+        </div>
+        <div class="notification-text">
+          <p><strong>Mike Johnson</strong> sent you a message</p>
+          <span class="notification-time">1 hour ago</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="notification-footer">
+      <a href="#">View all notifications</a>
+    </div>
+  </div>
+</div>
+<style>
+  .notification-container {
+  position: relative;
+  display: inline-block;
+}
+
+.notification-bell {
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff4444;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.notification-box {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 350px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 1000;
+}
+
+.notification-header {
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.notification-header h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.mark-as-read {
+  color: #666;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.notification-content {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.notification-item {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.3s;
+}
+
+.notification-item:hover {
+  background-color: #f8f9fa;
+}
+
+.notification-item.unread {
+  background-color: #f0f4f8;
+}
+
+.notification-avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.notification-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.notification-text {
+  flex: 1;
+}
+
+.notification-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: #888;
+}
+
+.notification-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+
+.notification-footer {
+  padding: 15px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.notification-footer a {
+  color: #2196F3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.notification-footer a:hover {
+  text-decoration: underline;
+}
+
+</style>
+
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+</div>
+
+<nav class="section-nav">
+  <a href="TeachingProcess.html"><button class="active">Teaching Process</button></a>
+    <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+    <a href="Result.html"><button>ACR</button></a>
+    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+    <a href="Summary.html"><button>Score</button></a>
+  </nav>
+
+       <div class="score-section">
+  <div class="header-container">
+    <h3>A. Teaching Process (Max Point 20)</h3>
+    <button class="fetch-btn" onclick="fetcherp()">
+      <i class="fas fa-sync-alt"></i>
+      Fetch from ERP
+    </button>
+  </div>
+  <div class="score-input">
+    <span>Score Obtained:</span>
+    <input type="text" id="scoreObtained" value="0" readonly />
+  </div>
+</div>
+
+<style>
+.score-section {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.header-container h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.fetch-btn {
+  background: #1a237e; /* Dark blue - matching your navigation theme */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.fetch-btn:hover {
+  background: #283593; /* Slightly lighter blue for hover */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fetch-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fetch-btn i {
+  font-size: 0.9rem;
+}
+
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-input span {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.score-input input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+}
+</style>
+
+ <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Sr. No</th>
+                <th>Semester</th>
+                <th>Subject code</th>
+                <th>Subject Name</th>
+                <th>No. of Planned Classes in Sem</th>
+                <th>No. of Classes held in Sem</th>
+                <th class="attainment">CO Attainment</th>
+                <th>Supporting Document</th>
+                <th class="score">Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-button">
+          <button onclick="openModal()">+ Add</button>
+        </div>
+
+        <div class="navigation-buttons">
+          <button class="prev-btn" onclick="window.location.href = 'TeachingProcess.html';">Back</button>
+          <div class="right-buttons">
+            <!-- <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button> -->
+           <button class="next-btn" onclick="window.location.href = 'StudentFeedBack.html';">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Faculty Entry</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="facultyForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" name="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label>Subject Code</label>
+            <input type="text" name="subjectCode" required />
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <select name="semester" required>
+                <option value="">Select Semester</option>
+                <option value="I">Odd</option>
+                <option value="II">Even</option>
+            </select>
+        </div>
+        
+          
+          <div class="form-group">
+            <label>No. of Planned Classes in Sem</label>
+            <input type="number" name="scheduledClasses" required />
+          </div>
+          <div class="form-group">
+            <label>No. of Classes held in Sem</label>
+            <input type="number" name="actualClasses" required />
+          </div>
+          <div class="form-group">
+            <label> CO Attainment</label>
+            <input type="number" name="attainment" step="0.01" required />
+          </div>
+
+          <div class="form-group">
+            <label>Supporting Document</label>
+            <input type="file" name="supportingDocument"  />
+          </div>
+
+          <div class="form-buttons">
+            <button type="button" class="reset-btn" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  const notificationBell = document.querySelector('.notification-bell');
+  const notificationBox = document.querySelector('.notification-box');
+  const markAsRead = document.querySelector('.mark-as-read');
+
+  // Toggle notification box
+  notificationBell.addEventListener('click', function(e) {
+    e.stopPropagation();
+    notificationBox.style.display = notificationBox.style.display === 'block' ? 'none' : 'block';
+  });
+
+  // Close notification box when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!notificationBox.contains(e.target) && !notificationBell.contains(e.target)) {
+      notificationBox.style.display = 'none';
+    }
+  });
+
+  // Mark all as read functionality
+  markAsRead.addEventListener('click', function() {
+    const unreadItems = document.querySelectorAll('.notification-item.unread');
+    unreadItems.forEach(item => {
+      item.classList.remove('unread');
+      item.querySelector('.notification-dot')?.remove();
+    });
+    
+    // Update notification badge
+    const badge = document.querySelector('.notification-badge');
+    badge.style.display = 'none';
+  });
+});
+
+    </script>
+    <script src="common.js"></script>
+    <script src="TeachingProcess.js"></script>
+</body>
+</html>

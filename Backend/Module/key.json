@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "fluent-century-443506-p1",
+  "private_key_id": "5c57d292f82675450281120092dc23cae6a4ca7a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDI9uJh86V+3wqB\nTbCAxr119uikKkbxQbhQs1Ckv7bbgXE7yoZorx2JNpKJZ1Pe9YfviwWXC9MxXrho\nlV1h9DpjlixkIVXK6HehN4YFdxhCTEBNgt3QZmexpMgN5N9LR3UzI7tt4jhoVU8d\nFReRBmx13jlcwDZVLDWDjW/+i2BqCyK9NCxEolOA74e3HyqoKpmz6k0KTTBK+rd0\nFDf+scryK/jRTtGtO7EeceepRcmpQDnrpwvhoKIUw7b6ZwBWe+ZXHCurHxxEK+Q9\nmENhTTsVT8GyXZBbaHYV0teTxyU8qpUiEGYPtCi+KLOPeWUdwvUhFZtsQL7M9gbp\nXCXgrHIfAgMBAAECggEAPfoh1AqTof6AW2NNyVFBceV9Vs+xBEt73+uFNeHoL2cK\nuGFbtWI4Li5138lNjOfVDfOmfDBJ6CJppdtWqtRqw3a3ZwP+1O5/omkgvIO/qAaj\nGCSBavmCBj+m8N4CXVGC3AwrjBZlxgt1NCdilrfP8EPiFfAzcW4KbPFMNkjeqaUM\nCER7rhdSag1hJQlfeiJv1ued1ZK/i1RUPaR6wJODYKVviuobGn+BxYsgmo5bNcgl\njPlg4V763y9C8HkAqfimG4HjLdp77dCcF+IaUD8sy1lt8Q0lWcA6AgvAauGgATug\nXLJkT0wIJLyOGGDQ1s04p6VYpz51WAbgb8mFZRJvGQKBgQD4v0BHChD971XxZAR/\nDTa41Tfv0k8maPVyC1U1fmyZuTrcYgN+jDSmZJSG0yOwh8jBWKvM5LVCPF2kJvjD\nG6vDdxpAEu48grSeaWUCGFF88Y9b8HDwgon1BnkWh/3zYmtwOtqSQmLU4ATb2HXc\noPxgg38Gi+dllwaKHuxe4CukVwKBgQDO0vbD09O0Tl1jp7aVPka1WfHBNWAxVjBd\n0sb4wplb2rcPZZ2QsOmaQdRvJZNA2ycjfqWgFtEj0Zun3Uq4yZZSLkcHv4K38Uk+\n1/qCM1ZUcOxJu+6iGl7ljIuBvuijwPuIEwTY/iJ6A7YbJlscHxjHBzXfVsZ1iDya\n7xR/Qp9DeQKBgF5cRqjsM6fwy7xngaEkxRZ2o+KQ+D+M31ck320MiWwDLUX+1G6E\nB1D7pLBElixYRhq6ZWmzdOMsfSVRN1rkO1NJ8iZOSBuiRZw2RP/3c6ofBJAO9Pj3\nvBe8HeEjM33JXxJS8Sk8j7tLQ+yV/5fzZenC2EQGfIA4O13X/zi6dzO/AoGBAMNW\nOpvfj75mmQuLFgXEyLF1XsBVMiHGvm2Oqj++Q2uemXCgT32dqTP44rOK8JW7pi5+\n6dzWT/adfH7BoVX/hsrdTFbECKjD6aLCB6Y66FleQbyuE4bkkyYIZKZI8Z3foXD2\nTYjIFTXaFX907W4U7KjlZXsnkM7muh62mUxMVvE5AoGBAIr7RgvwH+x54PNZGyjN\nOfml+P3ikZgInuLN2umLr6O2BY6LP9D7QVeqxLe84g57gu5xU8E1//Kz2NwlhMEk\ngCRCz7OCnoaA1kgIjfm7DgzdeExYRT5P+XXfLXKlC7GXkRG26gIcBvlOQOziXkzu\nFws/CBuAlTN4dujg3XLgF6EH\n-----END PRIVATE KEY-----\n",
+  "client_email": "faculty@fluent-century-443506-p1.iam.gserviceaccount.com",
+  "client_id": "100399875074823259097",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/faculty%40fluent-century-443506-p1.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

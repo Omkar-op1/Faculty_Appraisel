@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "enduring-victor-443509-f4",
+  "private_key_id": "a557ebf1e0fef37ce1fddc1fa5d8195f94530a1d",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCy7KROJNPh2Wz0\nRpR1oTyRBBhypdRCj1ANe0X+MN1jrmVn3wX3gVZg/ZBfz+/nMyyefkl71uMbSkU6\nZj4h2U55huzf8///rgexj4Mm5s2r/rFGtt/3NfmnpnBadMm+pczZShmXgQB3uv52\nDK/rttBvQWiaXpchYcGnmxdx1kntCnjKszFNoy1NP/HuIGKfpyC4nBZXxnNKaJ+e\nMieEiNbZ9XnKOUgsDefXYg67dyMNb4PU/rzfxf5zftuNRc2b2oWQWSKR5Km23oaw\nt08KDMGdFt71aGqtvnscJYJIfWnNDOJ/t+K9xqmHjvRpWaUAr3UK7SXvK7qWSgli\nG9UsGppvAgMBAAECggEANzL3a55D+eDEksX1hia0kz6Stkf/qHsjJM2bpdR4cIi8\ngyOUaSuvNOP1NwHlDsxEXy8xx3FfhitPGTmywGmUorxj9qGFoGEVwYs3WHiLCh1c\nnqbLiK5Ps4+PCPEPzm/DN2P7ajijpsx7NXsriMpRGomw1jMJaASLJISd4oJMM0Lr\nqYI7IWI/2T/qdU2WlAqjt+BqahQ+Nlasshtov9SYgUv4Ky7jIsiXHdk3vp6bFYEI\nfIk+A/28Qjybh3cs4Q5rREfdRDsj2oVCWLfI7PsOoSy3N3slwsGUBO3r+BW5aF8s\nV1+kpWsiluX9FnS6nZgrJ4S/rGpPNeGP/f1c4aLaYQKBgQDq5XzxiJ79BIKrXgp/\naPsE4XHF/vCb97f9v/x9FwsJEIN/DZbPzx14DMFYbIja2F6dC3vZIu0UaXhKtP/b\nDo89zKFOsE67I9iIYwNuLYcnuvR3cTE3RnltGelF3iOKR2B1MMVo7vt3YEVUnV/F\nxH7mZ0wUto0s85wDIDr5YNScjwKBgQDC/9JfQFrv5kkB2F0zGCrmQY9C/TAqcIQW\nje1OXJVuv+/HqGGwY4bYj7CWtPQ/3KKrS6BFNepAT0/fnlSxps9UxZi/vdlq5bCm\nKNsDhpS8muOd04LVDMKEBy/PUogyKeaV7snOZ+0/1x6GKFhj9pw1u54wzbrQAWrT\nAJJADjTUIQKBgGolP9upoCa31hB4U4gVuXEQKyiMts/UFimtivw/4HW9J57PVjob\n3rY0FV7O1N0H72FKIjIR7U5PBtPDjObBYotLoAz98OXyIdQn4hH0suGKQxSCavoO\nd6qMjfRLmIXREU6DtoFflPTx5QKChxfIXovhW+j0QUFx6CslcmDkl88TAoGAbn0h\nqFMAs9naGC+Ob3sMI7eWAzEO750dWuJEShhvm3cp2AlygM2EBIU2W85gbycHDOQn\nBdBM0O+fpGdEOfz4kWH88PgTj1xiQWP45QCGmm9w9WZ5RVqbhM/FqUVsYnAXdXD9\n6/Q7G+c6Jm4J12pOjKuoMKMBbQbAjppOQ/lIucECgYEAsuzEd7hqnQaRAXwImtXg\nx72Xh5gpaZ11YEkPL5CKpwfTVrPE8bInsN5dPl5fQ29DUbtr6mGKdiCi80WllvgY\nmw7F5n1KqqwFVHVdPBwMBXGsjALnIORM2aWyQ2Xi+KOAbXmcwYfxWN/F1qF6u5V8\nDvo1e6hgwQmHLQ82ViY3MWQ=\n-----END PRIVATE KEY-----\n",
+  "client_email": "faculty@enduring-victor-443509-f4.iam.gserviceaccount.com",
+  "client_id": "106376583636364004945",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/faculty%40enduring-victor-443509-f4.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

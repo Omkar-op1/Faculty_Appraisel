@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Portal - Government of NCT Delhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="FacultyHomePage.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container header-container">
+            <div class="header-left">
+                <img src="/api/placeholder/60/60" alt="Government Emblem" class="emblem">
+                <div class="header-titles">
+                    <h1>Government of National Capital Territory of Delhi</h1>
+                    <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="notification-btn" aria-label="Notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </button>
+                <div class="user-info">
+                    <img src="/api/placeholder/40/40" alt="User Profile" class="profile-img">
+                    <span>Welcome, Professor</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+                <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="search" placeholder="Search...">
+                <button type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Welcome Banner -->
+        <section class="welcome-banner">
+            <div class="container">
+                <h1>Welcome to the Faculty Appraisal System</h1>
+                <p>Access your appraisal form, view reports, and manage your profile for a seamless evaluation experience.</p>
+                <div class="action-buttons">
+                    <button class="btn primary">
+                        <i class="fas fa-file-alt"></i>
+                        Start Appraisal
+                    </button>
+                    <button class="btn secondary">
+                        <i class="fas fa-history"></i>
+                        View History
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Grid -->
+        <section class="dashboard container">
+            <div class="stats-section">
+                <h2>Your Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Completion Status</h3>
+                            <p class="stat-value">75%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-details">
+                            <h3>Days Remaining</h3>
+                            <p class="stat-value">15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h2>News and Updates</h2>
+                <div class="news-container">
+                    <div class="news-item">
+                        <h3>Annual Appraisal Deadline Extended</h3>
+                        <p>The deadline for submitting annual appraisals has been extended to March 31st, 2024.</p>
+                        <span class="date">March 1, 2024</span>
+                    </div>
+                    <div class="news-item">
+                        <h3>New Research Grant Opportunities</h3>
+                        <p>Multiple research grants are now available for faculty members.</p>
+                        <span class="date">February 28, 2024</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notifications Panel -->
+    <div class="notifications-panel" id="notificationsPanel">
+        <div class="notifications-header">
+            <h3>Notifications</h3>
+            <button class="close-btn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notifications-content">
+            <!-- Notifications will be dynamically added here -->
+        </div>
+    </div>
+    <script src="FacultyHomePage.js"></script>
+</body>
+</html>
