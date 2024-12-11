@@ -11,8 +11,6 @@ const InLogin=require('../routes/Institutelogin')
 const InName=require('../routes/institutename')
 const faculty_login=require('../routes/facultylogin')
 const cookieParser = require('cookie-parser');
-const formbuild=require('../routes/formbuilder')
-const erp=require('./erpapi')
 //const upload = require('../Module/multer');
 
 app.use(cookieParser());
@@ -30,8 +28,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login,getf,formbuild);
-app.use('/api', getallfaculty ,erp);
+app.use('/api',Instituteregister,IN,InLogin,InName,addfacultyRoute,faculty_login,getf);
+app.use('/api', getallfaculty);
 app.use((err, req, res, next) => {
   console.error(err.stack); 
   res.status(500).send({ error: 'Something went wrong!' });
