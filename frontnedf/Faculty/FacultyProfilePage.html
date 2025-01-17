@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Profile System - Government of NCT Delhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- [Previous CSS remains the same] -->
+     <link rel="stylesheet" href="FacultyProfilePage.css">
+</head>
+<body>
+   <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links"><br>
+            <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html"  class="active"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li><br>
+          </ul>  
+      
+      <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name"  id="profile-name"></span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>   
+    </div>
+  </nav>
+  <div class="breadcrumb">
+    <h2 class="report">Profile</h2>  
+</div>
+      <main class="main-content">
+         <form class="profile-form" id="facultyProfileForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select id="title" name="title" required>
+                        <option value="">Select</option>
+                        <option value="Dr">Dr</option>
+                        <option value="Prof">Prof</option>
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" name="firstName" required>
+                </div>
+                <div class="form-group">
+                    <label for="middleName">Middle name</label>
+                    <input type="text" id="middleName" name="middleName">
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" name="lastName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="address1">Address Line 1</label>
+                    <input type="text" id="address1" name="address1" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="address2">Address Line 2</label>
+                    <input type="text" id="address2" name="address2">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="form-group">
+                    <label for="PINCode">Zip code</label>
+                    <input type="text" id="zipCode" name="zipCode" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" name="state" required>
+                        <option value="">Select State</option>
+                        <option value="andhra-pradesh">Andhra Pradesh</option>
+                        <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                        <option value="assam">Assam</option>
+                        <option value="bihar">Bihar</option>
+                        <option value="chhattisgarh">Chhattisgarh</option>
+                        <option value="goa">Goa</option>
+                        <option value="gujarat">Gujarat</option>
+                        <option value="haryana">Haryana</option>
+                        <option value="himachal-pradesh">Himachal Pradesh</option>
+                        <option value="jharkhand">Jharkhand</option>
+                        <option value="karnataka">Karnataka</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="madhya-pradesh">Madhya Pradesh</option>
+                        <option value="maharashtra">Maharashtra</option>
+                        <option value="manipur">Manipur</option>
+                        <option value="meghalaya">Meghalaya</option>
+                        <option value="mizoram">Mizoram</option>
+                        <option value="nagaland">Nagaland</option>
+                        <option value="odisha">Odisha</option>
+                        <option value="punjab">Punjab</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="sikkim">Sikkim</option>
+                        <option value="tamil-nadu">Tamil Nadu</option>
+                        <option value="telangana">Telangana</option>
+                        <option value="tripura">Tripura</option>
+                        <option value="uttar-pradesh">Uttar Pradesh</option>
+                        <option value="uttarakhand">Uttarakhand</option>
+                        <option value="west-bengal">West Bengal</option>
+                        <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
+                        <option value="chandigarh">Chandigarh</option>
+                        <option value="dadra-nagar-haveli-daman-diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                        <option value="delhi">Delhi</option>
+                        <option value="lakshadweep">Lakshadweep</option>
+                        <option value="puducherry">Puducherry</option>
+                        <option value="ladakh">Ladakh</option>
+                        <option value="jammu-kashmir">Jammu and Kashmir</option>
+                    </select>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" name="country" required>
+                        <option value="india">India</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+                <div class="form-group">
+                    <label for="department">Department name</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+                <div class="form-group">
+                    <label for="education">Educational Qualifications</label>
+                    <input type="text" id="education" name="education" required>
+                </div>
+                <div class="form-group">
+                    <label for="specialization">Areas of Specialization</label>
+                    <input type="text" id="specialization" name="specialization" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="experience">Experience (in years)</label>
+                    <select id="experience" name="experience" required>
+                        <option value="">Select</option>
+                        <option value="0-2">0-2 years</option>
+                        <option value="2-5">2-5 years</option>
+                        <option value="5-10">5-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="employeeType">Employee type</label>
+                    <select id="employeeType" name="employeeType" required>
+                        <option value="">Select</option>
+                        <option value="permanent">Permanent</option>
+                        <option value="contract">Contract</option>
+                        <option value="visiting">Visiting</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-draft" id="saveAsDraft">Save As Draft</button>
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </div>
+        </form>
+    </main>
+    <script src="FacultyProfilePage.js"></script>
+</body>
+</html>

@@ -3,9 +3,6 @@ const Faculty = require('../Models/addfaculty');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const { getdb } = require('../Module/db');
-
-const { updatescore } = require('../Module/finalscore');
-
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
@@ -49,21 +46,7 @@ router.get('/get-details', async (req, res) => {
         res.json({ key: faculty });
       }
   });
-router.get('/get-score', async (req, res) => {
-    const token = req.headers.authorization;
-    if (!token) {
-        return res.status(401).json({ error: 'No token, authorization denied' });
-    }
-      const decoded = jwt.verify(token, JWT_SECRET);
-      const user = decoded.userId;
-      const fdb = getdb(decoded.db);
-      const FacultyModel = Faculty(fdb);
-      const faculty = await FacultyModel.findOne({ _id: user});
-      res.json(faculty);
-  });
 
-
-  module.exports = router;
   router.delete('/delete-details/:entryId', async (req, res) => {
     const { entryId } = req.params; 
     try {
@@ -83,7 +66,6 @@ router.get('/get-score', async (req, res) => {
       if (result.modifiedCount === 0) {
         return res.status(404).send({ message: 'Entry not found' });
       }
-      updatescore();
       res.send({ message: 'Entry deleted successfully' });
     } catch (error) {
       res.status(500).send({ message: 'Failed to delete entry' });
@@ -98,7 +80,11 @@ router.get('/get-score', async (req, res) => {
       const user = decoded.userId;
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
-      const faculty = await FacultyModel.findOne({ _id: user});
+
+
+      const facultyId = req.query.facultyId;
+        const userId = facultyId || user; 
+      const faculty = await FacultyModel.findOne({ _id: userId});
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Profile System - Government of NCT Delhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+     <link rel="stylesheet" href="AdminProfile.css">
+</head>
+<body>
+   
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+
+   <nav class="navigation">
+    <div class="nav-content">
+     <ul class="nav-links">
+        <li><a href="AdminHomepage.html"><i class="fas fa-home" ></i> Home</a></li>
+                <li><a href="AdminProfile.html" ><i class="fas fa-user" class="active"></i> Profile</a></li>
+                <li><a href="ManageFaculty.html" ><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Create Appraisal Forms</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+                <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+      </ul>
+      <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>   
+    </div>
+  </nav>
+  
+  <div class="breadcrumb">
+    <h2 class="report">Profile</h2>  
+</div>
+    
+
+    
+    <main class="main-content">
+        <form class="profile-form" id="facultyProfileForm">
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-user-circle"></i> Personal Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title" class="required">Title</label>
+                        <!-- <select id="title" name="title" required>
+                            <option value="">Select</option>
+                            <option value="Dr">Dr</option>
+                            <option value="Prof">Prof</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                        </select> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="required">First Name</label>
+                        <!-- <input type="text" id="firstName" name="firstName" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <!-- <input type="text" id="middleName" name="middleName"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required">Last Name</label>
+                        <!-- <input type="text" id="lastName" name="lastName" required> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-address-card"></i> Contact Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone</label>
+                        <!-- <input type="tel" id="phone" name="phone" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <!-- <input type="email" id="email" name="email" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="required">Gender</label>
+                        <!-- <select id="gender" name="gender" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="required">Date of Birth</label>
+                        <!-- <input type="date" id="dob" name="dob" required> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Section -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-map-marker-alt"></i> Address Details</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="address1" class="required">Address Line 1</label>
+                        <!-- <input type="text" id="address1" name="address1" required> -->
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address2">Address Line 2</label>
+                        <!-- <input type="text" id="address2" name="address2"> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="required">City</label>
+                        <!-- <input type="text" id="city" name="city" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode" class="required">PIN Code</label>
+                        <!-- <input type="text" id="zipCode" name="zipCode" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="state" class="required">State</label>
+                        <!-- <select id="state" name="state" required>
+                            [Previous state options remain the same] -->
+                        <!-- </select> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="required">Country</label>
+                        <!-- <select id="country" name="country" required>
+                            <option value="india">India</option>
+                        </select> -->
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Professional Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="designation" class="required">Designation</label>
+                        <!-- <input type="text" id="designation" name="designation" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="department" class="required">Department</label>
+                        <!-- <input type="text" id="department" name="department" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="education" class="required">Educational Qualifications</label>
+                        <!-- <input type="text" id="education" name="education" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization" class="required">Areas of Specialization</label>
+                        <!-- <input type="text" id="specialization" name="specialization" required> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="experience" class="required">Experience</label>
+                        <!-- <select id="experience" name="experience" required>
+                            <option value="">Select</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="2-5">2-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select> -->
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeType" class="required">Employee Type</label>
+                        <!-- <select id="employeeType" name="employeeType" required>
+                            <option value="">Select</option>
+                            <option value="permanent">Permanent</option>
+                            <option value="contract">Contract</option>
+                            <option value="visiting">Visiting</option>
+                        </select> -->
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-draft" id="saveAsDraft">
+                    <i class="fas fa-save"></i> Save As Draft
+                </button>
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="AdminProfile.js"></script>
+</body>
+</html>

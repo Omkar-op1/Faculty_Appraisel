@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Profile System - Government of NCT Delhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+     <link rel="stylesheet" href="HODProfile.css">
+</head>
+<body>
+   
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  
+   <nav class="navigation">
+    <div class="nav-content">
+       <ul class="nav-links">
+               <li><a href="HODHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="HODProfile.html"class="active" ><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="ManageFacultyHOD.html"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                <li><a href="HODEndorse.html"><i class="fas fa-chart-bar"></i>Endorse</a></li>
+                <li><a href="FacultyToHOD.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+      </ul>  
+      <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>   
+    </div>
+  </nav>
+  
+  <div class="breadcrumb">
+    <h2 class="report">Manage Faculty</h2>  
+</div>
+    
+
+    
+    <main class="main-content">
+        <form class="profile-form" id="facultyProfileForm">
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-user-circle"></i> Personal Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title" class="required">Title</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="required">First Name</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required">Last Name</label>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-address-card"></i> Contact Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="required">Gender</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="required">Date of Birth</label>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-map-marker-alt"></i> Address Details</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="address1" class="required">Address Line 1</label>
+                        
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address2">Address Line 2</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="required">City</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode" class="required">PIN Code</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="state" class="required">State</label>
+                        
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="required">Country</label>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Professional Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="designation" class="required">Designation</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="department" class="required">Department</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="education" class="required">Educational Qualifications</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization" class="required">Areas of Specialization</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="experience" class="required">Experience</label>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeType" class="required">Employee Type</label>
+                        
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="form-actions">
+                <button type="button" class="btn btn-draft" id="saveAsDraft">
+                    <i class="fas fa-save"></i> Save As Draft
+                </button>
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="HODProfile.js"></script>
+</body>
+</html>

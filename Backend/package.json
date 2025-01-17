@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@handlebars/allow-prototype-access": "^1.0.5",
     "axios": "^1.7.9",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
@@ -26,6 +27,7 @@
     "node-localstorage": "^3.0.5",
     "nodemailer": "^6.9.16",
     "nodemon": "^3.1.7",
+    "pdf-creator-node": "^2.3.5",
     "pdf-parse": "^1.1.1",
     "pdfkit": "^0.15.1",
     "pdfkit-table": "^0.1.99",

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Appraisal System</title>
+    <link rel="stylesheet" href="facultylist.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+   
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+ <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="AdminHomepage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="AdminProfile.html" ><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="ManageFaculty.html" class="active"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Create Appraisal Forms</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+                <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+      </ul>
+      <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>   
+    </div>
+  </nav>
+  <div class="breadcrumb">
+    <h2 class="report">Endorse Faculty Appraisal</h2> 
+    
+</div>
+    </header>
+
+    <main>
+       
+
+        <div class="filters-section">
+            <div class="search-filters">
+                <input type="search" placeholder="Search faculty name..." class="search-input">
+                
+                <div class="dropdown">
+                    <button class="dropdown-btn">Sort by Employee ID</button>
+                    <div class="dropdown-content" id="sortOptions">
+                        <label><input type="radio" name="sort" value="asc"> Ascending</label>
+                        <label><input type="radio" name="sort" value="desc"> Descending</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Department</button>
+                    <div class="dropdown-content" id="departmentFilter">
+                        <label><input type="checkbox" value="Computer Engineering"> Computer Engineering</label>
+                        <label><input type="checkbox" value="Electrical Engineering"> Electrical Engineering</label>
+                        <label><input type="checkbox" value="Mechanical Engineering"> Mechanical Engineering</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Submitted At</button>
+                    <div class="dropdown-content" id="submittedAtFilter">
+                        <label><input type="radio" name="submitted" value="today"> Today</label>
+                        <label><input type="radio" name="submitted" value="this_week"> This Week</label>
+                        <label><input type="radio" name="submitted" value="this_month"> This Month</label>
+                        <label><input type="radio" name="submitted" value="this_year"> This Year</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Endorse Status</button>
+                    <div class="dropdown-content" id="endorseFilter">
+                        <label><input type="radio" name="endorse" value="true"> Endorsed</label>
+                        <label><input type="radio" name="endorse" value="false"> Not Endorsed</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="activeFilters" class="active-filters hidden">
+                
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr no.</th>
+                        <th>Name</th>
+                        <th>Login ID</th>
+                        <th>Appraisal Forms</th>
+                        <th>Score</th>
+                        <th>Submitted At</th>
+                        <th>Status</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody id="facultyTableBody">
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <script src="facultylist.js"></script>
+</body>
+</html>

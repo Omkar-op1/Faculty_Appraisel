@@ -31,6 +31,8 @@ const FacultySchema = new mongoose.Schema({
   facultyEmail: { type: String, trim: true },
   educationQualification: { type: String, trim: true },
   areasOfSpecialization: { type: [String] },
+  scholarid:{ type: String },
+  role:{type:String},
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
   password: { type: String },

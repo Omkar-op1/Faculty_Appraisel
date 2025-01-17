@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="FacultyToHOD.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+        <ul class="nav-links">
+               <li><a href="HODHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="HODProfile.html" ><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="ManageFacultyHOD.html" class="active"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                <li><a href="HODEndorse.html"><i class="fas fa-chart-bar"></i>Endorse</a></li>
+                <li><a href="FacultyToHOD.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+      </ul>  
+       <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name">John Doe</span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>   
+    </div> 
+    </div>
+  </nav>
+ <div class="breadcrumb">
+    <h2 class="report">Report</h2>  
+</div>
+  <main> 
+
+    <select id="timeframe">
+        <option value="2023-24">2023-24</option>
+    </select>
+    </div></h1>
+    <form>
+        <div class="form-group">
+            <input type="text" id="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Name">
+        </div>
+        <div class="form-group">
+            <input type="text" id="department" placeholder="Department">
+        </div>
+        <div class="form-group">
+            <input type="text" id="designation" placeholder="Designation">
+        </div>
+        <div class="form-group">
+            <input type="text" id="facultyId" placeholder="Faculty ID">
+        </div>
+
+    </form>
+<div class=".tabscontainer">
+<div class="tabs">
+        <button class="tab-button active" data-tab="teachingSection">Teaching</button>
+        <button class="tab-button" data-tab="studentSection">Student</button>
+        <button class="tab-button active" data-tab="departmentSection">Department</button>
+        <button class="tab-button" data-tab="instituteSection">Institute</button>
+        <button class="tab-button" data-tab="acrSection">ACR</button>
+        <button class="tab-button" data-tab="contributionSection">Contribution</button>
+        <button class="tab-button" data-tab="summarySection">Summary</button>
+    </div>
+</div>
+
+<div id="teachingSection" class="tab-content active">
+    <h2 class="teaching-content" ">A. Teaching Process</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Sr. No</th>
+          <th>Semester</th>
+          <th>Subject code</th>
+          <th>Subject Name</th>
+          <th>No. of Scheduled Classes</th>
+          <th>No. of actually held Classes</th>
+          <th>Supporting Document</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><button class="view-button">View</button></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="hod-suggestions">
+    <h2>Suggestions of Head of Department</h2>
+    <div class="hod-content">
+      <div class="observations">
+        <h3>Observations</h3>
+        <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+      </div>
+      <div class="recommendations">
+        <h3>Recommendations</h3>
+        <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+      </div>
+    </div>
+    <br>
+    <div id="studentSection" class="tab-content">
+        <h2 class="student-feedback">B. Student's Feedback</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Semester</th>
+                    <th>Subject code</th>
+                    <th>Subject Name</th>
+                    <th>Average Student Feedback Percentage</th>
+                    <th>Supporting Document</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><button class="view-button">View</button></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </div>
+    </table>
+    <div class="hod-suggestions">
+        <h2>Suggestions of Head of Department</h2>
+        <div class="hod-content">
+          <div class="observations">
+            <h3>Observations</h3>
+            <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+          </div>
+          <div class="recommendations">
+            <h3>Recommendations</h3>
+            <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+          </div>
+        </div>
+<br>
+    <div id="departmentSection" class="tab-content">
+        <h2 class="Department-Activity">C. Department Activity</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="hod-suggestions">
+            <h2>Suggestions of Head of Department</h2>
+            <div class="hod-content">
+              <div class="observations">
+                <h3>Observations</h3>
+                <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+              </div>
+              <div class="recommendations">
+                <h3>Recommendations</h3>
+                <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+              </div>
+            </div>
+            <br>
+
+        <div id="instituteSection" class="tab-content">
+            <h1 class="Institute-Activities">D. Institute Activities</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+            <div class="hod-suggestions">
+                <h2>Suggestions of Head of Department</h2>
+                <div class="hod-content">
+                  <div class="observations">
+                    <h3>Observations</h3>
+                    <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+                  </div>
+                  <div class="recommendations">
+                    <h3>Recommendations</h3>
+                    <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+                  </div>
+                </div>
+<br>
+        <div id="acrSection" class="tab-content">
+          <h2 class="ACR">E. ACR</h2>
+            <table>
+            <h3 class="Result">a. Result</h3>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>No. of Student Registered</th>
+                        <th>No. of Student Passed</th>
+                        <th>Result</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+<br>
+                <h3 class="Research">b. Research Publication</h3>
+                <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Name of Publication</th>
+                        <th>Category</th>
+                        <th>Result</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </div>
+        </table>
+        <div class="hod-suggestions">
+            <h2>Suggestions of Head of Department</h2>
+            <div class="hod-content">
+              <div class="observations">
+                <h3>Observations</h3>
+                <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+              </div>
+              <div class="recommendations">
+                <h3>Recommendations</h3>
+                <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+              </div>
+            </div>
+            <br>
+        <div id="contributionSection" class="tab-content">
+            <h2 class="contribution">F. Contribution</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr. No</th>
+                        <th>Semester</th>
+                        <th>Activity</th>
+                        <th>Supporting Document</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        
+                        <td><button class="view-button">View</button></td>
+                        <td></td>
+                        
+                    </tr>
+                </tbody>
+            </div>
+
+        </table>
+        <div class="hod-suggestions">
+            <h2>Suggestions of Head of Department</h2>
+            <div class="hod-content">
+              <div class="observations">
+                <h3>Observations</h3>
+                <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+              </div>
+              <div class="recommendations">
+                <h3>Recommendations</h3>
+                <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+              </div>
+            </div>
+<br>
+            <div id="summarySection" class="tab-content active"></div>
+            <h2 class="Performance-Summary">I. Performance Summary</h2>
+                  <table>
+                  <thead>
+                    <tr>
+                      <th>Sr. No</th>
+                      <th>Parameters</th>
+                      <th>Total Score</th>
+                      <th>Obtained Score</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>A</td>
+                      <td>Teaching Process</td>
+                      <td>20</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>Students' Feedback</td>
+                      <td>20</td>
+                      <td>12</td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td>Departmental Activities</td>
+                      <td>20</td>
+                      <td>14</td>
+                    </tr>
+                    <tr>
+                      <td>D</td>
+                      <td>Institute Activities</td>
+                      <td>10</td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td>E</td>
+                      <td>ACR</td>
+                      <td>20</td>
+                      <td>18</td>
+                    </tr>
+                    <tr>
+                      <td>F</td>
+                      <td>Contribution to Society</td>
+                      <td>10</td>
+                      <td>5</td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td colspan="2">Total</td>
+                      <td>100</td>
+                      <td>77</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+              <div class="hod-suggestions">
+                <h2>Suggestions of Head of Department</h2>
+                <div class="hod-content">
+                  <div class="observations">
+                    <h3>Observations</h3>
+                    <textarea id="hodObservationText" placeholder="Type your observations here..."></textarea>
+                  </div>
+                  <div class="recommendations">
+                    <h3>Recommendations</h3>
+                    <textarea id="hodRecommendationText" placeholder="Type your recommendations here..."></textarea>
+                  </div>
+                </div>
+              </div>
+              <div id="file-upload-hod" class="file-upload-container">
+                    <h1 class="observation-title">Upload File (Sign)</h1>
+                    <label for="directorFileUpload" class="file-label">Upload a file:</label><br>
+                    <input type="file" id="directorFileUpload" class="file-input">
+                  </div>
+                  
+            <div class="actions">
+                <button class="secondary-button">Previous</button>
+                <button class="primary-button">Save As Draft</button>
+                <button class="primary-button">Submit</button>
+                <button class="secondary-button">Next</button>
+            </div>
+        
+
+    <script src="FacultyToHOD.js"></script>
+</body>
+</html>

@@ -1,26 +1,16 @@
 const mongoose = require('mongoose');
 
 
-const SectionBSchema = new mongoose.Schema({
-  observations: { type: String, required: true, trim: true },
-  recommendations: { type: String, required: true, trim: true },
-});
-
-
-const SectionCSchema = new mongoose.Schema({
-  recommendation: { type: String, required: true, trim: true },
-  signature: { type: String, required: true, trim: true },
-});
-
-
-const HodSchema = new mongoose.Schema({
+const FacultySchema = new mongoose.Schema({
   title: { type: String, enum: ['Dr.', 'Prof.', 'Mr.', 'Ms.', 'Mrs.'], trim: true },
   firstName: { type: String, trim: true },
   middleName: { type: String, trim: true },
   lastName: { type: String, trim: true },
+  phone:{ type: String,  trim: true },
   gender: { type: String, enum: ['Male', 'Female', 'Other'], trim: true },
   dateOfBirth: { type: Date },
-  address: { type: String, trim: true },
+  address1: { type: String, trim: true },
+  address2: { type: String, trim: true },
   city: { type: String, trim: true },
   zipcode: { type: String, trim: true },
   state: { type: String, trim: true },
@@ -32,79 +22,94 @@ const HodSchema = new mongoose.Schema({
   facultyEmail: { type: String, trim: true },
   educationQualification: { type: String, trim: true },
   areasOfSpecialization: { type: [String] },
+  scholarid:{ type: String },
+  role:{type:String,default:'hod'},
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
-
-  
+  password: { type: String },
+    t:{type:Number},
+    f:{type:Number},
+    d:{type:Number},
+    i:{type:Number},
+    r:{type:Number},
+    p:{type:Number},
+    c:{type:Number},
+    total:{type:Number},
   teachingProcess: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    scheduledClasses: { type: Number, required: true },
-    actuallyHeldClasses: { type: Number, required: true },
-    pointsEarned: { type: Number, required: true },
-    document: { type: String }, 
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    scheduledClasses: { type: Number },
+    actualClasses: { type: Number },
+    attainment:{ type: Number},
+    document: { type: String },
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   studentsFeedback: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    studentFeedback: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    studentFeedback: { type: String },
+    pointsEarned: { type: Number },
+
     document: { type: String },
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   departmentActivities: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
-    criteria: { type: String, required: true },
+    semester: { type: String },
+    activity: { type: String },
+    criteria: { type: String },
     document: { type: String },
+    score: { type: Number}
   }],
 
   instituteActivities: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
-    criteria: { type: String, required: true },
+    semester: { type: String },
+    activity: { type: String },
+    criteria: { type: String },
     document: { type: String },
+    score: { type: Number}
   }],
 
   resultSummary: [{
-    semester: { type: String, required: true },
-    subjectCode: { type: String, required: true },
-    subjectName: { type: String, required: true },
-    studentsRegistered: { type: Number, required: true },
-    studentsPassed: { type: Number, required: true },
-    creditPoint: { type: Number, required: true },
+    semester: { type: String },
+    subjectCode: { type: String },
+    subjectName: { type: String },
+    noRegisteredStudents: { type: Number },
+    noPassedStudents: { type: Number },
+    result: { type: Number },
+
     document: { type: String },
+    score: { type: Number},
+    erp:{type:Boolean, default:false}
   }],
 
   research: [{
-    research: { type: String, required: true },
-    publicationName: { type: String, required: true },
-    category: { type: String, required: true },
+    research: { type: String },
+    publicationName: { type: String },
+    category: { type: String },
     document: { type: String },
-    creditPoint: { type: Number, required: true },
+    score: { type: Number},
+    scholar:{type:Boolean, default:false}
   }],
 
   contributionSociety: [{
-    semester: { type: String, required: true },
-    activity: { type: String, required: true },
-    criteria: { type: String, required: true },
-    pointsEarned: { type: Number, required: true },
-    document: { type: String },
+    semester: { type: String },
+    activity: { type: String },
+    criteria: { type: String },
+      document: { type: String },
+    score: { type: Number}
   }],
 
-  
-  sectionB: [SectionBSchema],
-
-  
-  sectionC: [SectionCSchema],
 
 }, { timestamps: true });
 
-const hod = mongoose.model('HOD', HodSchemaSchema);
+const HOD = (db) => {
+  return db.model('Faculty', FacultySchema);
+};
 
-module.exports = hod;
+module.exports = HOD;

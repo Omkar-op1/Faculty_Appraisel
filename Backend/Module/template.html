@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Performance Appraisal</title>
+    <style>
+        :root {
+    --color-primary: #1A5F7A;
+    --color-secondary: #0f5781;
+    --color-accent: #579bc5;
+    --color-background: #F8F9FA;
+    --color-text-dark: #2C3E50;
+    --color-white: #FFFFFF;
+    --color-border: #E2E8F0;
+    --primary-color: #2C3E50;
+  --secondary-color: #3498DB;
+  --accent-color: #27AE60;
+  --background-light: #F4F6F7;
+  --text-dark: #2C3E50;
+  --white: #FFFFFF;
+  --border-color: #E0E0E0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.faculty-profile {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.profile-detail {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.profile-detail label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.profile-detail span {
+    font-size: 1.1rem;
+    color: var(--color-text-dark);
+}
+
+.performance-section {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.section-header {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 1rem 1.5rem;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.section-header .score-badge {
+    background-color: var(--color-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.performance-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.performance-table th, 
+.performance-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.performance-table th {
+    background-color: #F1F5F9;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+}
+
+.performance-table tr:nth-child(even) {
+    background-color: rgba(21, 158, 149, 0.05);
+}
+
+.performance-table tr:hover {
+    background-color: rgba(21, 158, 149, 0.1);
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit {
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+}
+
+.btn-reset {
+    background-color: #6C757D;
+    color: var(--color-white);
+}
+.breadcrumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+  
+  .breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0.5rem;
+  }
+  
+@media (max-width: 768px) {
+    .faculty-profile {
+        flex-direction: column;
+    }
+
+    .profile-detail {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+}
+.header {
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .emblem {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .header-text h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .header-text h2 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Navigation Styles */
+  .navigation {
+    background-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+  }
+  
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .user-section {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .profile-container {
+    position: relative;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-info:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .profile-name {
+    color: var(--white);
+    font-weight: 500;
+  }
+  
+  .dropdown-icon {
+    color: var(--white);
+    font-size: 0.75rem;
+    margin-left: 0.25rem;
+  }
+  
+  .profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--white);
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+  
+  .profile-dropdown.hidden {
+    display: none;
+  }
+  
+  .profile-dropdown ul {
+    list-style: none;
+    padding: 0.5rem 0;
+  }
+  
+  .profile-dropdown ul li a {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .profile-dropdown ul li a:hover {
+    background-color: var(--background-light);
+  }
+  
+  .profile-dropdown ul li a i {
+    width: 20px;
+    text-align: center;
+  }
+  
+  .profile-dropdown .logout a {
+    color: #E74C3C;
+  }
+  
+  .notification-bell {
+    position: relative;
+    color: var(--white);
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .notification-bell:hover {
+    color: var(--secondary-color);
+  }
+  
+  .notification-bell .fas {
+    font-size: 1.25rem;
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #E74C3C;
+    color: var(--white);
+    font-size: 0.7rem;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+    </style>
+</head>
+<body>
+  <div class="breadcrumb">
+    <h2 class="report">Faculty Performance Appraisal</h2>  
+</div>
+<div class="container">
+    <section class="faculty-profile">
+        <div class="profile-detail">
+            <label>Faculty Name</label>
+            <span id="facultyName">{{title}} {{firstName}} {{middleName}} {{lastName}}</span>
+        </div>
+        <div class="profile-detail">
+            <label>Faculty ID</label>
+            <span id="facultyId">{{facultyId}}</span>
+        </div>
+        <div class="profile-detail">
+            <label>Designation</label>
+            <span id="facultyDesignation">{{designation}}</span>
+        </div>
+    </section>
+    <section class="performance-section" id="teaching-process">
+        <div class="section-header">
+            <h3>Teaching Process</h3>
+            <div class="score-badge" id="teaching-score">{{t}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Scheduled Classes</th>
+                    <th>Actual Classes</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="teaching-table-body">
+                {{#each teachingProcess}}
+                <tr>
+                    <td>{{semester}}</td>
+                    <td>{{subjectCode}}</td>
+                    <td>{{subjectName}}</td>
+                    <td>{{scheduledClasses}}</td>
+                    <td>{{actualClasses}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="feedback-section">
+        <div class="section-header">
+            <h3>Student Feedback</h3>
+            <div class="score-badge" id="feedback-score">{{f}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Semester</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Feedback</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="feedback-table-body">
+                {{#each studentsFeedback}}
+                <tr>
+                    <td>{{semester}}</td>
+                    <td>{{subjectCode}}</td>
+                    <td>{{subjectName}}</td>
+                    <td>{{studentFeedback}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="research-section">
+        <div class="section-header">
+            <h3>Research & Publications</h3>
+            <div class="score-badge" id="research-score">{{r}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Publication Title</th>
+                    <th>Publication Name</th>
+                    <th>Category</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="research-table-body">
+                {{#each research}}
+                <tr>
+                    <td>{{research}}</td>
+                    <td>{{publicationName}}</td>
+                    <td>{{category}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="institutional-section">
+        <div class="section-header">
+            <h3>Departmental Activities</h3>
+            <div class="score-badge" id="institutional-score">{{c}}</div>
+        </div>
+        <table class="performance-table">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Criteria</th>
+                    <th>Semester</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody id="institutional-table-body">
+                {{#each departmentActivities}}
+                <tr>
+                    <td>{{activity}}</td>
+                    <td>{{criteria}}</td>
+                    <td>{{semester}}</td>
+                    <td>{{score}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </section>
+    <section class="performance-section" id="institutional-section">
+      <div class="section-header">
+          <h3>Societal Contributions</h3>
+          <div class="score-badge" id="institutional-score">{{c}}</div>
+      </div>
+      <table class="performance-table">
+          <thead>
+              <tr>
+                  <th>Activity</th>
+                  <th>Criteria</th>
+                  <th>Semester</th>
+                  <th>Score</th>
+              </tr>
+          </thead>
+          <tbody id="institutional-table-body">
+              {{#each contributionSociety}}
+              <tr>
+                  <td>{{activity}}</td>
+                  <td>{{criteria}}</td>
+                  <td>{{semester}}</td>
+                  <td>{{score}}</td>
+              </tr>
+              {{/each}}
+          </tbody>
+      </table>
+  </section>
+  <section class="performance-section" id="institutional-section">
+    <div class="section-header">
+        <h3>Institutionsl Activities</h3>
+        <div class="score-badge" id="institutional-score">{{c}}</div>
+    </div>
+    <table class="performance-table">
+        <thead>
+            <tr>
+                <th>Activity</th>
+                <th>Criteria</th>
+                <th>Semester</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody id="institutional-table-body">
+            {{#each instituteActivities}}
+            <tr>
+                <td>{{activity}}</td>
+                <td>{{criteria}}</td>
+                <td>{{semester}}</td>
+                <td>{{score}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+:root {
+  /* Color Palette */
+  --primary-color: #263A6D;
+  --secondary-color: #3498DB;
+  --accent-color: #27AE60;
+  --background-light: #F4F6F7;
+  --text-dark: #2C3E50;
+  --white: #FFFFFF;
+  --border-color: #E0E0E0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Header Redesign */
+.header {
+  background-color: var(--white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.emblem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.header-text h1 {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.header-text h2 {
+  color: var(--secondary-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Navigation Redesign */
+.navigation {
+  background-color: var(--primary-color);
+  padding: 0.10rem 2rem;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  }
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.home-link {
+  color: #FFFFFF;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Transparent border */
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.home-link:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Less transparency on hover */
+  border-color: rgba(255, 255, 255, 0.8); /* Brighter border on hover */
+}
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  width: 250px;
+}
+
+.search-container button {
+  background-color: var(--secondary-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0 4px 4px 0;
+  color: var(--white);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Breadcrumb Redesign */
+.breadcrumb {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.breadcrumb a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.breadcrumb .separator {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0.5rem;
+}
+
+/* Section Navigation */
+.section-nav {
+  display: flex;
+  background-color: var(--white);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.section-nav button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-dark);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.section-nav button.active {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.section-nav button:hover {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Welcome Section */
+.welcome {
+  text-align: center;
+  background-color: #E9F5FF;
+  padding: 6rem;
+}
+
+.welcome h1 {
+  font-size: 2rem;
+  color: #003366;
+  margin-bottom: 1rem;
+}
+
+.welcome p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.get-started {
+  background-color: #0059B3;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.get-started:hover {
+  background-color: #003366;
+}
+
+/* News Section */
+.news {
+  padding: 2rem;
+  background-color: #FFFFFF;
+}
+
+.news h2 {
+  font-size: 1.8rem;
+  color: #003366;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.news-item {
+  background: #F4F6F7;
+  padding: 1rem;
+  border: 1px solid #DDD;
+  border-radius: 5px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.news-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.news-icon i {
+  font-size: 2rem;
+  color: #0059B3;
+  margin-bottom: 0.5rem;
+}
+
+.news-item h3 {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #2C3E50;
+}
+
+.chevron {
+  font-size: 1.5rem;
+  color: #0059B3;
+  margin-top: 0.5rem;
+}
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-info:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: var(--white);
+  font-weight: 500;
+}
+
+.dropdown-icon {
+  color: var(--white);
+  font-size: 0.75rem;
+  margin-left: 0.25rem;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: var(--white);
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+.profile-dropdown.hidden {
+  display: none;
+}
+
+.profile-dropdown ul {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.profile-dropdown ul li a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-dark);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.profile-dropdown ul li a:hover {
+  background-color: var(--background-light);
+}
+
+.profile-dropdown ul li a i {
+  width: 20px;
+  text-align: center;
+}
+
+.profile-dropdown .logout a {
+  color: #E74C3C;
+}
+
+.notification-bell {
+  position: relative;
+  color: var(--white);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.notification-bell:hover {
+  color: var(--secondary-color);
+}
+
+.notification-bell .fas {
+  font-size: 1.25rem;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #E74C3C;
+  color: var(--white);
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:root {
+  /* Additional color variables for the appraisal section */
+  --appraisal-primary: #263A6D;
+  --appraisal-secondary: #3498DB;
+  --appraisal-accent: #27AE60;
+  --appraisal-background: #F4F6F7;
+}
+
+.appraisal-section {
+  background-color: var(--appraisal-background);
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.appraisal-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.appraisal-header h2 {
+  color: var(--appraisal-primary);
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.appraisal-header p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  opacity: 0.7;
+}
+
+.appraisal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.appraisal-card {
+  background-color: var(--white);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+}
+
+.appraisal-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.appraisal-card .card-icon {
+  background-color: var(--appraisal-primary);
+  color: var(--white);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.appraisal-card .card-content {
+  flex-grow: 1;
+}
+
+.appraisal-card .card-content h3 {
+  color: var(--appraisal-primary);
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.appraisal-card .card-content span {
+  color: var(--text-dark);
+  opacity: 0.7;
+}
+
+.appraisal-card .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 58, 109, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.appraisal-card:hover .card-overlay {
+  opacity: 1;
+}
+
+.appraisal-card .btn-view {
+  background-color: var(--white);
+  color: var(--appraisal-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.appraisal-card .btn-view:hover {
+  background-color: var(--appraisal-secondary);
+  color: var(--white);
+}
+
+.current-year .card-icon {
+  background-color: var(--appraisal-accent);
+}

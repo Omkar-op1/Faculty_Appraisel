@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Appraisal System</title>
+    <link rel="stylesheet" href="AdminHomePage.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="role.css">
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-content">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+          alt="Government Emblem"
+          class="emblem" />
+        <div class="header-text">
+          <h1>Government of National Capital Territory of Delhi</h1>
+          <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+        </div>
+      </div>
+    </header>
+  
+    <nav class="navigation">
+      <div class="nav-content">
+          <ul class="nav-links"><br>     
+            <li><a href="FacultyHomePage.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li><br>
+            </ul>     
+            <div class="user-section">
+              <div class="profile-container">
+                <div class="profile-info">
+                  <img src="profile.png" alt="Profile" class="profile-icon">
+                  <span class="profile-name">Vaibhav Jadhav</span>
+                  <i class="fas fa-chevron-down dropdown-icon"></i>
+                </div>
+                
+                <div class="profile-dropdown hidden">
+                  <ul>
+                    <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
+                    <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                    <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                  </ul>
+                </div>
+              </div>
+              
+              <div class="notification-bell">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+            </div>     
+      </div>
+    </nav>
+    </nav>
+    <main>
+        <section class="roles-section">
+        <a href="../Admin/Institutelogin.html">
+          <div class="role-card">
+       <img src="school.png" alt="Institute Icon" class="role-icon" />
+       <h3>Institute</h3>
+     </div>
+     </a>
+
+
+            <a href="../HOD/HODLogin.html">
+
+                 <div class="role-card">
+              <img src="boss.png" alt="Institute Icon" class="role-icon" />
+              <h3>HOD</h3>
+            </div>
+            </a>
+            
+           <a href="../Faculty/facultylogin.html">
+                <div class="role-card">
+              <img src="student.png" alt="Faculty Icon" class="role-icon" />
+              <h3>Faculty</h3>
+            </div>
+            </a>
+          </section>
+          
+
+      <section class="news">
+        <h2>News and Updates</h2>
+        <div class="news-container">
+          <div class="news-item">
+            <div class="news-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3>New Appraisal Guidelines Released</h3>
+            <div class="chevron">›</div>
+          </div>
+          <div class="news-item">
+            <div class="news-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <!-- <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline> -->
+              </svg>
+            </div>
+            <h3>Faculty Development Program 2024</h3>
+            <div class="chevron">›</div>
+          </div>
+          <div class="news-item">
+            <div class="news-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3>Assessment Committee Meeting Schedule</h3>
+            <div class="chevron">›</div>
+          </div>
+          <div class="news-item">
+            <div class="news-icon">
+              <svg
+                width="40"
+                height="40"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3>Upcoming Deadlines</h3>
+            <div class="chevron">›</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<script src="AdminHomePage.js"></script>
+  </body>
+</html>

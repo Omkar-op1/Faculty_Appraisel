@@ -4,7 +4,7 @@ const Faculty = require('../Models/addfaculty');
 const multer = require("multer");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const  { uploadFileToDrive }=require('../Module/multer')
+// const  { uploadFileToDrive }=require('../Module/multer')
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
@@ -32,6 +32,8 @@ router.post('/addFaculty', verifyToken, async (req, res) => {
       dateOfJoining,
       designation,
       facultyEmail,
+      role,
+      scholarid
     } = req.body;
     const password = generatePassword();
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -55,7 +57,9 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       dateOfJoining,
       designation,
       facultyEmail,
-      password
+      password,
+      role,
+
     });
     const savedFaculty = await newFaculty.save();
     sendPasswordEmail(newFaculty.facultyEmail, password);
@@ -116,6 +120,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
     });
   }
 });
+
 router.post('/upload',upload.single('file'), async (req, res) => {
   const token = req.headers.authorization;
   if (!token) {
@@ -132,37 +137,15 @@ router.post('/upload',upload.single('file'), async (req, res) => {
           return res.status(400).send('No file uploaded.');
       }
       const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
+      console.log(fileId)
       fs.unlinkSync(uploadedFile.path);
-      res.status(200).send({ fileId });
+
+
+
+      res.status(200).send(fileId);
   } catch (error) {
-      res.status(500).send('Error uploading file.');
+    res.status(500).json({ error: 'Error uploading file.' });
   }
 }
 );
-router.post('/upload',upload.single('file'), async (req, res) => {
-  const token = req.headers.authorization;
-  if (!token) {
-      return res.status(401).json({ error: 'No token, authorization denied' });
-  }
-    try { 
-    const decoded = jwt.verify(token, JWT_SECRET);
-    const user = decoded.userId;
-    const fdb = getdb(decoded.db);
-    const FacultyModel = Faculty(fdb);
-    const faculty = await FacultyModel.findOne({ _id: user});
-     
-    
-
-
-      res.status(200).send({ fileId });
-  } catch (error) {
-      res.status(500).send('Error uploading file.');
-  }
-}
-);
-
-
-
-
-
 module.exports = router;

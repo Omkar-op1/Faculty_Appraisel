@@ -1,0 +1,273 @@
+:root {
+    /* Color Palette */
+    --primary-color: #263A6D;
+    --secondary-color: #3498DB;
+    --accent-color: #27AE60;
+    --background-light: #F4F6F7;
+    --text-dark: #2C3E50;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  /* Header Redesign */
+  .header {
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .emblem {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+  }
+  
+  .header-text h1 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+  
+  .header-text h2 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  /* Navigation Redesign */
+  .navigation {
+    background-color: var(--primary-color);
+    padding: 0.75rem 2rem;
+  }
+  
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+  
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .home-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Transparent border */
+    background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .home-link:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Less transparency on hover */
+    border-color: rgba(255, 255, 255, 0.8); /* Brighter border on hover */
+  }
+  
+  
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .search-container input {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px 0 0 4px;
+    width: 250px;
+  }
+  
+  .search-container button {
+    background-color: var(--secondary-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0 4px 4px 0;
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-container button:hover {
+    background-color: var(--accent-color);
+  }
+  
+  /* Breadcrumb Redesign */
+  .breadcrumb {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .breadcrumb a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+  }
+  
+  .breadcrumb .separator {
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 0.5rem;
+  }
+  
+  /* Section Navigation */
+  .section-nav {
+    display: flex;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1rem 2rem;
+    gap: 1rem;
+    overflow-x: auto;
+  }
+  
+  .section-nav button {
+    background-color: transparent;
+    border: none;
+    color: var(--text-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .section-nav button.active {
+    background-color: var(--secondary-color);
+    color: var(--white);
+  }
+  
+  .section-nav button:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+  }
+  
+  /* Welcome Section */
+  .welcome {
+    text-align: center;
+    background-color: #E9F5FF;
+    padding: 2rem;
+  }
+  
+  .welcome h1 {
+    font-size: 2rem;
+    color: #003366;
+    margin-bottom: 1rem;
+  }
+  
+  .welcome p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+  }
+  
+  .get-started {
+    background-color: #0059B3;
+    color: #FFFFFF;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .get-started:hover {
+    background-color: #003366;
+  }
+  
+  /* News Section */
+  .news {
+    padding: 2rem;
+    background-color: #FFFFFF;
+  }
+  
+  .news h2 {
+    font-size: 1.8rem;
+    color: #003366;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .news-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  
+  .news-item {
+    background: #F4F6F7;
+    padding: 1rem;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .news-item:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .news-icon i {
+    font-size: 2rem;
+    color: #0059B3;
+    margin-bottom: 0.5rem;
+  }
+  
+  .news-item h3 {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    color: #2C3E50;
+  }
+  
+  .chevron {
+    font-size: 1.5rem;
+    color: #0059B3;
+    margin-top: 0.5rem;
+  }
+  :root {
+  /* Updated Color Palette */
+  --primary-color: #201E43;
+  --secondary-color: #134B70;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
+  --white: #FFFFFF;
+  --border-color: #C0C0C0;
+}
+

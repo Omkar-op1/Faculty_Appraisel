@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="Result.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+        <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+        <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+      </ul>
+      
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout"  id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+</div>
+
+<nav class="section-nav">
+  <a href="TeachingProcess.html"><button>Teaching Process</button></a>
+    <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+    <a href="Result.html"><button  class="active">ACR</button></a>
+    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+    <a href="Summary.html"><button>Score</button></a>
+  </nav>
+
+        <div class="score-section">
+  <div class="header-container">
+    <div class="title-container">
+      <h3><b>E. ACR (Max Point 20)</b></h3>
+      <h4><b>a. Result (Max Point 10)</b></h4>
+    </div>
+    <button class="fetch-btn">
+      <i class="fas fa-sync-alt"></i>
+      Fetch Publication Data
+    </button>
+  </div>
+  <div class="score-input">
+    <span>Score Obtained:</span>
+    <input type="text" id="scoreObtained" value="0" readonly />
+  </div>
+</div>
+
+<style>
+.score-section {
+  position: relative;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.title-container h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.title-container h4 {
+  margin: 0;
+  color: #555;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+
+.fetch-btn {
+  background: #1a237e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+.fetch-btn:hover {
+  background: #283593;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.fetch-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.fetch-btn i {
+  font-size: 0.9rem;
+}
+
+.score-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.score-input span {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.score-input input {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 80px;
+  text-align: center;
+  font-size: 0.95rem;
+  background-color: #f8f8f8;
+  color: #333;
+  font-weight: 500;
+}
+
+.score-input input:focus {
+  outline: none;
+  border-color: #1a237e;
+  box-shadow: 0 0 0 2px rgba(26, 35, 126, 0.1);
+}
+</style>
+
+ <div class="table-container">
+          <table>
+            <thead>
+              <tr><th>Sr. No</th>
+                <th>Semester</th>
+                <th>Subject code</th>
+                <th>Subject Name</th>
+                <th>No. of Student Registered </th>
+                <th>No. of Students Passed</th>
+                <th class result>Result</th>
+                <th>Supporting Document</th>
+                <th class="score">Score</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="entriesTableBody">
+              <!-- Table content will be dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="add-button">
+          <button onclick="openModal()">+ Add</button>
+        </div>
+
+        <div class="navigation-buttons">
+
+          <button class="prev-btn" onclick="window.location.href = 'InstitutionalActivities.html';">Back</button>
+          <div class="right-buttons">
+            <!-- <button class="draft-btn">Save As Draft</button>
+            <button class="submit-btn">Submit</button> -->
+           <button class="next-btn" onclick="window.location.href = 'Research.html';">Next</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Faculty Entry</h3>
+          <span class="close" onclick="closeModal()">&times;</span>
+        </div>
+        <form id="facultyForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label>Subject Name</label>
+            <input type="text" name="subjectName" required />
+          </div>
+          <div class="form-group">
+            <label>Subject Code</label>
+            <input type="text" name="subjectCode" required />
+          </div>
+          <div class="form-group">
+            <label>Semester</label>
+            <select name="semester" required>
+              <option value="">Select Semester</option>
+              <option value="1st">Odd</option>
+              <option value="2nd">Even</option>
+            </select>
+          </div>
+          
+         <div class="form-group">
+            <label>No. of Students Registered</label>
+            <input type="number" name="noRegisteredStudents" required />
+          </div>
+          <div class="form-group">
+            <label>No. of Students Passed</label>
+            <input type="number" name="noPassedStudents" required />
+          </div>
+          <div class="form-group">
+            <label>Supporting Document</label>
+            <input type="file" name="supportingDocument"  />
+          </div>
+          <div class="form-buttons">
+            <button type="button" class="reset-btn" onclick="resetForm()">
+              Reset
+            </button>
+            <button type="submit" class="submit-btn">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="common.js"></script>
+    <script src="Result.js"></script>
+</body>
+</html>
+
+ 

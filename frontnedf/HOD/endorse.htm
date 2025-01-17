@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Appraisal System</title>
+    <link rel="stylesheet" href="endorse.css">
+</head>
+<body>
+   <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Appraisal Form</a></li>
+        <li><a href="#">Important Links</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Endorse Faculty Appraisal</h2> 
+    <span > Home/Evaluate / Appraisal forms Endorsed</span> 
+</div>
+    </header>
+
+    <main>
+       
+
+        <div class="filters-section">
+            <div class="search-filters">
+                <input type="search" placeholder="Search faculty name..." class="search-input">
+                
+                <div class="dropdown">
+                    <button class="dropdown-btn">Sort by Employee ID</button>
+                    <div class="dropdown-content" id="sortOptions">
+                        <label><input type="radio" name="sort" value="asc"> Ascending</label>
+                        <label><input type="radio" name="sort" value="desc"> Descending</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Department</button>
+                    <div class="dropdown-content" id="departmentFilter">
+                        <label><input type="checkbox" value="Computer Engineering"> Computer Engineering</label>
+                        <label><input type="checkbox" value="Electrical Engineering"> Electrical Engineering</label>
+                        <label><input type="checkbox" value="Mechanical Engineering"> Mechanical Engineering</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Submitted At</button>
+                    <div class="dropdown-content" id="submittedAtFilter">
+                        <label><input type="radio" name="submitted" value="today"> Today</label>
+                        <label><input type="radio" name="submitted" value="this_week"> This Week</label>
+                        <label><input type="radio" name="submitted" value="this_month"> This Month</label>
+                        <label><input type="radio" name="submitted" value="this_year"> This Year</label>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropdown-btn">Endorse Status</button>
+                    <div class="dropdown-content" id="endorseFilter">
+                        <label><input type="radio" name="endorse" value="true"> Endorsed</label>
+                        <label><input type="radio" name="endorse" value="false"> Not Endorsed</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="activeFilters" class="active-filters hidden">
+                <!-- Filter tags will be added dynamically -->
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sr no.</th>
+                        <th>Name</th>
+                        <th>Login ID</th>
+                        <th>Appraisal Forms</th>
+                        <th>Score</th>
+                        <th>Submitted At</th>
+                        <th>Status</th>
+                        <th>Download</th>
+                    </tr>
+                </thead>
+                <tbody id="facultyTableBody">
+                    <!-- Table content will be dynamically populated -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <script src="endorse.js"></script>
+</body>
+</html>
