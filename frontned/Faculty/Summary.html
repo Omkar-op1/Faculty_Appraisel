@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Reports</title>
+  <link rel="stylesheet" href="TeachingProcess.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+      <div class="header-text">
+      <h1>Government of National Capital Territory of Delhi</h1>
+        <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navbar -->
+   <nav class="navigation">
+    <div class="nav-content">
+      <ul class="nav-links">
+        <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="TeachingProcess.html" class="active"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+        <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li>
+        <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+      </ul>
+      <div class="user-section">
+        <div class="profile-container">
+          <div class="profile-info">
+            <img src="profile.png" alt="Profile" class="profile-icon">
+            <span class="profile-name">John Doe</span>
+            <i class="fas fa-chevron-down dropdown-icon"></i>
+          </div>
+          
+          <div class="profile-dropdown hidden">
+            <ul>
+              <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+              <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+              <li class="logout"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="notification-bell">
+          <i class="fas fa-bell"></i>
+          <span class="notification-badge">3</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <h2 class="report">Appraisal Form</h2>  
+</div>
+
+<nav class="section-nav">
+  <a href="TeachingProcess.html"><button >Teaching Process</button></a>
+    <a href="StudentFeedback.html"><button>Student's Feedback </button></a>
+    <a href="DepartmentalActivities.html"><button>Departmental Activities</button></a>
+    <a href="InstitutionalActivities.html"><button >Institute Activities</button></a>
+    <a href="Result.html"><button>ACR</button></a>
+    <a href="ContributionToSociety.html"><button >Contribution to Society</button></a>
+    <a href="Summary.css"><button class="active">Score</button></a>
+  </nav>
+
+        <div class="score-section">
+          
+         <h3 style="color: black;">Performance Summary</h3>
+          <div class="score-input">
+            <span>Score Obtained:</span>
+            <input type="text" id="scoreObtained" value="0" readonly />
+          </div>
+        </div>
+ <div class="table-container">
+           <table>
+        <thead>
+          <tr>
+            <th>Sr. No</th>
+            <th>Parameters</th>
+            <th>Total Score</th>
+            <th>Obtained Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>A</td>
+            <td>Teaching Process</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>Students' Feedback</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>C</td>
+            <td>Departmental Activities</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>D</td>
+            <td>Institute Activities</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>E</td>
+            <td>ACR</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>F</td>
+            <td>Contribution to Society</td>
+            <td>20</td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot id>
+          <tr>
+            <td colspan="2">Total</td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+        </div>
+
+        <div class="navigation-buttons">
+          <button class="prev-btn" onclick="window.location.href = 'ContributionToSociety.html';">Back</button>
+          <div class="right-buttons">
+            <button class="submit-btn">Submit</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    
+          </div>
+        </form>
+      </div>
+    </div>
+</body>
+</html>
+
+ 

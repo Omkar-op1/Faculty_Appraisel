@@ -58,6 +58,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       designation,
       facultyEmail,
       password,
+      scholarid,
       role,
 
     });

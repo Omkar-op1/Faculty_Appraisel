@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Performance Appraisal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="view.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
+            alt="Government Emblem"
+            class="emblem" />
+          <div class="header-text">
+            <h1>Government of National Capital Territory of Delhi</h1>
+            <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+          </div>
+        </div>
+    </header>
+    <nav class="navigation">
+        <div class="nav-content">
+           <ul class="nav-links"><br>
+            <li><a href="FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="FacultyProfilePage.html" ><i class="fas fa-user"></i> Profile</a></li>
+            <li><a href="TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+            <li><a href="view.html"  class="active"><i class="fas fa-chart-bar"></i> Report</a></li>
+            <li><a href="../Homepage/ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li><br>
+          </ul>    
+            <div class="user-section">
+                <div class="profile-container">
+                    <div class="profile-info">
+                        <img src="profile.png" alt="Profile" class="profile-icon">
+                        <span class="profile-name">-</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="breadcrumb">
+        <h2 class="report">Faculty Performance Appraisal</h2>  
+    </div>
+    <div class="container">
+        <section class="faculty-profile">
+            <div class="profile-detail">
+                <label>Faculty Name</label>
+                <span id="facultyName"></span>
+            </div>
+            <div class="profile-detail">
+                <label>Faculty ID</label>
+                <span id="facultyId"></span>
+            </div>
+            <div class="profile-detail">
+                <label>Designation</label>
+                <span id="facultyDesignation"></span>
+            </div>
+        </section>
+        <section class="performance-section" id="teaching-process">
+            <div class="section-header">
+                <h3>Teaching Process</h3>
+                <div class="score-badge" id="teaching-score"></div>
+            </div>
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Subject</th>
+                        <th>Scheduled Classes</th>
+                        <th>Actual Classes</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="teaching-table-body"></tbody>
+            </table>
+        </section>
+        <section class="performance-section" id="feedback-section">
+            <div class="section-header">
+                <h3>Student Feedback</h3>
+                <div class="score-badge" id="feedback-score"></div>
+            </div>
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Semester</th>
+                        <th>Subject</th>
+                        <th>Feedback Rating</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="feedback-table-body"></tbody>
+            </table>
+        </section>
+        <section class="performance-section" id="research-section">
+            <div class="section-header">
+                <h3>Research & Publications</h3>
+                <div class="score-badge" id="research-score"></div>
+            </div>
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Publication Title</th>
+                        <th>Journal</th>
+                        <th>Year</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="research-table-body"></tbody>
+            </table>
+        </section>
+        <section class="performance-section" id="institutional-section">
+            <div class="section-header">
+                <h3>Institutional & Societal Contributions</h3>
+                <div class="score-badge" id="institutional-score"></div>
+            </div>
+            <table class="performance-table">
+                <thead>
+                    <tr>
+                        <th>Activity</th>
+                        <th>Description</th>
+                        <th>Semester</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="institutional-table-body"></tbody>
+            </table>
+        </section>
+
+        <!-- <div class="recommendation-form">
+            <!-- Main Selection -->
+            <!-- <div class="recommendation-header">
+                <div class="radio-option">
+                    <input type="radio" name="recommendation-type" id="recommended" value="recommended">
+                    <label for="recommended">Recommended</label>
+                </div>
+            
+                <div class="radio-option">
+                    <input type="radio" name="recommendation-type" id="non-recommended" value="non-recommended">
+                    <label for="non-recommended">Non-Recommended</label>
+                </div>
+                 -->
+               
+                
+            </div>
+        
+            <!-- Recommended Section (shows only if Recommended is selected) -->
+            <!-- <div id="recommended-section" style="display: none;">
+                <div class="scale-container">
+                    <h2>Behavior Scales</h2> -->
+        
+                    <!-- Student Behavior Scale Section -->
+                    <!-- <section id="student-behavior-section">
+                        <h3>Behavior with Students </h3><br>
+                        <div id="student-behavior-scale" class="scale-options"> -->
+                            <!-- Scale Circles will be generated here -->
+                        <!-- </div>
+                    </section>
+                    <br><br> -->
+                    <!-- Colleague Behavior Scale Section -->
+                    <!-- <section id="colleague-behavior-section">
+                        <h3>Behavior with Colleagues</h3><br>
+                        <div id="colleague-behavior-scale" class="scale-options"> -->
+                            <!-- Scale Circles will be generated here -->
+                        <!-- </div>
+                    </section>
+                </div> -->
+        
+                <!-- Recommendation Options -->
+                <!-- <div class="recommendation-options">
+                    <h4>Select one recommendation:</h4>
+                    <input type="radio" name="rec-option" id="promotion" value="promotion">
+                    <label for="promotion">Recommended for Promotion</label><br>
+        
+                    <input type="radio" name="rec-option" id="increment" value="increment">
+                    <label for="increment">Recommended for Increment</label><br>
+        
+                    <input type="radio" name="rec-option" id="additional-increment" value="additional-increment">
+                    <label for="additional-increment">Recommended for Additional Increment</label>
+                </div>
+         -->
+                <!-- Recommendation Reason -->
+                <!-- <div class="recommendation-reason">
+                    <label for="rec-reason">Why are you recommending?</label><br>
+                    <textarea id="rec-reason" rows="4" cols="50"></textarea>
+                </div>
+            </div> -->
+        
+            <!-- Non-Recommended Section -->
+            <!-- <div id="non-recommended-section" style="display: none;">
+            <div class="recommendation-reason">
+            <label for="non-rec-reason">Why are you recommending as Non-Recommended?</label><br>
+            <textarea id="non-rec-reason" rows="4" cols="50" placeholder="Please provide a reason for non-recommendation..."></textarea>
+            </div>
+            </div> -->
+        
+        <!-- <div class="action-buttons">
+            <button class="btn btn-reset">Reset</button>
+            <button class="btn btn-submit">Submit Appraisal</button>
+        </div> --> 
+    </div> 
+<script src="view.js"></script>
+</body>
+</html>

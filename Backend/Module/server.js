@@ -31,7 +31,7 @@ const getallfaculty= require ('../routes/getAllFaculty');
 app.use((req, res, next) => { req.setTimeout(0); 
   res.setTimeout(0); 
    next(); });
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json()); 
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));

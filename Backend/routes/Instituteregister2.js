@@ -83,16 +83,32 @@ router.post('/register', verifyToken, async (req, res) => {
 
 
 
-  router.post('/department',verifyToken,async () => {
+  router.post('/department',verifyToken,async (req, res) => {
 
     const institute = await Institute.findById(req.user);
       if (!institute) {
         return res.status(404).json({ message: 'Institute not found.', ok: 0 });
       }
+     const  department=req.body.departmentName;
+      institute.department.push(department);
 
-      institute.department.push(req.body);
-
-
+    await institute.save();
+      console.log('1')
+      res.status(200).json({ message: 'Institute data updated successfully!', ok: 1 });
     
   })
+
+  router.get('/departments',verifyToken,async (req, res) => {
+
+    const institute = await Institute.findById(req.user);
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found.', ok: 0 });
+      }
+      res.status(200).json({ departments: institute.department });
+    
+  })
+
+
+
+
 module.exports = router;
