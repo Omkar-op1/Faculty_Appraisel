@@ -29,37 +29,83 @@ body {
 .header {
   background-color: var(--white);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem; /* Combined compact and full padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Content layout */
 .header-content {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Space between icon and text */
 }
 
+/* Emblem adjustments */
 .emblem {
-  width: 80px;
+  width: 80px; /* Consistent icon size */
   height: 80px;
-  object-fit: contain;
+  object-fit: contain; /* Ensure the image scales proportionally */
+  display: inline-block;
+}
+
+/* Text styles */
+.header-text {
+  display: flex;
+  flex-direction: column; /* Align text vertically */
+  gap: 0.2rem;
 }
 
 .header-text h1 {
+  font-size: 1.5rem; /* Consistent font size */
   color: var(--primary-color);
-  font-size: 1.5rem; /* Default size */
+  margin: 0;
+  white-space: nowrap;
   font-weight: 700;
 }
 
 .header-text h2 {
+  font-size: 1rem; /* Unified font size */
   color: var(--secondary-color);
-  font-size: 1rem; /* Default size */
-  font-weight: 500;
+  margin: 0;
+  white-space: nowrap;
+  font-weight: 500; /* Adjusted for emphasis */
 }
 
-/* Responsive Design */
+/* Navigation */
+.navigation {
+  background-color: var(--primary-color);
+  padding: 0.75rem 2rem; /* Standardized padding */
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Navbar links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  padding: 0;
+  margin: 0;
+  justify-content: space-around;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
 
 
 @media (max-width: 480px) {
