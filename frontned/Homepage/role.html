@@ -14,50 +14,58 @@
   <body>
     <header class="header">
       <div class="header-content">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg"
-          alt="Government Emblem"
-          class="emblem" />
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="50 50 100 100" class="emblem">
+          <!-- Adjusted viewBox for larger icon fit -->
+          <!-- Document Icon with Border -->
+          <path d="M70 75 
+                   L130 75 
+                   Q135 75 135 80
+                   L135 130
+                   Q135 135 130 135
+                   L70 135
+                   Q65 135 65 130
+                   L65 80
+                   Q65 75 70 75Z" 
+                fill="#FFFFFF"
+                stroke="#27AE60"
+                stroke-width="3"
+                opacity="0.95" />
+          <!-- Lines -->
+          <g fill="#27AE60" opacity="0.7">
+            <rect x="75" y="90" width="40" height="2" rx="1" />
+            <rect x="75" y="100" width="50" height="2" rx="1" />
+            <rect x="75" y="110" width="45" height="2" rx="1" />
+          </g>
+          <!-- Check Mark -->
+          <path d="M75 118 
+                   L85 128 
+                   L110 103" 
+                stroke="#27AE60" 
+                stroke-width="4" 
+                fill="none" 
+                stroke-linecap="round" 
+                stroke-linejoin="round" />
+        </svg>
         <div class="header-text">
-          <h1>Government of National Capital Territory of Delhi</h1>
-          <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+          <h1>Faculty Appraisal System</h1>
         </div>
       </div>
     </header>
+    
   
     <nav class="navigation">
       <div class="nav-content">
-          <ul class="nav-links"><br>     
-            <li><a href="FacultyHomePage.html" class="active"><i class="fas fa-home"></i> Home</a></li>
-            <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> Profile</a></li>
-            <li><a href="TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
-            <li><a href="view.html"><i class="fas fa-chart-bar"></i> Report</a></li><br>
-            </ul>     
-            <div class="user-section">
-              <div class="profile-container">
-                <div class="profile-info">
-                  <img src="profile.png" alt="Profile" class="profile-icon">
-                  <span class="profile-name">Vaibhav Jadhav</span>
-                  <i class="fas fa-chevron-down dropdown-icon"></i>
-                </div>
-                
-                <div class="profile-dropdown hidden">
-                  <ul>
-                    <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
-                    <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
-                    <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="notification-bell">
-                <i class="fas fa-bell"></i>
-                <span class="notification-badge">3</span>
-              </div>
-            </div>     
+       <ul class="nav-links">
+          <li><a href="HomePage.html"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="AboutUs.html" ><i class="fas fa-user"></i> About Us</a></li>
+          <li><a href="ContactUs.html" class="active"><i class="fas fa-file-alt"></i> Contact Us</a></li>
+          <li><a href="Resources.html"><i class="fas fa-chart-bar"></i> Resources</a></li>
+          <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+           <li><a href="GuideLines.html" class="active"><i class="fas fa-file-alt"></i> Guidelines</a></li>
+        </ul>      
       </div>
     </nav>
-    </nav>
+
     <main>
         <section class="roles-section">
         <a href="../Admin/Institutelogin.html">

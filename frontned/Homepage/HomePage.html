@@ -24,17 +24,44 @@
 <body lang="en">
   <header class="header">
     <div class="header-content">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="50 50 100 100" class="emblem">
+        <!-- Adjusted viewBox for larger icon fit -->
+        <!-- Document Icon with Border -->
+        <path d="M70 75 
+                 L130 75 
+                 Q135 75 135 80
+                 L135 130
+                 Q135 135 130 135
+                 L70 135
+                 Q65 135 65 130
+                 L65 80
+                 Q65 75 70 75Z" 
+              fill="#FFFFFF"
+              stroke="#27AE60"
+              stroke-width="3"
+              opacity="0.95" />
+        <!-- Lines -->
+        <g fill="#27AE60" opacity="0.7">
+          <rect x="75" y="90" width="40" height="2" rx="1" />
+          <rect x="75" y="100" width="50" height="2" rx="1" />
+          <rect x="75" y="110" width="45" height="2" rx="1" />
+        </g>
+        <!-- Check Mark -->
+        <path d="M75 118 
+                 L85 128 
+                 L110 103" 
+              stroke="#27AE60" 
+              stroke-width="4" 
+              fill="none" 
+              stroke-linecap="round" 
+              stroke-linejoin="round" />
+      </svg>
       <div class="header-text">
-        <h1 id="govt-name">Faculty Appraisel System</h1>
-        <h2 id="govt-name-hindi">राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+        <h1>Faculty Appraisal System</h1>
       </div>
     </div>
-
-    <select id="language-selector">
-      <option value="en">English</option>
-      <option value="hi">हिंदी</option>
-    </select>
   </header>
+  
   
   <script>
     const languageSelector = document.getElementById('language-selector');
@@ -346,110 +373,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <script>
-      let options = {
-      strings: ['Welcome to the Faculty Appraisal System'], // Default: English
-      typeSpeed: 100,
-      backSpeed: 50,
-      loop: true,
-      loopCount: Infinity,
-    };
-
-    let typed = new Typed('#wel', options);
-
-    // Update the Typed.js strings based on language selection
-    const language = document.getElementById('language-selector');
-
-    language.addEventListener('change', function () {
-      const selectedLang = this.value;
-
-      // Destroy current Typed instance
-      typed.destroy();
-
-      // Update strings based on the selected language
-      if (selectedLang === 'en') {
-        options.strings = ['Welcome to the Faculty Appraisal System'];
-      } else if (selectedLang === 'hi') {
-        options.strings = ['फैकल्टी मूल्यांकन प्रणाली में आपका स्वागत है'];
-      }
-
-      // Reinitialize Typed with updated options
-      typed = new Typed('#wel', options);
-    });
-
-    // Translations object
-    const translations = {
-      en: {
-        govtName: "Government of National Capital Territory of Delhi",
-        govtNameHindi: "राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार",
-        homeLink: "Home",
-        aboutLink: "About Us",
-        contactLink: "Contact Us",
-        resourcesLink: "Resources",
-        importantLinks: "Important Links",
-        reportLink: "Report",
-        latestNews: "Latest News",
-        newsUpdate: "New Appraisal Guidelines Released",
-        saveEnvironment: "Save Environment",
-        environmentDescription: "Our innovative website has contributed to saving numerous trees by reducing the need for printed forms and documents. Here are the numbers:",
-        newsHeading: "News and Updates",
-        news1: "New Appraisal Guidelines Released",
-        news2: "Faculty Development Program 2024",
-        news3: "Upcoming Deadlines",
-        introText: "Access the appraisal form, view reports, and manage your profile for a seamless evaluation experience."
-      },
-      hi: {
-        govtName: "राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार",
-        govtNameHindi: "Government of National Capital Territory of Delhi",
-        homeLink: "मुख पृष्ठ",
-        aboutLink: "हमारे बारे में",
-        contactLink: "संपर्क करें",
-        resourcesLink: "संसाधन",
-        importantLinks: "महत्वपूर्ण लिंक",
-        reportLink: "रिपोर्ट",
-        latestNews: "नवीनतम समाचार",
-        newsUpdate: "नई मूल्यांकन दिशानिर्देश जारी किए गए!",
-        saveEnvironment: "पर्यावरण बचाएं",
-        environmentDescription: "हमारी अभिनव वेबसाइट ने मुद्रित फॉर्म और दस्तावेज़ों की आवश्यकता को कम करके कई पेड़ों को बचाने में योगदान दिया है। यहाँ कुछ आँकड़े दिए गए हैं:",
-        newsHeading: "समाचार और अपडेट",
-        news1: "नई मूल्यांकन दिशानिर्देश जारी किए गए",
-        news2: "फैकल्टी विकास कार्यक्रम 2024",
-        news3: "आगामी समय सीमा",
-        introText: "मूल्यांकन फ़ॉर्म तक पहुँचें, रिपोर्ट देखें, और अपने प्रोफ़ाइल को सहज मूल्यांकन अनुभव के लिए प्रबंधित करें।"
-      }
-    };
-
-    // Function to update text based on selected language
-    function updateText(language) {
-      const trans = translations[language];
-      document.getElementById("govt-name").textContent = trans.govtName;
-      document.getElementById("govt-name-hindi").textContent = trans.govtNameHindi;
-      document.getElementById("home-link").textContent = trans.homeLink;
-      document.getElementById("about-link").textContent = trans.aboutLink;
-      document.getElementById("contact-link").textContent = trans.contactLink;
-      document.getElementById("resources-link").textContent = trans.resourcesLink;
-      document.getElementById("important-links").textContent = trans.importantLinks;
-      document.getElementById("report-link").textContent = trans.reportLink;
-      document.getElementById("latest-news").textContent = trans.latestNews;
-      document.getElementById("news-update").textContent = trans.newsUpdate;
-      document.getElementById("save-environment").textContent = trans.saveEnvironment;
-      document.getElementById("environment-description").textContent = trans.environmentDescription;
-      document.getElementById("news-heading").textContent = trans.newsHeading;
-      document.getElementById("news-1").textContent = trans.news1;
-      document.getElementById("news-2").textContent = trans.news2;
-      document.getElementById("news-3").textContent = trans.news3;
-      document.getElementById("intro-text").textContent = trans.introText;
-    }
-
-    // Event listener for language switcher
-    document.getElementById("language-selector").addEventListener("change", (e) => {
-      updateText(e.target.value);
-    });
-
-    // Set initial language to English
-    updateText('en');
-  </script>
   <script src="chatbot.js"></script>
 </body>
 </html>
