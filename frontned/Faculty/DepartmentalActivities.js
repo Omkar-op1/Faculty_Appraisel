@@ -7,12 +7,33 @@ const t=2;
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch data when the page loads
   fetchData();
+  getscore();
+
 });
 const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
 const entriesTableBody = document.getElementById('entriesTableBody');
 const scoreObtained = document.getElementById('scoreObtained');
 const token = localStorage.getItem('authToken'); 
+
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-details1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.faculty.d;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+}
 // Initialize table
 // function renderTable() {
 //   entriesTableBody.innerHTML = entries
@@ -217,6 +238,8 @@ async function deleteEntry(index) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
+        'type': t,
+
       },
     });
 

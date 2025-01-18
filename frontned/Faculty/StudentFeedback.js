@@ -12,40 +12,24 @@ const scoreObtained = document.getElementById('scoreObtained');
 const studentFeedback = document.getElementById('studentFeedback');
 const token = localStorage.getItem('authToken'); 
 
-// function renderTable() {
-//   entriesTableBody.innerHTML = entries
-//     .map((entry, index) => {
-      
-//       const percentage =entry.studentFeedback;
-//       let points = 0;
-//       if (percentage >= 96) points = 10;
-//     else if (percentage >= 90) points = 9;
-//     else if (percentage >= 80) points = 8;
-//     else if (percentage >= 70) points = 7;
-//     else if (percentage >= 60) points = 6;
-//     else if (percentage >= 50) points = 5;
-//     else if (percentage >= 40) points = 4;
-//     else if (percentage >= 30) points = 3;
-//     else if (percentage >= 20) points = 2;
-//     else if (percentage >= 10) points = 1;
-//     else if (percentage >= 0) points = 0;
-//       return `
-//         <tr>
-//             <td>${index + 1}</td>
-//             <td>${entry.semester}</td>
-//             <td>${entry.subjectCode}</td>
-//             <td>${entry.subjectName}</td>
-//             <td>${entry.studentFeedback}</td>
-//             <td><button class="view-btn" onclick="viewDocument(${entry.id})">View</button></td>
-//             <td>${points}</td>
-//             <td><button class="remove-btn" onclick="removeEntry(${entry.id})">Remove</button></td>
-//         </tr>
-//       `;
-//     })
-//     .join('');
-  
-//   calculateFinalScore();
-// }
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-details1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.faculty.f;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+}
 
 function openModal() {
   modal.classList.remove('hidden');
@@ -206,6 +190,7 @@ async function fetchTeachingProcessData() {
 
     const data = await response.json();
     populateTable(data.key); // Call function to populate table
+    getscore();
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -279,6 +264,7 @@ async function deleteEntry(index) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
+        'type': t,
       },
     });
 

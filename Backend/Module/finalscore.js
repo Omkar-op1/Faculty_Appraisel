@@ -91,7 +91,7 @@ const updatescore = async (faculty) => {
       entry['score']=points;
 
 
-      if(entry.semester==='odd')
+      if(entry.semester==='Odd')
         {
                      if(s1<points)
                     {
