@@ -1,6 +1,6 @@
 :root {
-  --color-primary: #1A5F7A;
-  --color-secondary: #0f5781;
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
   --color-accent: #579bc5;
   --color-background: #F8F9FA;
   --color-text-dark: #2C3E50;
@@ -166,7 +166,7 @@ body {
 }
 
 .breadcrumb {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: #315a8be7;
   color: var(--white);
   padding: 1rem 2rem;
   display: flex;
@@ -229,8 +229,8 @@ body {
 
 /* Navigation Styles */
 .navigation {
-  background-color: var(--primary-color);
-  padding: 0.75rem 2rem;
+  background-color:  #102b70;
+  padding: 0.15rem 2rem;
 }
 
 .nav-content {
