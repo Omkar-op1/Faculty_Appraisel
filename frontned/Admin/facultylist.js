@@ -82,7 +82,13 @@ const token = localStorage.getItem('authToken');
 
   async function fetchFacultyData() {
     try {
-      const response = await fetch('http://localhost:5000/api/get-all-faculty');
+      const response = await fetch('http://localhost:5000/api/get-all-faculty1', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+           Authorization: token,
+        }}
+      );
       if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
       const data = await response.json();
       console.log(data);
@@ -107,7 +113,7 @@ const token = localStorage.getItem('authToken');
         <td>${index + 1}</td>
         <td>${faculty.firstName} ${faculty.lastName}</td>
         <td>${faculty.facultyId}</td>
-        <td> <button class="view-btn" data-id="${faculty.facultyId}"><a href="view.html">View</a></button></td>
+        <td> <button class="view-btn" data-id="${faculty.facultyId}"><a href="view.html?facultyid=${faculty._id}">View</a></button></td>
         <td>${faculty.score || "-"}</td>
         <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
          <td><span class="status-badge status-pending">pending</span></td>

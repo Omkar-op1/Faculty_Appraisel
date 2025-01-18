@@ -2,6 +2,8 @@ const express = require('express');
 const Faculty = require('../Models/addfaculty');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
+const Institute = require('../Models/Institute');
+
 const { getdb } = require('../Module/db');
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
@@ -90,4 +92,30 @@ router.get('/get-details', async (req, res) => {
       }
       res.json({faculty});
   });
+  router.get('/get-details2', async (req, res) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({ error: 'No token, authorization denied' });
+    }
+      const decoded = jwt.verify(token, JWT_SECRET);
+      const user = decoded.userId;
+
+
+      const institute = await Institute.findOne({ '_id': user });
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found', ok: 0 });
+      }
+  
+  const FacultyModel = Faculty(getdb(institute.basicInfo.instituteName.replace(/[^a-zA-Z0-9]/g, '_'))); 
+
+
+      const facultyId = req.query.facultyId;
+        const userId = facultyId || user; 
+      const faculty = await FacultyModel.findOne({ _id: userId});
+      if (!faculty) {
+        return res.status(404).json({ message: 'Faculty not found' });
+      }
+      res.json({faculty});
+  });
+  
   module.exports = router;

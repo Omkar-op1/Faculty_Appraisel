@@ -17,7 +17,7 @@ const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 
 
 const verifyToken = (req, res, next) => {
-    console.log(req.body);
+    console.log(req.body,"hi");
     const token = req.headers.authorization;
     console.log(token);
     if (!token) {

@@ -8,6 +8,7 @@ const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
 
 router.post('/login', async (req, res) => {
   try {
+    console.log('hi')
     const { username, password } = req.body;
 
     const institute = await Institute.findOne({ 'login.username': username });
