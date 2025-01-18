@@ -1,8 +1,8 @@
 
 :root {
   /* Updated Color Palette */
-  --primary-color: #201E43;
-  --secondary-color: #134B70;
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
   --accent-color: #508C9B;
   --background-light: #EEEEEE;
   --text-dark: #201E43;
@@ -96,7 +96,7 @@ body {
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
-  padding: 0.75rem 2rem; /* Increased padding for better spacing */
+  padding: 0.12rem 2rem; /* Increased padding for better spacing */
 }
 
 .nav-content {

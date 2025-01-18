@@ -1,8 +1,8 @@
 
 :root {
   /* Updated Color Palette */
-  --primary-color: #201E43;
-  --secondary-color: #134B70;
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
   --accent-color: #508C9B;
   --background-light: #EEEEEE;
   --text-dark: #201E43;
@@ -91,7 +91,7 @@ body {
 /* Navigation Redesign */
 .navigation {
   background-color: var(--primary-color);
-  padding: 0.5rem 2rem; /* Adjusted padding for better spacing */
+  padding: 0rem 2rem; /* Adjusted padding for better spacing */
 }
 
 .nav-content {
@@ -110,7 +110,7 @@ body {
 .nav-links a {
   color: var(--white);
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 1rem;
   border-radius: 4px;
   transition: background-color 0.3s ease;
 }
@@ -150,7 +150,7 @@ body {
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .navigation {
-    padding: 1rem; /* Reduce padding on smaller screens */
+    padding: 0.5rem; /* Reduce padding on smaller screens */
   }
 
   .nav-content {
@@ -172,7 +172,7 @@ body {
 
   .nav-links a {
     width: 100%; /* Make links take full width */
-    padding: 0.75rem;
+    padding: 0.25rem;
     border-top: 1px solid rgba(255, 255, 255, 0.2);
   }
 
@@ -343,7 +343,7 @@ th {
 }
 
 .navigation-buttons button {
-  padding: 0.75rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
