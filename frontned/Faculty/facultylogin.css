@@ -1,7 +1,7 @@
 :root {
   /* Expanded Color Palette */
-  --primary-color: #263A6D;
-  --secondary-color: #2C5282;
+  --primary-color: #102b70;
+    --secondary-color: #315a8be7;;
   --accent-color: #3182CE;
   --background-light: #F7FAFC;
   --text-dark: #2D3748;
@@ -75,7 +75,7 @@ body {
 
 /* Navigation */
 .navigation {
-  background-color: var(--primary-color);
+  background-color: #102b70;
   padding: 0.75rem 2rem; /* Standardized padding */
 }
 
@@ -121,7 +121,7 @@ body {
 
 /* Navigation Redesign */
 .navigation {
-  background-color: var(--primary-color);
+  background-color: #102b70;
   padding: 0.75rem 2rem;
   display: flex;
 }
