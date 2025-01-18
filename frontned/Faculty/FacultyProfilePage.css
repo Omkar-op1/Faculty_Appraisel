@@ -1,6 +1,6 @@
 :root {
     /* Color Palette */
-    --primary-color: #201E43;
+    --primary-color: #263A6D;
     --secondary-color: #134B70;
     --accent-color: #508C9B;
     --background-light: #EEEEEE;
@@ -57,10 +57,12 @@
   }
   
   /* Navigation Redesign */
-  .navigation {
-    background-color: var(--primary-color);
-    padding: 0.75rem 2rem;
-  }
+  /* Navigation Redesign */
+.navigation {
+  background-color: #2C3E50; /* New color */
+  padding: 0.75rem 2rem;
+}
+
   
   .nav-content {
     display: flex;
@@ -246,7 +248,7 @@
       width: 100%;
     }
   }
-:root {
+/* :root {
     --primary-color: #263A6D;
     --secondary-color: #2c3e50;
     --accent-color: #3498db;
@@ -295,7 +297,7 @@ body {
 
     .nav-links a {
         justify-content: center;
-    }
+    } 
 
     .form-actions {
         flex-direction: column;
@@ -433,7 +435,7 @@ body {
 }
 :root {
   /* Color Palette */
-  --primary-color: #2C3E50;
+  --primary-color: #263A6D;
   --secondary-color: #3498DB;
   --accent-color: #27AE60;
   --background-light: #F4F6F7;
