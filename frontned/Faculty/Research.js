@@ -1,8 +1,28 @@
 const t=6;
 document.addEventListener('DOMContentLoaded', () => {
   fetchData();
+  getscore();
+
 });
 
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-details1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.faculty.p;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+}
 async function fetchdata1() {
 
   const response = await fetch('http://localhost:5000/api/fetchg', {
@@ -180,13 +200,6 @@ function resetForm() {
   facultyForm.reset();
 }
 
-// Remove an entry
-function removeEntry(id) {
-  if (confirm("Are you sure you want to remove this entry?")) {
-    entries = entries.filter((entry) => entry.id !== id);
-    renderTable();
-  }
-}
 
 // View document (placeholder)
 function viewDocument(id) {
@@ -212,5 +225,48 @@ function toggleNotifications() {
       notificationSection.style.display = "block";
   } else {
       notificationSection.style.display = "none";
+  }
+}
+
+async function deleteEntry(index) {
+  const tableBody = document.getElementById('entriesTableBody');
+  const row = tableBody.rows[index];
+  const entryId = row.getAttribute('data-id'); // Ensure each row has a unique 'data-id' attribute
+
+  if (!entryId) {
+    alert('Unable to identify the entry to delete.');
+    return;
+  }
+
+  const confirmation = confirm('Are you sure you want to delete this entry?');
+  if (!confirmation) return;
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/delete-details/${entryId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+        'type': t,
+
+      },
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json();
+      console.error('Error details:', errorBody);
+      const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    console.log('Delete response:', data);
+    alert('Entry deleted successfully!');
+
+    // Remove the row from the table
+    row.remove();
+  } catch (error) {
+    console.error('Error deleting entry:', error.message);
+    alert(`An error occurred: ${error.message}`);
   }
 }

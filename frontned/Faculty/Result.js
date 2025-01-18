@@ -3,6 +3,7 @@ const t=4;
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch data when the page loads
   fetchData();
+  getscore();
 });
 
 async function fetchdata1() {
@@ -16,7 +17,24 @@ async function fetchdata1() {
   });
 
 }
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-details1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.faculty.r;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
 
+}
 async function fetchData() {
   try {
     // Replace with your actual backend API endpoint
@@ -267,6 +285,8 @@ async function deleteEntry(index) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
+        'type': t,
+
       },
     });
 

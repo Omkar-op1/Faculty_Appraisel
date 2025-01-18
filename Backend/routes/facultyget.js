@@ -3,6 +3,7 @@ const Faculty = require('../Models/addfaculty');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const Institute = require('../Models/Institute');
+const { updatescore } = require('../Module/finalscore');
 
 const { getdb } = require('../Module/db');
 const { LocalStorage } = require('node-localstorage');
@@ -62,12 +63,47 @@ router.get('/get-details', async (req, res) => {
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
       const faculty = await FacultyModel.findOne({ _id: user});
-      const result = await faculty.updateOne(
-        { $pull: { teachingProcess: { _id: entryId } } } 
-      );
+      let result;
+
+      if (t==='0') {
+        result = await faculty.updateOne(
+          { $pull: { teachingProcess: { _id: entryId } } } 
+        );
+       }
+       if (t==='1') {
+        result = await faculty.updateOne(
+          { $pull: { studentsFeedback: { _id: entryId } } } 
+        );
+       }
+       if (t==='2') {
+         result = await faculty.updateOne(
+          { $pull: { departmentActivities: { _id: entryId } } } 
+        );
+       }
+       if (t==='3') {
+         result = await faculty.updateOne(
+          { $pull: { instituteActivities: { _id: entryId } } } 
+        );
+       }
+       if (t==='4') {
+         result = await faculty.updateOne(
+          { $pull: { resultSummary: { _id: entryId } } } 
+        );
+       }
+       if (t==='6') {
+         result = await faculty.updateOne(
+          { $pull: { research: { _id: entryId } } } 
+        );
+       }
+       if (t==='5') {
+         result = await faculty.updateOne(
+          { $pull: { contributionSociety: { _id: entryId } } } 
+        );
+       }
       if (result.modifiedCount === 0) {
         return res.status(404).send({ message: 'Entry not found' });
       }
+      updatescore(faculty);
       res.send({ message: 'Entry deleted successfully' });
     } catch (error) {
       res.status(500).send({ message: 'Failed to delete entry' });

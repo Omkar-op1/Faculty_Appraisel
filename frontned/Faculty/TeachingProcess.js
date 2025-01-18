@@ -160,6 +160,8 @@ async function handleSubmit(event) {
           headers: {
             'Content-Type': 'application/json',
             Authorization: token,
+            'type': t,
+
           },
         });
     

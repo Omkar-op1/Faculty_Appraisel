@@ -4,7 +4,28 @@ const t=3;
 document.addEventListener('DOMContentLoaded', () => {
   // Fetch data when the page loads
   fetchData();
+  getscore();
+
 });
+
+async function getscore() {
+  const scorebox=document.getElementById('scoreObtained');
+  try {
+    const response = await fetch('http://localhost:5000/api/get-details1', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      },
+    });
+    if (!response.ok) throw new Error('Failed to fetch data');
+    const data = await response.json();
+    scorebox.value=data.faculty.i;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+
+}
 // DOM Elements
 const modal = document.getElementById('modal');
 const facultyForm = document.getElementById('facultyForm');
@@ -208,6 +229,8 @@ async function deleteEntry(index) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
+        'type': t,
+
       },
     });
 
