@@ -24,45 +24,42 @@
     </div>
   </header>
 
-
+  <!-- Navbar -->
    <nav class="navigation">
     <div class="nav-content">
-       <ul class="nav-links">
-        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="AdminProfile.html" class="active"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="ManageFaculty.html"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+      <ul class="nav-links">
+        <li><a href="AdminHomepage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="AdminProfile.html" ><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="ManageFaculty.html" class="active"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Create Appraisal Forms</a></li>
                 <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
-                <li><a href="./form builder/form.html"> Customize Form</a></li>
                 <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
-      </ul>    
-          <div class="user-section">
+      </ul>
+      <div class="user-section">
             <div class="profile-container">
               <div class="profile-info">
                 <img src="profile.png" alt="Profile" class="profile-icon">
                 <span class="profile-name">John Doe</span>
                 <i class="fas fa-chevron-down dropdown-icon"></i>
               </div>
-              
               <div class="profile-dropdown hidden">
                 <ul>
-                  <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
-                  <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                  <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href="setting.html"><i class="fas fa-cog"></i> Settings</a></li>
                   <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
               </div>
             </div>
-            
             <div class="notification-bell">
               <i class="fas fa-bell"></i>
               <span class="notification-badge">3</span>
             </div>
-          </div>     
+          </div>   
     </div>
   </nav>
 
-
-  <main>
-    <!-- <section class="appraisal-section">
+ 
+<section class="appraisal-section">
       <div class="appraisal-header">
         <h2>Faculty Appraisal </h2>
         <p>Track and manage your annual performance appraisals</p>
@@ -107,8 +104,7 @@
           </div>
         </div>
       </div>
-    </section> -->
-
+    </section>
     <section class="news">
       <h2>News and Updates</h2>
       <div class="news-container">
@@ -138,7 +134,7 @@
   </main>
   <script src="chatbot.js"></script>
   <script src="FacultyHomePage.js"></script>
-   
+   <!-- Chatbot Container -->
 <div class="chatbot-container" id="chatbot-container">
   <div class="chatbot-header" id="chatbot-header">
       <h3>Support Chat</h3>
@@ -157,187 +153,6 @@
 <button class="chatbot-toggle" id="chatbot-toggle">
   <i class="fas fa-comments"></i>
 </button>
-
-<style>
-
-.chatbot-container {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 300px;
-  height: 400px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  display: none;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-.chatbot-header {
-  padding: 15px;
-  background: #263A6D;
-  color: white;
-  border-radius: 10px 10px 0 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.minimize-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-}
-
-.chatbot-messages {
-  flex-grow: 1;
-  padding: 15px;
-  overflow-y: auto;
-}
-
-.message {
-  margin: 5px 0;
-  padding: 10px;
-  border-radius: 10px;
-  max-width: 80%;
-}
-
-.bot-message {
-  background: #f1f3f4;
-  margin-right: auto;
-}
-
-.user-message {
-  background: #263A6D;
-  color: white;
-  margin-left: auto;
-}
-
-.chatbot-input {
-  padding: 15px;
-  display: flex;
-  gap: 10px;
-}
-
-.chatbot-input input {
-  flex-grow: 1;
-  padding: 8px;
-  border: 1px solid #ddd;
-  border-radius: 20px;
-  outline: none;
-}
-
-.chatbot-input button {
-  background: #263A6D;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.chatbot-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #263A6D;
-  color: white;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  z-index: 1000;
-}
-
-.chatbot-toggle:hover {
-  background: #263A6D;
-}
-
-
-
-
-.typing-indicator {
-  background-color: #f1f3f4;
-  padding: 15px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.typing-indicator span {
-  height: 8px;
-  width: 8px;
-  background: #93959f;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 0 2px;
-  animation: bounce 1.3s linear infinite;
-}
-
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.15s;
-}
-
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-@keyframes bounce {
-  0%, 60%, 100% {
-      transform: translateY(0);
-  }
-  30% {
-      transform: translateY(-4px);
-  }
-}
-
-.message a {
-  color: #0066cc;
-  text-decoration: underline;
-}
-
-.user-message a {
-  color: white;
-}
-.typing-indicator {
-  background-color: #f1f3f4;
-  padding: 10px;
-}
-
-.typing-indicator span {
-  animation: dots 1.5s infinite;
-  display: inline-block;
-  margin-left: 2px;
-}
-
-.typing-indicator span:nth-child(2) {
-  animation-delay: 0.2s;
-}
-
-.typing-indicator span:nth-child(3) {
-  animation-delay: 0.4s;
-}
-
-@keyframes dots {
-  0%, 20% {
-      opacity: 0;
-  }
-  50% {
-      opacity: 1;
-  }
-  100% {
-      opacity: 0;
-  }
-}
-
-</style>
 <script src="AdminHomePage.js"></script>
 </body>
 </html>
