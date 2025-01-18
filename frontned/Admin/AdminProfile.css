@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #263A6D;
-    --secondary-color: #2c3e50;
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
     --accent-color: #3498db;
     --success-color: #27ae60;
     --warning-color: #f39c12;
@@ -560,7 +560,7 @@ main {
 
 /* Navigation Redesign */
 .navigation {
-  background-color: var(--primary-color);
+  background-color: #102b70;
   padding: 0.10rem 2rem;
 }
 
@@ -792,7 +792,7 @@ main {
 
 /* Navigation Redesign */
 .navigation {
-  background-color: var(--primary-color);
+  background-color: #102b70;
   padding: 0.10rem 2rem;
 }
 
@@ -848,7 +848,7 @@ main {
 
 /* Breadcrumb Redesign */
 .breadcrumb {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: var(--secondary-color);
   color: var(--white);
   padding: 1rem 2rem;
   display: flex;
