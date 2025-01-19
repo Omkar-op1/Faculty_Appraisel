@@ -103,7 +103,8 @@ router.get('/get-details', async (req, res) => {
       if (result.modifiedCount === 0) {
         return res.status(404).send({ message: 'Entry not found' });
       }
-      updatescore(faculty);
+      const nf=await faculty.save();
+      updatescore(nf);
       res.send({ message: 'Entry deleted successfully' });
     } catch (error) {
       res.status(500).send({ message: 'Failed to delete entry' });
@@ -138,7 +139,7 @@ router.get('/get-details', async (req, res) => {
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
 
-
+      const hod=await FacultyModel.findOne({ _id: user});
       const facultyId = req.query.facultyId;
         const userId = facultyId; 
         console.log(userId)
@@ -150,6 +151,8 @@ router.get('/get-details', async (req, res) => {
       
       faculty.recommendation=req.body.recommendation;
       faculty.feedback=req.body.feedback;
+      faculty.fr=true;
+      faculty.recommendedby = hod.firstname + " " + hod.lastname;
       const nf=await faculty.save();
       console.log(nf);
       return res.status(200).json({ message: 'done' });

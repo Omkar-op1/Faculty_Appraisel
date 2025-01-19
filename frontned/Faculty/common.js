@@ -18,12 +18,12 @@
             });
 
 
-            const data= response.json();
+            const data=await response.json();
+            console.log(data);
 
-
-            const namebox=document.querySelector('#profile-name')
-          
-            namebox.innerText=data.faculty.firstName;
+            const namebox=document.querySelector('.profile-name')
+            
+            namebox.textContent=data.faculty.firstName;
           }
 
 
@@ -31,7 +31,7 @@
             const token = localStorage.getItem('authToken'); 
     
         if (!token) {
-            window.location.href = "../../Homepage/homepage.html";
+            window.location.href = "../Homepage/homepage.html";
         }
             const profileInfo = document.querySelector('.profile-info');
             const profileDropdown = document.querySelector('.profile-dropdown');
@@ -53,7 +53,7 @@
         logoutButton.addEventListener('click', () => {
             console.log('hello')
             localStorage.removeItem('authToken');
-            window.location.href = '../../Homepage/HomePage.html';
+            window.location.href = '../Homepage/HomePage.html';
         });
 
 

@@ -33,6 +33,8 @@ async function fetchFacultyData() {
         document.getElementById('facultyName').textContent = data.firstName + " " + data.lastName;
         document.getElementById('facultyId').textContent = data.facultyId;
         document.getElementById('facultyDesignation').textContent = data.designation;
+        document.getElementById('rec').textContent = `Recommended for ${data.recommendation} by ${data.recommendedby}`;
+        document.getElementById('fed').textContent = data.feedback;
 
         // Populate the Teaching Process Section
         let teachingScore = 0;

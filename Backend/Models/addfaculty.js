@@ -106,6 +106,9 @@ const FacultySchema = new mongoose.Schema({
   }],
 
   recommendation: { type: String, trim: true },
+  recommendedby: { type: String, trim: true },
+  fr:{type:Boolean, default:false},
+  
   feedback: { type: String, trim: true },
 }, { timestamps: true });
 
