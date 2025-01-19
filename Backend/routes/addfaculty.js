@@ -20,7 +20,7 @@ const {
 } = require('../Module/auth');
 const { getdb } = require('../Module/db');
 const sendPasswordEmail = require('../Module/mail');
-const { updatescore } = require('../Module/finalscore');
+const { updateScore } = require('../Module/finalscore');
 const router = express.Router();
 router.post('/addFaculty', verifyToken, async (req, res) => {
     const {
@@ -110,7 +110,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       faculty.updateOne(data);
     }
     const nf=await faculty.save();
-    updatescore(nf);
+    updateScore(nf);
     res.status(200).json({
       message: 'Details added successfully',
       faculty,
@@ -138,9 +138,11 @@ router.post('/upload',upload.single('file'), async (req, res) => {
       if (!uploadedFile) {
           return res.status(400).send('No file uploaded.');
       }
+      console.log(uploadedFile)
+
       const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
-      console.log(fileId)
-      fs.unlinkSync(uploadedFile.path);
+      console.log(fileId);
+      // fs.unlinkSync(uploadedFile.path);
 
 
 

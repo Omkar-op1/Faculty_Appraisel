@@ -17,7 +17,7 @@ async function getscore() {
     });
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
-    scorebox.value=data.faculty.p;
+    scorebox.value=data.faculty.D;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -112,41 +112,7 @@ function handleCategoryChange() {
     document.getElementById("customCategoryInput").value = ""; // Reset custom category input
   }
 }
-function calculatescore(data)
-{
-  const c=data['category'];
-  let score=0;
-  if(c==='SCI'){
-     score=5;
-  }
-  else if(c==='Scopus'){
-     score=4;
 
-}
-  else if(c==='Scopus Indexed'){
-       score=3;
-
-
-  }
-  else if(c==='SCI'){
-     score=2;
-
-  }
-  else if(c==='WOS'){
-     score=2;
-
-}
-  else if(c==='UGC Recognized'){
-     score=1.5;
-    
-
-}
-  else{
-     score=1;
-
-}
-return score;
-}
 // Form submission
 async function handleSubmit(event) {
   event.preventDefault();
@@ -268,5 +234,35 @@ async function deleteEntry(index) {
   } catch (error) {
     console.error('Error deleting entry:', error.message);
     alert(`An error occurred: ${error.message}`);
+  }
+}
+
+function toggleFields() {
+  const publicationType = document.getElementById("publication-type").value;
+  const authorDiv = document.getElementById("author-div");
+  const categoryDiv = document.getElementById("category-div");
+
+  // Show/Hide fields based on the publication type
+  if (publicationType === "Research Paper") {
+    authorDiv.style.display = "none";
+    categoryDiv.style.display = "block";
+  } else if (publicationType === "Book" || publicationType === "Book Chapter") {
+    categoryDiv.style.display = "none";
+    authorDiv.style.display = "block";
+  } else {
+    authorDiv.style.display = "none";
+    categoryDiv.style.display = "none";
+  }
+}
+
+function toggleOtherCategoryInput() {
+  const categorySelect = document.getElementById("category-select").value;
+  const otherCategoryDiv = document.getElementById("other-category-div");
+  
+  // Show the "Other" input field if "Other" is selected
+  if (categorySelect === "Other") {
+    otherCategoryDiv.style.display = "block";
+  } else {
+    otherCategoryDiv.style.display = "none";
   }
 }

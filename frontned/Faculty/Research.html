@@ -157,38 +157,66 @@
           <span class="close" onclick="closeModal()">&times;</span>
         </div>
         <form id="facultyForm" onsubmit="handleSubmit(event)">
-         <div class="form-group">
+          <div class="form-group">
+            <label>Publication Type</label>
+            <select type="text" name="publicationType" id="publication-type" required onchange="toggleFields()">
+              <option value="">Select Category</option>
+              <option value="Research Paper">Research Paper</option>
+              <option value="Book">Book</option>
+              <option value="Book Chapter">Book Chapter</option>
+              <option value="Editor">Editor</option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label>Author</label>
+            <select type="text" name="authorType" id="author-type">
+              <option value="">Select Author Type</option>
+              <option value="Individual">Individual</option>
+              <option value="Co-Author">Co-Author</option>
+              <option value="Multi-Author (First Author)">Multi-Author (First Author)</option>
+              <option value="Multi-Author (Second Author)">Multi-Author (Second Author)</option>
+            </select>
+          </div>
+          <div class="form-group" id="author-div" style="display: none;">
+            <label>Publisher</label>
+            <select type="text" name="publisherType" id="author-type">
+              <option value="">Select Publisher Type</option>
+              <option value="International">International</option>
+              <option value="National">National</option>
+            </select>
+          </div>
+        
+          <div class="form-group" id="category-div" style="display: none;">
+            <label>Category</label>
+            <select type="text" name="category" id="category-select" onchange="toggleOtherCategoryInput()">
+              <option value="">Select Category</option>
+              <option value="SCI">SCI</option>
+              <option value="SCI-Extended">SCI-Extended</option>
+              <option value="Scopus">Scopus</option>
+              <option value="Scopus Indexed">Scopus Indexed</option>
+              <option value="WOS">WOS</option>
+              <option value="UGC Recognized">UGC Recognized</option>
+              <option value="Other">Other</option>
+            </select>
+            <div class="form-group hidden" id="other-category-div">
+              <label>Please Specify Category</label>
+              <input type="text" name="categoryo" id="other-category-input" placeholder="Enter category" />
+            </div>
+          </div>
+        
+          <div class="form-group">
             <label>Name of Publication</label>
             <input type="text" name="publication" required />
           </div>
-          <div class="form-group">
-  <label>Category</label>
-  <select type="text" name="category" id="category-select" required onchange="toggleOtherCategoryInput()">
-    <option value="">Select Category</option>
-    <option value="SCI">SCI</option>
-    <option value="SCI-Extended">SCI-Extended</option>
-    <option value="Scopus">Scopus</option>
-    <option value="Scopus Indexed">Scopus Indexed</option>
-    <option value="WOS">WOS</option>
-    <option value="UGC Recognized">UGC Recognized</option>
-    <option value="Other">Other</option>
-  </select>
-  <input type="text" id="category-other" class="other-input hidden" placeholder="Enter category" />
-</div>
-
-<div class="form-group" id="other-category-div" style="display: none;">
-  <label>Please Specify Category</label>
-  <input type="text" name="other_category" id="other-category-input" placeholder="Enter category" />
-</div>
+        
           <div class="form-group">
             <label>Supporting Document</label>
-            <input type="file" name="supportingDocument"  />
+            <input type="file" name="supportingDocument" />
           </div>
-
+        
           <div class="form-buttons">
-            <button type="button" class="reset-btn" onclick="resetForm()">
-              Reset
-            </button>
+            <button type="button" class="reset-btn" onclick="resetForm()">Reset</button>
             <button type="submit" class="submit-btn">Submit</button>
           </div>
         </form>

@@ -37,7 +37,6 @@ async function fetchFacultyData() {
         document.getElementById('fed').textContent = data.feedback;
 
         // Populate the Teaching Process Section
-        let teachingScore = 0;
         const teachingTableBody = document.getElementById('teaching-table-body');
         data.teachingProcess.forEach(teaching => {
             teachingTableBody.innerHTML += `
@@ -49,12 +48,10 @@ async function fetchFacultyData() {
                     <td>${teaching.score}</td>
                 </tr>
             `;
-            teachingScore += teaching.score;
         });
-        document.getElementById('teaching-score').textContent = teachingScore / data.teachingProcess.length;
+        document.getElementById('teaching-score').textContent = data.A;
 
-        // Populate the Student Feedback Section
-        let feedbackScore = 0;
+    
         const feedbackTableBody = document.getElementById('feedback-table-body');
         data.studentsFeedback.forEach(feedback => {
             feedbackTableBody.innerHTML += `
@@ -65,9 +62,22 @@ async function fetchFacultyData() {
                     <td>${feedback.score}</td>
                 </tr>
             `;
-            feedbackScore += feedback.score;
         });
-        document.getElementById('feedback-score').textContent = feedbackScore / data.studentsFeedback.length;
+        document.getElementById('feedback-score').textContent = data.B;
+
+        const Result = document.getElementById('result-table-body');
+        data.resultSummary.forEach(resultSummary => {
+            Result.innerHTML += `
+                <tr>
+                    <td>${resultSummary.semester}</td>
+                    <td>${resultSummary.subjectName}</td>
+                    <td>${resultSummary.subjectCode}</td>
+                    <td>${resultSummary.result}</td>
+                    <td>${resultSummary.score}</td>
+                </tr>
+            `;
+        });
+        document.getElementById('result-score').textContent = data.C;
 
         // Populate the Research & Publications Section
         let researchScore = 0;
@@ -83,7 +93,7 @@ async function fetchFacultyData() {
             `;
             researchScore += research.score;
         });
-        document.getElementById('research-score').textContent = researchScore / data.research.length;
+        document.getElementById('research-score').textContent =data.F;
 
         // Populate the Institutional Contributions Section
         let institutionalScore = 0;

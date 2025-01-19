@@ -255,10 +255,10 @@ const calculateScoreForPercentage = (percentage, thresholds) => {
 };
 
 const calculateAttainmentScore = (attainment) => {
-  if (attainment > 2) return 5;
-  else if (attainment >= 1.5) return 4;
-  else if (attainment >= 1) return 3;
-  else if (attainment >= 0.5) return 2;
+  if (attainment > 2.5) return 5;
+  else if (attainment >= 2) return 4;
+  else if (attainment >= 1.5) return 3;
+  else if (attainment >= 1) return 2;
   return 0;
 };
 
@@ -309,10 +309,15 @@ const updateScoreForTeachingProcess = (faculty) => {
 };
 
 const updateScoreForFeedback = (faculty) => {
-  let s1 = 0, s2 = 0, es1 = 0, es2 = 0;
+  let rscoree = 0;
+  let rscoreo = 0;
+  let e = 0;
+  let o = 0;
+
+
 
   faculty.studentsFeedback.forEach(entry => {
-    const feedbackScore = calculateScoreForPercentage(entry.studentFeedback, [
+    const points = calculateScoreForPercentage(entry.studentFeedback, [
       { min: 96, score: 10 },
       { min: 90, score: 9 },
       { min: 80, score: 8 },
@@ -325,28 +330,39 @@ const updateScoreForFeedback = (faculty) => {
       { min: 10, score: 1 },
       { min: 0, score: 0 }
     ]);
-
-    entry.score = feedbackScore;
-
-    // Update semester-based scores (Odd vs Even)
-    if (entry.semester === 'Odd') {
-      if (s1 < feedbackScore) {
-        s2 = s1;
-        s1 = feedbackScore;
-      } else if (s2 < feedbackScore) {
-        s2 = feedbackScore;
-      }
-    } else {
-      if (es1 < feedbackScore) {
-        es2 = es1;
-        es1 = feedbackScore;
-      } else if (es2 < feedbackScore) {
-        es2 = feedbackScore;
-      }
+    
+ 
+    entry.score=points;
+    if(entry.semester==='Even')
+    {
+      rscoree+=points;
+      e+=1;
     }
+    else
+    {
+      rscoreo+=points;
+      o+=1;
+    }
+
+    // // Update semester-based scores (Odd vs Even)
+    // if (entry.semester === 'Odd') {
+    //   if (s1 < feedbackScore) {
+    //     s2 = s1;
+    //     s1 = feedbackScore;
+    //   } else if (s2 < feedbackScore) {
+    //     s2 = feedbackScore;
+    //   }
+    // } else {
+    //   if (es1 < feedbackScore) {
+    //     es2 = es1;
+    //     es1 = feedbackScore;
+    //   } else if (es2 < feedbackScore) {
+    //     es2 = feedbackScore;
+    //   }
+    // }
   });
 
-  return { s1, s2, es1, es2 };
+  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0));
 };
 
 const updateScoreForActivities = (faculty) => {
@@ -368,9 +384,10 @@ const updateScoreForActivities = (faculty) => {
 };
 
 const updateScoreForResultSummary = (faculty) => {
-  let rscore = 0;
-  let rscore2 = 0;
-  let k = 0;
+  let rscoree = 0;
+  let rscoreo = 0;
+  let e = 0;
+  let o = 0;
 
   faculty.resultSummary.forEach(entry => {
     const result = entry.noRegisteredStudents > 0 ? (entry.noPassedStudents / entry.noRegisteredStudents) * 100 : 0;
@@ -383,12 +400,22 @@ const updateScoreForResultSummary = (faculty) => {
       { min: 50, score: 5 },
       { min: 40, score: 4 }
     ]);
-
-    rscore2 += points;
-    k += 1;
+    entry.score=points;
+    if(entry.semester==='Even')
+    {
+      rscoree+=points;
+      e+=1;
+    }
+    else
+    {
+      rscoreo+=points;
+      o+=1;
+    }
+  
   });
+  
 
-  return k > 1 ? (rscore2 / k) * 2 : rscore2;
+  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0));
 };
 
 const updateScoreForResearch = (faculty) => {
@@ -399,41 +426,79 @@ const updateScoreForResearch = (faculty) => {
       SCI: 5,
       Scopus: 4,
       'Scopus Indexed': 3,
+      'SCI-Extended': 4.5,
       WOS: 2,
       'UGC Recognized': 1.5,
     };
-
-    entry.score = scoreMap[entry.category] || 1;
+    console.log('runn');
+    if(entry.publicationType==='Research Paper')
+    {
+      console.log('runn');
+        entry.score = entry.authorType==='Individual'?(scoreMap[entry.category] || 1)*2:entry.authorType==='Multi-Author (Second Author)'?(scoreMap[entry.category] || 1)*6/10:(scoreMap[entry.category] || 1)*14/10;
+    }
+    else if(entry.publicationType==='Book')
+    {
+      entry.score = entry.publisherType==='International'?10:8;
+    }
+    else if(entry.publicationType==='Editor')
+    {
+      entry.score = entry.publisherType==='International'?8:6;
+    }
+    else
+    {
+      entry.score = 3;
+    }
+   
     rescore += entry.score;
   });
-
   return rescore;
 };
 
 // Main function to update the scores
 const updateScore = async (faculty) => {
+  // Fetch weightage based on designation
+  const designation = faculty.designation; // e.g., 'Prof', 'Asso', 'Assit'
+  const credits = faculty.credits[designation]; // Fetch the specific designation weightage
+
   // Update individual sections
   const { s1, s2, es1, es2 } = updateScoreForTeachingProcess(faculty);
-  const { s1: feedbackS1, s2: feedbackS2, es1: feedbackEs1, es2: feedbackEs2 } = updateScoreForFeedback(faculty);
+  const fscore = updateScoreForFeedback(faculty);
   const { dscore, iscore, cscore } = updateScoreForActivities(faculty);
   const rscore = updateScoreForResultSummary(faculty);
   const rescore = updateScoreForResearch(faculty);
 
-  // Calculate final total score
-  const tscore = (s1 + s2 + es1 + es2) / 2;
-  const fscore = (feedbackS1 + feedbackS2 + feedbackEs1 + feedbackEs2) / 2;
+  // Calculate final scores with weightage
+  const tscore = ((s1 + s2 + es1 + es2) *2.5) * (credits.A || 0);
+  const weightedFscore = fscore * (credits.B || 0)*10;
+  const weightedRscore = rscore*(credits.C || 0)*10;
+  const weightedRescore = Math.min(rescore ,credits.D*10);
+  const weightedDscore = Math.min(dscore ,credits.E*10);
+  const weightedIscore = Math.min(iscore ,credits.F*10);
+  const weightedCscore = Math.min(cscore ,credits.G*10);
+
+  // Calculate the total weighted score
+  const totalScore =
+    tscore +
+    weightedFscore +
+    weightedRscore +
+    weightedRescore +
+    weightedDscore +
+    weightedIscore +
+    weightedCscore;
 
   // Set the final scores and save
-  faculty.t = tscore;
-  faculty.f = fscore;
-  faculty.d = dscore;
-  faculty.i = iscore;
-  faculty.r = rscore;
-  faculty.p = rescore;
-  faculty.c = cscore;
-  faculty.total = tscore + fscore + dscore + iscore + rscore + rescore + cscore;
+  faculty.A = tscore;
+  faculty.B = weightedFscore;
+  faculty.C = weightedRscore;
+  faculty.D = weightedRescore;
+  faculty.E = weightedDscore;
+  faculty.F = weightedIscore;
+  faculty.G = weightedCscore;
+  faculty.total = totalScore;
 
   await faculty.save();
 };
+
+
 
 module.exports = { updateScore };

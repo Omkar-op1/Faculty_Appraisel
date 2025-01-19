@@ -17,11 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
       deleteBtn.addEventListener('click', (e) => {
           e.target.closest('.section').remove();
       });
-      const score = newSection.getElementById('score-type');
-      const scoreb = newSection.getElementById('scorebox');
-      score.addEventListener('change', (e) => {
-        scoreb.classList.toggle('hidden', false);
-    });
+     
       // Add Field functionality
       addFieldBtn.addEventListener('click', () => {
           const newField = fieldTemplate.content.cloneNode(true);

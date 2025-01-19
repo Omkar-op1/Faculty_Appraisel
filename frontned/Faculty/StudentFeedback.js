@@ -24,7 +24,7 @@ async function getscore() {
     });
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
-    scorebox.value=data.faculty.f;
+    scorebox.value=data.faculty.B;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -69,11 +69,15 @@ async function handleSubmit(event) {
       
 
 
+      // const R = await fetch('http://localhost:5000/api/upload', {
+      //   method: 'POST',
+      //   body: FL,
+      //   headers: {
+      //     'Authorization': token,
+      //   },
+      // });
 
-
-
-
-
+      // const fileid=await R.json();
 
 
 
@@ -92,6 +96,7 @@ async function handleSubmit(event) {
       else if (per >= 0) points = 0;
 
       formDataObj['score']=points;
+      // formDataObj['document']=fileid;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -111,15 +116,9 @@ async function handleSubmit(event) {
         }
         const data = await response.json();
         console.log("Response received:", data);
-      const R = await fetch('http://localhost:5000/api/upload', {
-        method: 'POST',
-        body: FL,
-        headers: {
-          'Authorization': token,
-        },
-       
+     
 
-    });
+  
      console.log(f);
     alert('Details added successfully!');
 } catch (error) {

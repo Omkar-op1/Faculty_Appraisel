@@ -28,7 +28,7 @@ async function getscore() {
     });
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
-    scorebox.value=data.faculty.d;
+    scorebox.value=data.faculty.E;
   } catch (error) {
     console.error('Error fetching data:', error);
   }

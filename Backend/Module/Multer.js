@@ -22,12 +22,12 @@ async function uploadFileToDrive(filePath, fileName) {
     console.log('do')
     const authClient = await authorize();
 
-    return new Promise((resolve, reject) => {
+    
         const drive = google.drive({ version: 'v3', auth: authClient });
 
         const fileMetaData = {
             name: fileName, // Use the uploaded file's name
-            parents: ['1pfX1znpJSdbgFjoZnZGT8xbh3MCgWDlm'], // Your folder ID
+            parents: ['1DkHpek8nNywrqLeY_CnTfQbmmoRgchYV'], // Your folder ID
         };
 
         const media = {
@@ -43,12 +43,17 @@ async function uploadFileToDrive(filePath, fileName) {
             },
             (error, file) => {
                 if (error) {
-                    return reject(error);
+                    console.log(error)
                 }
-                resolve(file.data.id); // Return only the file ID
+                else
+            {
+                console.log(file.data.id);
+                return file.data.id;
+            }
+                
             }
         );
-    });
+   
 }
 
 module.exports = { uploadFileToDrive };
