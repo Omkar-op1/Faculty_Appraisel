@@ -241,3 +241,62 @@ function createScale(containerId) {
         nonRecommendedTextBox.style.display = 'block'; // Show the non-recommended textbox when "Non-Recommended" is selected
     });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const recommendationOptions = document.querySelector(".recommendation-options");
+    const recommendationReason = document.getElementById("rec-reason");
+
+    // Function to send data to backend
+    const sendData = async () => {
+      // Get selected radio button value
+      const selectedOption = document.querySelector('input[name="rec-option"]:checked');
+      const feedback = recommendationReason.value;
+
+      // Validate input
+      if (!selectedOption || !feedback) {
+        alert("Please select a recommendation and provide feedback.");
+        return;
+      }
+
+      // Prepare data
+      const requestData = {
+        recommendation: selectedOption.value,
+        feedback: feedback,
+      };
+      const { facultyId } = getQueryParams();
+      if (!facultyId) {
+          throw new Error('Faculty ID is missing in the URL.');
+      }
+
+      try {
+        // Send POST request to backend
+        const response = await fetch(`http://localhost:5000/api/reccomend?facultyId=${facultyId}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: token,
+
+          },
+          body: JSON.stringify(requestData),
+        });
+
+        if (response.ok) {
+          const responseData = await response.json();
+          alert("Recommendation submitted successfully!");
+        } else {
+          alert("Failed to submit recommendation.");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("An error occurred while sending data.");
+      }
+    };
+
+    // Event listener for submission
+    document.getElementById("sub-btn").addEventListener("click", (e) => {
+      e.preventDefault();
+      sendData();
+    });
+  });

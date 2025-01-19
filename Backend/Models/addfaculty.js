@@ -1,14 +1,5 @@
 const mongoose = require('mongoose');
 
-const SectionBSchema = new mongoose.Schema({
-  observations: { type: String, trim: true },
-  recommendations: { type: String, trim: true },
-});
-
-const SectionCSchema = new mongoose.Schema({
-  recommendation: { type: String, trim: true },
-  signature: { type: String, trim: true },
-});
 
 const FacultySchema = new mongoose.Schema({
   title: { type: String, enum: ['Dr.', 'Prof.', 'Mr.', 'Ms.', 'Mrs.'], trim: true },
@@ -114,9 +105,8 @@ const FacultySchema = new mongoose.Schema({
     score: { type: Number}
   }],
 
-  sectionB: [SectionBSchema],
-  sectionC: [SectionCSchema],
-
+  recommendation: { type: String, trim: true },
+  feedback: { type: String, trim: true },
 }, { timestamps: true });
 
 const Faculty = (db) => {
