@@ -129,47 +129,35 @@
         </section>
 
         <div class="recommendation-form">
-            <!-- Main Selection -->
-            <div class="recommendation-header">
-                <div class="radio-option">
-                    <input type="radio" name="recommendation-type" id="recommended" value="recommended">
-                    <label for="recommended">Recommended</label>
-                </div>
-            
-                <div class="radio-option">
-                    <input type="radio" name="recommendation-type" id="non-recommended" value="non-recommended">
-                    <label for="non-recommended">Non-Recommended</label>
-                </div>
-                
-               
-                
-            </div>
-        
+
             <!-- Recommended Section (shows only if Recommended is selected) -->
-            <div id="recommended-section" style="display: none;">
-                <div class="scale-container">
-                    <h2>Behavior Scales</h2>
+            <div id="recommended-section" >
+                <!-- <div class="scale-container">
+                    <h2>Behavior Scales</h2> -->
         
-                    <!-- Student Behavior Scale Section -->
+                    <!-- Student Behavior Scale Section
                     <section id="student-behavior-section">
                         <h3>Behavior with Students </h3><br>
                         <div id="student-behavior-scale" class="scale-options">
                             <!-- Scale Circles will be generated here -->
-                        </div>
+                        <!-- </div>
                     </section>
-                    <br><br>
+                    <br><br> -->
                     <!-- Colleague Behavior Scale Section -->
-                    <section id="colleague-behavior-section">
+                    <!-- <section id="colleague-behavior-section">
                         <h3>Behavior with Colleagues</h3><br>
                         <div id="colleague-behavior-scale" class="scale-options">
                             <!-- Scale Circles will be generated here -->
-                        </div>
-                    </section>
-                </div>
-        
+                        <!-- </div>
+                    </section> -->
+                <!-- </div> -->
+         
                 <!-- Recommendation Options -->
                 <div class="recommendation-options">
                     <h4>Select one recommendation:</h4>
+                    <input type="radio" name="rec-option" id="promotion" value="">
+                    <label for="promotion">None</label><br>
+                    
                     <input type="radio" name="rec-option" id="promotion" value="promotion">
                     <label for="promotion">Recommended for Promotion</label><br>
         
@@ -182,7 +170,7 @@
         
                 <!-- Recommendation Reason -->
                 <div class="recommendation-reason">
-                    <label for="rec-reason">Why are you recommending?</label><br>
+                    <label for="rec-reason">Feedback</label><br>
                     <textarea id="rec-reason" rows="4" cols="50"></textarea>
                 </div>
             </div>
@@ -196,8 +184,7 @@
             </div>
         
         <div class="action-buttons">
-            <button class="btn btn-reset">Reset</button>
-            <button class="btn btn-submit">Submit Appraisal</button>
+            <button class="btn btn-submit" id="sub-btn">Submit</button>
         </div>
     </div>
 <script src="view.js"></script>

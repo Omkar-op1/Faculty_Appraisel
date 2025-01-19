@@ -128,6 +128,33 @@ router.get('/get-details', async (req, res) => {
       }
       res.json({faculty});
   });
+  router.post('/reccomend', async (req, res) => {
+    const token = req.headers.authorization;
+    if (!token) {
+        return res.status(401).json({ error: 'No token, authorization denied' });
+    }
+      const decoded = jwt.verify(token, JWT_SECRET);
+      const user = decoded.userId;
+      const fdb = getdb(decoded.db);
+      const FacultyModel = Faculty(fdb);
+
+
+      const facultyId = req.query.facultyId;
+        const userId = facultyId; 
+        console.log(userId)
+      const faculty = await FacultyModel.findOne({ _id: userId});
+      if (!faculty) {
+        return res.status(404).json({ message: 'Faculty not found' });
+      }
+      console.log(faculty);
+      
+      faculty.recommendation=req.body.recommendation;
+      faculty.feedback=req.body.feedback;
+      const nf=await faculty.save();
+      console.log(nf);
+      return res.status(200).json({ message: 'done' });
+     
+  });
   router.get('/get-details2', async (req, res) => {
     const token = req.headers.authorization;
     if (!token) {
