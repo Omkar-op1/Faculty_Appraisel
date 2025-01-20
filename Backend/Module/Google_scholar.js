@@ -148,13 +148,15 @@ async function addResearchData(faculty, researchData) {
       const transformedData = {
         publication: researchData.title,
         document: researchData.link, 
-        scholar: true 
+        scholar: true ,
+        publicationType: 'Research Paper'
       };
   
       // Update the faculty document
       // const publicationExists = faculty.research.some(
       //   (pub) =>
-      //     pub.research === transformedData.research
+      //     pub.research === transformedData.resea
+      
       // );
     
       // if (!publicationExists) {
