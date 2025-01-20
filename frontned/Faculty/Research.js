@@ -55,6 +55,7 @@ async function fetchData() {
 }
 function populateTable(data) {
   const tableBody = document.getElementById('entriesTableBody');
+  let i=1;
   tableBody.innerHTML = '';
   data.forEach((entry, index) => {
     if(entry.publicationType==='Research Paper')
@@ -63,7 +64,7 @@ function populateTable(data) {
     console.log(entry._id);
     row.setAttribute('data-id', entry._id);
     row.innerHTML = `
-      <td>${index + 1}</td>
+      <td>${i}</td>
       <td>${entry.publication || 'N/A'}</td>
       <td>${entry.authorType || 'N/A'}</td>
       <td>${entry.category || 'N/A'}</td>
@@ -78,6 +79,7 @@ function populateTable(data) {
       </td>
     `;
     tableBody.appendChild(row);
+    i+=1;
    }
       });
  
@@ -85,6 +87,8 @@ function populateTable(data) {
 function populateTable1(data) {
   const tableBody = document.getElementById('entriesTableBody1');
   tableBody.innerHTML = '';
+  let i=1;
+
   data.forEach((entry, index) => {
     if(!(entry.publicationType==='Research Paper'))
     {
@@ -92,7 +96,7 @@ function populateTable1(data) {
     console.log(entry._id);
     row.setAttribute('data-id', entry._id);
     row.innerHTML = `
-      <td>${index + 1}</td>
+      <td>${i}</td>
       <td>${entry.publication || 'N/A'}</td>
       <td>${entry.publicationType || 'N/A'}</td>
       <td>${entry.publisherType || 'N/A'}</td>
@@ -102,13 +106,13 @@ function populateTable1(data) {
       <td>
        <button class="btn btn-danger btn-sm rounded-0" type="button" 
         data-toggle="tooltip" data-placement="top" title="Delete"
-        onclick="deleteEntry(${index})">
+        onclick="deleteEntry1(${i-1})">
     <i class="fa fa-trash"></i>
 </button>
       </td>
     `;
     tableBody.appendChild(row);
- 
+    i+=1;
     }
      });
 }
@@ -227,10 +231,52 @@ function toggleNotifications() {
   }
 }
 
+async function deleteEntry1(index) {
+  const tableBody = document.getElementById('entriesTableBody1');
+  const row = tableBody.rows[index];
+  const entryId = row.getAttribute('data-id'); // Ensure each row has a unique 'data-id' attribute
+
+  if (!entryId) {
+    alert('Unable to identify the entry to delete.');
+    return;
+  }
+
+  const confirmation = confirm('Are you sure you want to delete this entry?');
+  if (!confirmation) return;
+
+  try {
+    const response = await fetch(`http://localhost:5000/api/delete-details/${entryId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+        'type': t,
+
+      },
+    });
+
+    if (!response.ok) {
+      const errorBody = await response.json();
+      console.error('Error details:', errorBody);
+      const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    console.log('Delete response:', data);
+    alert('Entry deleted successfully!');
+
+    // Remove the row from the table
+    row.remove();
+  } catch (error) {
+    console.error('Error deleting entry:', error.message);
+    alert(`An error occurred: ${error.message}`);
+  }
+}
 async function deleteEntry(index) {
   const tableBody = document.getElementById('entriesTableBody');
   const row = tableBody.rows[index];
-  const entryId = row.getAttribute('data-id'); // Ensure each row has a unique 'data-id' attribute
+  const entryId = row.getAttribute('data-id');
 
   if (!entryId) {
     alert('Unable to identify the entry to delete.');
