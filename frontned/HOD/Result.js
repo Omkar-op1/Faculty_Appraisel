@@ -1,10 +1,22 @@
-const t=6;
+const t=4;
+
 document.addEventListener('DOMContentLoaded', () => {
+  // Fetch data when the page loads
   fetchData();
   getscore();
-
 });
 
+async function fetchdata1() {
+
+  const response = await fetch('http://localhost:5000/api/get-details', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  });
+
+}
 async function getscore() {
   const scorebox=document.getElementById('scoreObtained');
   try {
@@ -17,25 +29,15 @@ async function getscore() {
     });
     if (!response.ok) throw new Error('Failed to fetch data');
     const data = await response.json();
-    scorebox.value=data.faculty.D;
+    scorebox.value=data.faculty.C;
   } catch (error) {
     console.error('Error fetching data:', error);
   }
 
 }
-async function fetchdata1() {
-
-  const response = await fetch('http://localhost:5000/api/fetchg', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: token,
-    },
-  
-  });
-}
 async function fetchData() {
   try {
+    // Replace with your actual backend API endpoint
     const response = await fetch('http://localhost:5000/api/get-details', {
       method: 'GET',
       headers: {
@@ -45,10 +47,9 @@ async function fetchData() {
       },
     });
     if (!response.ok) throw new Error('Failed to fetch data');
+
     const data = await response.json();
-    console.log(data.key);
-    populateTable(data.key);
-    populateTable1(data.key) 
+    populateTable(data.key); 
   } catch (error) {
     console.error('Error fetching data:', error);
   }
@@ -56,21 +57,25 @@ async function fetchData() {
 function populateTable(data) {
   const tableBody = document.getElementById('entriesTableBody');
   tableBody.innerHTML = '';
+
   data.forEach((entry, index) => {
-    if(entry.publicationType==='Research Paper')
-    {
-      const row = document.createElement('tr');
-    console.log(entry._id);
+    const row = document.createElement('tr');
     row.setAttribute('data-id', entry._id);
+
+
     row.innerHTML = `
       <td>${index + 1}</td>
-      <td>${entry.publication || 'N/A'}</td>
-      <td>${entry.authorType || 'N/A'}</td>
-      <td>${entry.category || 'N/A'}</td>
-      <td>${entry.score || 'N/A'}</td>
-      <td><a href='${entry.document || 'N/A'}'>view</a></td>
+      <td>${entry.semester || 'N/A'}</td>
+      <td>${entry.subjectCode || 'N/A'}</td>
+      <td>${entry.subjectName || 'N/A'}</td>
+      <td>${entry.noRegisteredStudents || 'N/A'}</td>
+      <td>${entry.noPassedStudents || 'N/A'}</td>
+      <td>${entry.result || 'N/A'}</td>
+      <td>${entry.document || 'N/A'}</td>
+      <td class="score">${entry.score || 0}</td>
       <td>
-       <button class="btn btn-danger btn-sm rounded-0" type="button" 
+        
+        <button class="btn btn-danger btn-sm rounded-0" type="button" 
         data-toggle="tooltip" data-placement="top" title="Delete"
         onclick="deleteEntry(${index})">
     <i class="fa fa-trash"></i>
@@ -78,39 +83,7 @@ function populateTable(data) {
       </td>
     `;
     tableBody.appendChild(row);
-   }
-      });
- 
-}
-function populateTable1(data) {
-  const tableBody = document.getElementById('entriesTableBody1');
-  tableBody.innerHTML = '';
-  data.forEach((entry, index) => {
-    if(!(entry.publicationType==='Research Paper'))
-    {
-      const row = document.createElement('tr');
-    console.log(entry._id);
-    row.setAttribute('data-id', entry._id);
-    row.innerHTML = `
-      <td>${index + 1}</td>
-      <td>${entry.publication || 'N/A'}</td>
-      <td>${entry.publicationType || 'N/A'}</td>
-      <td>${entry.publisherType || 'N/A'}</td>
-      <td>${entry.authorType || 'N/A'}</td>
-      <td>${entry.score || 'N/A'}</td>
-      <td><a href='${entry.document || 'N/A'}'>view</a></td>
-      <td>
-       <button class="btn btn-danger btn-sm rounded-0" type="button" 
-        data-toggle="tooltip" data-placement="top" title="Delete"
-        onclick="deleteEntry(${index})">
-    <i class="fa fa-trash"></i>
-</button>
-      </td>
-    `;
-    tableBody.appendChild(row);
- 
-    }
-     });
+  });
 }
 // DOM Elements
 const modal = document.getElementById("modal");
@@ -118,47 +91,80 @@ const facultyForm = document.getElementById("facultyForm");
 const entriesTableBody = document.getElementById("entriesTableBody");
 const scoreObtained = document.getElementById("scoreObtained");
 const token = localStorage.getItem('authToken'); 
-// Points mapping for categories
+// Initialize table
+// function renderTable() {
+//   entriesTableBody.innerHTML = entries
+//     .map((entry, index) => {
+//       const result =
+//         entry.noRegisteredStudents > 0
+//           ? (entry.noPassedStudents / entry.noRegisteredStudents) * 100
+//           : 0;
 
+//       let points = 0;
+//       if (result >= 96) points = 10;
+//       else if (result >= 90) points = 9;
+//       else if (result >= 80) points = 8;
+//       else if (result >= 70) points = 7;
+//       else if (result >= 60) points = 6;
+//       else if (result >= 50) points = 5;
+//       else if (result >= 40) points = 4;
 
-// Render the table
+//       return `
+//         <tr>
+//           <td>${index + 1}</td>
+//           <td>${entry.semester}</td>
+//           <td>${entry.subjectCode}</td>
+//           <td>${entry.subjectName}</td>
+//           <td>${entry.noRegisteredStudents}</td>
+//           <td>${entry.noPassedStudents}</td>
+//           <td>${result.toFixed(2)}</td>
+//           <td><button class="view-btn" onclick="viewDocument(${entry.id})">View</button></td>
+//           <td>${points}</td>
+//           <td><button class="remove-btn" onclick="removeEntry(${entry.id})">Remove</button></td>
+//         </tr>
+//       `;
+//     })
+//     .join("");
 
+//   // Calculate final score
+//   calculateFinalScore();
+// }
 
-// Open modal
+// Modal functions
 function openModal() {
   modal.classList.remove("hidden");
 }
 
-// Close modal
 function closeModal() {
   modal.classList.add("hidden");
   resetForm();
 }
 
-// Handle category change
-function handleCategoryChange() {
-  const categorySelect = document.getElementById("categorySelect");
-  const customCategoryGroup = document.getElementById("customCategoryGroup");
-
-  if (categorySelect.value === "Other") {
-    customCategoryGroup.classList.remove("hidden");
-  } else {
-    customCategoryGroup.classList.add("hidden");
-    document.getElementById("customCategoryInput").value = ""; // Reset custom category input
+// Close modal when clicking outside
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    closeModal();
   }
-}
+});
 
-// Form submission
+// Form handling
 async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(event.target);
-  formData.append('t', '6');
+  formData.append('t', '4');
   const formDataObj = {};
-  
+
+  const noRegisteredStudents = parseInt(formData.get('noRegisteredStudents'));
+  const noPassedStudents = parseInt(formData.get('noPassedStudents'));
+
+  const result =calculateResult(noRegisteredStudents,noPassedStudents).toFixed(2);
+  const score=calculatescore(result);
       formData.forEach((value, key) => {
         formDataObj[key] = value;
       });
-
+      console.log(result);
+      formDataObj['score']=score;
+      formDataObj['result']=result;
       try {
         const response = await fetch('http://localhost:5000/api/add-details', {
           method: 'POST',
@@ -189,34 +195,67 @@ async function handleSubmit(event) {
         alert(`An error occurred: ${error.message}`);
       }
     
+  // const newEntry = {
+  //   id: entries.length + 1,
+  //   semester: formData.get("semester"),
+  //   subjectCode: formData.get("subjectCode"),
+  //   subjectName: formData.get("subjectName"),
+  //   noRegisteredStudents: parseInt(formData.get("noRegisteredStudents")) || 0,
+  //   noPassedStudents: parseInt(formData.get("noPassedStudents")) || 0,
+  // };
+
+  // entries.push(newEntry);
+  // renderTable();
   closeModal();
-  fetchData();
-  
 }
 
-// Reset form
 function resetForm() {
   facultyForm.reset();
 }
 
-
-// View document (placeholder)
-function viewDocument(id) {
-  alert("Document viewer will be implemented here");
+function removeEntry(id) {
+  if (confirm("Are you sure you want to remove this entry?")) {
+    entries = entries.filter((entry) => entry.id !== id);
+    renderTable();
+  }
 }
 
-// // Calculate final score
-// function calculateFinalScore() {
-//   let totalPoints = 0;
-
-//   entries.forEach((entry) => {
-//     totalPoints += categoryPoints[entry.category] || 0; // Add points for the selected category
-//   });
-
-//   // Cap the score at 10
-//   const finalScore = Math.min(totalPoints, 10); // Ensure total score does not exceed 10
-//   scoreObtained.value = finalScore.toFixed(2); // Display with two decimal points
+// function viewDocument(id) {
+//   alert("Document viewer will be implemented here");
 // }
+
+// // Calculate final score
+function calculateResult(noRegisteredStudents,noPassedStudents) {
+  let totalPoints = 0;
+
+    const result =
+      noRegisteredStudents > 0? (noPassedStudents / noRegisteredStudents) * 100: 0;
+
+    
+    
+  return result;
+
+
+}
+function calculatescore(result)
+{
+let points = 0;
+    if (result >= 96) points = 10;
+    else if (result >= 90) points = 9;
+    else if (result >= 80) points = 8;
+    else if (result >= 70) points = 7;
+    else if (result >= 60) points = 6;
+    else if (result >= 50) points = 5;
+    else if (result >= 40) points = 4;
+return points;
+}
+//   const finalScore =
+//     entries.length > 0 ? (totalPoints / (entries.length * 10)) * 10 : 0;
+//   scoreObtained.value = finalScore.toFixed(2);
+// }
+
+// // Initialize the table on page load
+// renderTable();
 
 function toggleNotifications() {
   const notificationSection = document.getElementById("notification-section");
@@ -267,35 +306,5 @@ async function deleteEntry(index) {
   } catch (error) {
     console.error('Error deleting entry:', error.message);
     alert(`An error occurred: ${error.message}`);
-  }
-}
-
-function toggleFields() {
-  const publicationType = document.getElementById("publication-type").value;
-  const authorDiv = document.getElementById("author-div");
-  const categoryDiv = document.getElementById("category-div");
-
-  // Show/Hide fields based on the publication type
-  if (publicationType === "Research Paper") {
-    authorDiv.style.display = "none";
-    categoryDiv.style.display = "block";
-  } else if (publicationType === "Book" || publicationType === "Book Chapter") {
-    categoryDiv.style.display = "none";
-    authorDiv.style.display = "block";
-  } else {
-    authorDiv.style.display = "block";
-    categoryDiv.style.display = "none";
-  }
-}
-
-function toggleOtherCategoryInput() {
-  const categorySelect = document.getElementById("category-select").value;
-  const otherCategoryDiv = document.getElementById("other-category-div");
-  
-  // Show the "Other" input field if "Other" is selected
-  if (categorySelect === "Other") {
-    otherCategoryDiv.style.display = "block";
-  } else {
-    otherCategoryDiv.style.display = "none";
   }
 }

@@ -23,6 +23,10 @@ router.get('/get-details', async (req, res) => {
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
       }
+      const institute = await Institute.findOne({ 'basicInfo.instituteName' :faculty.institute_name })
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found' });
+      }
       if (t==='0') {
        res.json({ key: faculty.teachingProcess });
       }
@@ -46,7 +50,7 @@ router.get('/get-details', async (req, res) => {
       }
       if(t==='7')
       {
-        res.json({ key: faculty });
+        res.json({ key: faculty , i:institute});
       }
   });
 

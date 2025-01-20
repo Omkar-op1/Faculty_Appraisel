@@ -245,6 +245,7 @@
 
 
 // module.exports= {updatescore}  
+const Institute=require('../Models/Institute')
 
 
 const calculateScoreForPercentage = (percentage, thresholds) => {
@@ -362,7 +363,7 @@ const updateScoreForFeedback = (faculty) => {
     // }
   });
 
-  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0));
+  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0))/2;
 };
 
 const updateScoreForActivities = (faculty) => {
@@ -415,7 +416,7 @@ const updateScoreForResultSummary = (faculty) => {
   });
   
 
-  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0));
+  return ((e>0?rscoree/e:0)+(o>0?rscoreo/o:0))/2;
 };
 
 const updateScoreForResearch = (faculty) => {
@@ -456,9 +457,17 @@ const updateScoreForResearch = (faculty) => {
 
 // Main function to update the scores
 const updateScore = async (faculty) => {
+
+
+  const institute = await Institute.findOne({ 'basicInfo.instituteName' :faculty.institute_name })
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found' });
+      }
   // Fetch weightage based on designation
   const designation = faculty.designation; // e.g., 'Prof', 'Asso', 'Assit'
-  const credits = faculty.credits[designation]; // Fetch the specific designation weightage
+
+
+  const credits = institute.credits[designation]; // Fetch the specific designation weightage
 
   // Update individual sections
   const { s1, s2, es1, es2 } = updateScoreForTeachingProcess(faculty);
@@ -471,10 +480,10 @@ const updateScore = async (faculty) => {
   const tscore = ((s1 + s2 + es1 + es2) *2.5) * (credits.A || 0);
   const weightedFscore = fscore * (credits.B || 0)*10;
   const weightedRscore = rscore*(credits.C || 0)*10;
-  const weightedRescore = Math.min(rescore ,credits.D*10);
-  const weightedDscore = Math.min(dscore ,credits.E*10);
-  const weightedIscore = Math.min(iscore ,credits.F*10);
-  const weightedCscore = Math.min(cscore ,credits.G*10);
+  const weightedRescore = Math.min(rescore ,credits.D*100);
+  const weightedDscore = Math.min(dscore ,credits.E*100);
+  const weightedIscore = Math.min(iscore ,credits.F*100);
+  const weightedCscore = Math.min(cscore ,credits.G*100);
 
   // Calculate the total weighted score
   const totalScore =

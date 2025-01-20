@@ -61,6 +61,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       password,
       scholarid,
       role,
+      institute_name
 
     });
     const savedFaculty = await newFaculty.save();
