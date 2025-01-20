@@ -831,3 +831,7 @@ th {
   border-radius: 6px;
   margin-right: 5px;
 }
+.header{
+  align-items: center;
+  
+}

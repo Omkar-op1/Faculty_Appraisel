@@ -1,8 +1,8 @@
 
 :root {
   /* Updated Color Palette */
-  --primary-color: #201E43;
-  --secondary-color: #134B70;
+  --primary-color: #263A6D;
+  --secondary-color: #3498DB;
   --accent-color: #508C9B;
   --background-light: #EEEEEE;
   --text-dark: #201E43;
@@ -60,7 +60,7 @@ body {
 
 /* Navigation Redesign */
 .navigation {
-  background-color: var(--primary-color);
+  background-color:#263A6D;
   padding: 0.75rem 2rem;
 }
 
@@ -692,66 +692,14 @@ th {
         font-size: 13px;
     }
 }
-/* CSS from the provided stylesheet */
-        :root {
-            --primary-color: #201E43;
-            --secondary-color: #134B70;
-            --accent-color: #508C9B;
-            --background-light: #EEEEEE;
-            --text-dark: #201E43;
-            --white: #FFFFFF;
-            --border-color: #C0C0C0;
-        }
 
-        /* Include the entire CSS from the provided document */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Include the rest of the CSS from the document */
-        /* [Rest of the CSS from the document] */
-
-        /* Additional styling for the welcome section */
-        .welcome {
-            max-width: 800px;
-            margin: 2rem auto;
-            padding: 2rem;
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .welcome p {
-            margin-bottom: 1rem;
-        }
-
-        .welcome ul {
-            list-style-type: none;
-            padding-left: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .welcome ul li {
-            margin-bottom: 0.5rem;
-        }
-
-        .welcome ul li a {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        .welcome ul li a:hover {
-            text-decoration: underline;
-        }
-        .header{
-          align-items: center;
-        }
+:root {
+  /* Updated Color Palette */
+  --primary-color: #201E43;
+  --secondary-color: #134B70;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
+  --white: #FFFFFF;
+  --border-color: #C0C0C0;
+}
