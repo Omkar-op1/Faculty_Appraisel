@@ -30,41 +30,36 @@ body {
   flex-direction: column;
 }
 
-header {
+.header {
   background-color: var(--white);
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.header-content {
-  max-width: 1200px;
-  margin: 0 auto;
+.header-logo {
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.logo-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.govt-logo {
-  width: 60px;
-  height: auto;
+.emblem {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .header-text h1 {
-  font-size: 1.5rem;
   color: var(--primary-color);
+  font-size: 1.5rem;
   font-weight: 700;
 }
 
 .header-text h2 {
-  font-size: 1.2rem;
   color: var(--secondary-color);
+  font-size: 1rem;
   font-weight: 500;
 }
 
