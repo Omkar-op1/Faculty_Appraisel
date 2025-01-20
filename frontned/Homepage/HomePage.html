@@ -10,6 +10,8 @@
   <link rel="alternate" href="https://example.com/en/" hreflang="en">
   <link rel="alternate" href="https://example.com/hi/" hreflang="hi">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
   <style>
     #wel {
       height: 50px; 
@@ -369,10 +371,23 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 });
+
+
+
+var typed = new Typed("#wel", {
+  strings: ["Welcome to the Faculty Appraisal System"],
+  typeSpeed: 100, // Speed of typing
+  backSpeed: 70, // Speed of backspacing
+  loop: true,    // Loop the animation
+  showCursor: true, // Show blinking cursor
+});
+</script>
 </script>
 
 
 
-  <script src="chatbot.js"></script>
+  <script src="chatbot.js">
+
+  </script>
 </body>
 </html>
