@@ -7,75 +7,75 @@ document.addEventListener('DOMContentLoaded', () => {
 const token = localStorage.getItem('authToken'); 
 
 
-  async function download(index) {
-    const tableBody = document.getElementById('facultyTableBody');
-        const row = tableBody.rows[index];
-        const entryId = row.getAttribute('data-id');
+  // async function download(index) {
+  //   const tableBody = document.getElementById('facultyTableBody');
+  //       const row = tableBody.rows[index];
+  //       const entryId = row.getAttribute('data-id');
 
-        const controller = new AbortController(); const signal = controller.signal; const timeout = setTimeout(() => controller.abort(), 30000);
+  //       const controller = new AbortController(); const signal = controller.signal; const timeout = setTimeout(() => controller.abort(), 30000);
   
-        // try {
-          const response = await fetch(`http://localhost:5000/api/download/${entryId}`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              Authorization: token,
-            }, 
-          });
+  //       // try {
+  //         const response = await fetch(`http://localhost:5000/api/download/${entryId}`, {
+  //           method: 'POST',
+  //           headers: {
+  //             'Content-Type': 'application/json',
+  //             Authorization: token,
+  //           }, 
+  //         });
 
-            // Option 1: Fetch API Method
-            fetch(`http://localhost:5000/api/download/${entryId}`)
-              .then(response => {
-                // Check if the response is successful
-                if (!response.ok) {
-                  throw new Error('Network response was not ok');
-                }
-                return response.blob();
-              })
-              .then(blob => {
-                // Create a link element
-                const link = document.createElement('a');
+  //           // Option 1: Fetch API Method
+  //           fetch(`http://localhost:5000/api/download/${entryId}`)
+  //             .then(response => {
+  //               // Check if the response is successful
+  //               if (!response.ok) {
+  //                 throw new Error('Network response was not ok');
+  //               }
+  //               return response.blob();
+  //             })
+  //             .then(blob => {
+  //               // Create a link element
+  //               const link = document.createElement('a');
                 
-                // Create a blob URL
-                const url = window.URL.createObjectURL(blob);
+  //               // Create a blob URL
+  //               const url = window.URL.createObjectURL(blob);
                 
-                // Set link attributes
-                link.href = url;
-                link.download = 'document.pdf';
+  //               // Set link attributes
+  //               link.href = url;
+  //               link.download = 'document.pdf';
                 
-                // Append to body, click, and remove
-                document.body.appendChild(link);
-                link.click();
+  //               // Append to body, click, and remove
+  //               document.body.appendChild(link);
+  //               link.click();
                 
-                // Clean up
-                document.body.removeChild(link);
-                window.URL.revokeObjectURL(url);
-              })
-              .catch(error => {
-                console.error('Download error:', error);
-                // Optionally show user-friendly error message
-                alert('Failed to download PDF');
-              });
+  //               // Clean up
+  //               document.body.removeChild(link);
+  //               window.URL.revokeObjectURL(url);
+  //             })
+  //             .catch(error => {
+  //               console.error('Download error:', error);
+  //               // Optionally show user-friendly error message
+  //               alert('Failed to download PDF');
+  //             });
       
 
-          clearTimeout(timeout);
-          if (!response.ok) {
-            const errorBody = await response.json();
-            console.error('Error details:', errorBody);
-            const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
-            throw new Error(errorMessage);
-          }
+  //         clearTimeout(timeout);
+  //         if (!response.ok) {
+  //           const errorBody = await response.json();
+  //           console.error('Error details:', errorBody);
+  //           const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+  //           throw new Error(errorMessage);
+  //         }
       
-          const blob = await response.blob(); 
-          const url = window.URL.createObjectURL(blob); 
-          const a = document.createElement('a'); 
-          a.href = url; 
-          a.download = `Faculty_Report_${entryId}.pdf`;  
-          document.body.appendChild(a); 
-          a.click();
-          a.remove();
+  //         const blob = await response.blob(); 
+  //         const url = window.URL.createObjectURL(blob); 
+  //         const a = document.createElement('a'); 
+  //         a.href = url; 
+  //         a.download = `Faculty_Report_${entryId}.pdf`;  
+  //         document.body.appendChild(a); 
+  //         a.click();
+  //         a.remove();
   
-        }
+  //       }
       
   
 // Fetch data and populate table
@@ -117,7 +117,9 @@ const token = localStorage.getItem('authToken');
         <td> <button class="view-btn" data-id="${faculty.facultyId}   )""><a href="view.html?facultyid=${faculty._id}">View</a></button></td>
         <td>${faculty.total || "-"}</td>
         <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
-         <td><span class="status-badge status-pending">pending</span></td>
+          <td><span class="status-badge ${faculty.fr ? 'status-endorsed' : 'status-pending'}">
+        ${faculty.fr ? 'Endrose' : 'pending'}
+      </span></td>
        <td>
                     <button class="download-btn"  >
                         <i class="fas fa-download"></i>
@@ -147,3 +149,72 @@ const token = localStorage.getItem('authToken');
   // Fetch data when the page loads
   fetchFacultyData();
 
+  async function download(index) {
+    const tableBody = document.getElementById('facultyTableBody');
+        const row = tableBody.rows[index];
+        const entryId = row.getAttribute('data-id');
+
+        const controller = new AbortController(); const signal = controller.signal; const timeout = setTimeout(() => controller.abort(), 30000);
+  
+        // try {
+          const response = await fetch(`http://localhost:5000/api/download/${entryId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: token,
+            }, 
+          });
+
+            // Option 1: Fetch API Method
+            // fetch(`http://localhost:5000/api/download/${entryId}`)
+            //   .then(response => {
+            //     // Check if the response is successful
+            //     if (!response.ok) {
+            //       throw new Error('Network response was not ok');
+            //     }
+            //     return response.blob();
+            //   })
+            //   .then(blob => {
+            //     // Create a link element
+            //     const link = document.createElement('a');
+                
+            //     // Create a blob URL
+            //     const url = window.URL.createObjectURL(blob);
+                
+            //     // Set link attributes
+            //     link.href = url;
+            //     link.download = 'document.pdf';
+                
+            //     // Append to body, click, and remove
+            //     document.body.appendChild(link);
+            //     link.click();
+                
+            //     // Clean up
+            //     document.body.removeChild(link);
+            //     window.URL.revokeObjectURL(url);
+            //   })
+            //   .catch(error => {
+            //     console.error('Download error:', error);
+            //     // Optionally show user-friendly error message
+            //     alert('Failed to download PDF');
+            //   });
+      
+
+          clearTimeout(timeout);
+          if (!response.ok) {
+            const errorBody = await response.json();
+            console.error('Error details:', errorBody);
+            const errorMessage = errorBody.error || errorBody.message || `Error: ${response.status} - ${response.statusText}`;
+            throw new Error(errorMessage);
+          }
+      
+          const blob = await response.blob(); 
+          const url = window.URL.createObjectURL(blob); 
+          const a = document.createElement('a'); 
+          a.href = url; 
+          a.download = `Faculty_Report_${entryId}.pdf`;  
+          document.body.appendChild(a); 
+          a.click();
+          a.remove();
+  
+        }

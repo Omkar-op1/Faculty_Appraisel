@@ -80,13 +80,19 @@ router.post('/download/:facultyId', async (req, res) => {
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
         const user = decoded.userId;
-
+        let instituteName;
         const institute = await Institute.findOne({ _id: user });
         if (!institute) {
-            return res.status(404).json({ error: 'Institute not found' });
+            const fdb = getdb(decoded.db);
+            const FacultyModel = Faculty(fdb);
+            const faculty = await FacultyModel.findOne({ _id: user});
+             instituteName = faculty.institute_name;
+        }
+        else
+        {
+             instituteName = institute.basicInfo.instituteName;
         }
 
-        const instituteName = institute.basicInfo.instituteName;
         const facultyData = await getFacultyData(facultyId, instituteName);
 
         const filePath = await generatePDF(facultyData);
