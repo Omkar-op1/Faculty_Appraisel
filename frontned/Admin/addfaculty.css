@@ -1,18 +1,14 @@
-/* Updated CSS with Enhanced Theme */
 
 :root {
-    --primary-color: #1A365D;
-    --secondary-color: #2C5282;
-    --accent-color: #3182CE;
-    --background-light: #F7FAFC;
-    --text-dark: #2D3748;
-    --white: #FFFFFF;
-    --border-color: #E2E8F0;
-    --gradient-start: #2C5282;
-    --gradient-end: #3182CE;
-    --error-color: #E53E3E;
+  /* Updated Color Palette */
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
+  --white: #FFFFFF;
+  --border-color: #C0C0C0;
 }
-
 * {
     margin: 0;
     padding: 0;
@@ -204,17 +200,6 @@ main {
   .other-input {
     margin-top: 0.5rem;
   }
-  :root {
-  /* Color Palette */
-  --primary-color: #263A6D;
-  --secondary-color: #3498DB;
-  --accent-color: #27AE60;
-  --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
-  --white: #FFFFFF;
-  --border-color: #E0E0E0;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -227,17 +212,6 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
 }
-:root {
-  /* Color Palette */
-  --primary-color: #2C3E50;
-  --secondary-color: #3498DB;
-  --accent-color: #27AE60;
-  --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
-  --white: #FFFFFF;
-  --border-color: #E0E0E0;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -661,14 +635,4 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-:root {
-  /* Updated Color Palette */
-  --primary-color: #201E43;
-  --secondary-color: #134B70;
-  --accent-color: #508C9B;
-  --background-light: #EEEEEE;
-  --text-dark: #201E43;
-  --white: #FFFFFF;
-  --border-color: #C0C0C0;
 }

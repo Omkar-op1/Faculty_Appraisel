@@ -1,13 +1,15 @@
+
 :root {
-  /* Color Palette */
-  --primary-color: #263A6D;
-  --secondary-color: #3498DB;
-  --accent-color: #27AE60;
-  --background-light: #F4F6F7;
-  --text-dark: #2C3E50;
+  /* Updated Color Palette */
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
   --white: #FFFFFF;
-  --border-color: #E0E0E0;
+  --border-color: #C0C0C0;
 }
+
 
 * {
   margin: 0;
@@ -449,14 +451,6 @@ body {
     width: 16px;
     height: 16px;
   }
-}
-
-:root {
-  /* Additional color variables for the appraisal section */
-  --appraisal-primary: #263A6D;
-  --appraisal-secondary: #3498DB;
-  --appraisal-accent: #27AE60;
-  --appraisal-background: #F4F6F7;
 }
 
 .appraisal-section {

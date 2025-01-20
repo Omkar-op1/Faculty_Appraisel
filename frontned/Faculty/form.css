@@ -1,14 +1,16 @@
 
+
 :root {
   /* Updated Color Palette */
-  --primary-color: #201E43;
-  --secondary-color: #134B70;
+  --primary-color: #102b70;
+  --secondary-color: #315a8be7;
   --accent-color: #508C9B;
   --background-light: #EEEEEE;
   --text-dark: #201E43;
   --white: #FFFFFF;
   --border-color: #C0C0C0;
 }
+
 
   * {
     margin: 0;
@@ -631,16 +633,3 @@
     position: relative;
     cursor: pointer;
   }
-  
-  /* .notification-badge {
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 3px 6px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 12px;
-  } */
-  
-  
