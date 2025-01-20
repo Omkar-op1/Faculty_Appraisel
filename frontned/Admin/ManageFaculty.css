@@ -969,7 +969,7 @@ th {
     display: flex;
     justify-content: center; /* Centers cards horizontally */
     align-items: center; /* Centers cards vertically */
-    gap: 40px; /* Space between cards */
+    gap: 140px; /* Space between cards */
     margin: 50px auto; /* Top and bottom margin, auto left-right for centering */
     max-width: 1200px; /* Maximum width of the container */
 }
