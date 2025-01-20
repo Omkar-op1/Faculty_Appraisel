@@ -1,16 +1,14 @@
 /* Updated CSS with Enhanced Theme */
 
 :root {
-  --primary-color: #1A365D;
-  --secondary-color: #2C5282;
-  --accent-color: #3182CE;
-  --background-light: #F7FAFC;
-  --text-dark: #2D3748;
+  /* Updated Color Palette */
+  --primary-color: #201E43;
+  --secondary-color: #134B70;
+  --accent-color: #508C9B;
+  --background-light: #EEEEEE;
+  --text-dark: #201E43;
   --white: #FFFFFF;
-  --border-color: #E2E8F0;
-  --gradient-start: #2C5282;
-  --gradient-end: #3182CE;
-  --error-color: #E53E3E;
+  --border-color: #C0C0C0;
 }
 
 * {
@@ -30,36 +28,41 @@ body {
   flex-direction: column;
 }
 
-.header {
+header {
   background-color: var(--white);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
-.header-logo {
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   gap: 1.5rem;
 }
 
-.emblem {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.govt-logo {
+  width: 60px;
+  height: auto;
 }
 
 .header-text h1 {
-  color: var(--primary-color);
   font-size: 1.5rem;
+  color: var(--primary-color);
   font-weight: 700;
 }
 
 .header-text h2 {
+  font-size: 1.2rem;
   color: var(--secondary-color);
-  font-size: 1rem;
   font-weight: 500;
 }
 
