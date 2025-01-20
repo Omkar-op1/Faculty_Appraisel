@@ -6,7 +6,7 @@
     <title>Faculty Profile System - Government of NCT Delhi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-     <link rel="stylesheet" href="TimeLine.css">
+     <link rel="stylesheet" href="SetCredit.css">
 </head>
 <body>
    
@@ -57,12 +57,9 @@
   </nav>
   
   <div class="breadcrumb">
-    <h2 class="report">Time Line</h2>  
+    <h2 class="report">Set TimeLine </h2>  
 </div>
-    
-
-    
-    <div class="container">
+<div class="container">
         <form id="appraisalForm">
             <label for="start-time">Set Start Time:</label>
             <input type="datetime-local" id="start-time" name="start-time" required>
@@ -75,31 +72,63 @@
         </form>
         <div class="message" id="message"></div>
     </div>
+    <div class="breadcrumb">
+    <h2 class="report">Set Credit</h2>  
+</div>
+    <div class="container">
+        <section class="performance-section" id="teaching-process">
+            <div class="section-header">
+                <h3>Teaching Process</h3>
+                <div class="score-badge" id="teaching-score">0</div>
+            </div>
+            <label for="teaching-credit">Set Credit:</label>
+            <input type="number" id="teaching-credit" min="0" max="100" placeholder="Enter credit (0-100)">
+            <button onclick="setCredit('teaching')">Save Credit</button>
+        </section>
 
+        <section class="performance-section" id="feedback-section">
+            <div class="section-header">
+                <h3>Student Feedback</h3>
+                <div class="score-badge" id="feedback-score">0</div>
+            </div>
+            <label for="feedback-credit">Set Credit:</label>
+            <input type="number" id="feedback-credit" min="0" max="100" placeholder="Enter credit (0-100)">
+            <button onclick="setCredit('feedback')">Save Credit</button>
+        </section>
+
+        <section class="performance-section" id="research-section">
+            <div class="section-header">
+                <h3>Research & Publications</h3>
+                <div class="score-badge" id="research-score">0</div>
+            </div>
+            <label for="research-credit">Set Credit:</label>
+            <input type="number" id="research-credit" min="0" max="100" placeholder="Enter credit (0-100)">
+            <button onclick="setCredit('research')">Save Credit</button>
+        </section>
+
+        <section class="performance-section" id="institutional-section">
+            <div class="section-header">
+                <h3>Institutional & Societal Contributions</h3>
+                <div class="score-badge" id="institutional-score">0</div>
+            </div>
+            <label for="institutional-credit">Set Credit:</label>
+            <input type="number" id="institutional-credit" min="0" max="100" placeholder="Enter credit (0-100)">
+            <button onclick="setCredit('institutional')">Save Credit</button>
+        </section>
+    </div>
+           
+        </section>
         <script>
-         function startAppraisal() {
-            const startTime = document.getElementById('start-time').value;
-            const message = document.getElementById('message');
+        function setCredit(section) {
+            const creditInput = document.getElementById(`${section}-credit`);
+            const creditScore = document.getElementById(`${section}-score`);
+            const creditValue = parseInt(creditInput.value);
 
-            if (startTime) {
-                message.textContent = `Appraisal process started at ${new Date(startTime).toLocaleString()}.`;
-                message.className = "message success";
+            if (!isNaN(creditValue) && creditValue >= 0 && creditValue <= 100) {
+                creditScore.textContent = creditValue;
+                alert(`${section.replace(/-/g, ' ')} credit set to ${creditValue}.`);
             } else {
-                message.textContent = 'Please set a valid start time.';
-                message.className = "message error";
-            }
-        }
-
-        function endAppraisal() {
-            const endTime = document.getElementById('end-time').value;
-            const message = document.getElementById('message');
-
-            if (endTime) {
-                message.textContent = `Appraisal process ended at ${new Date(endTime).toLocaleString()}.`;
-                message.className = "message success";
-            } else {
-                message.textContent = 'Please set a valid end time.';
-                message.className = "message error";
+                alert('Please enter a valid credit value (0-100).');
             }
         }
     </script>
