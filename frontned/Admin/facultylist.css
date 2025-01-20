@@ -565,6 +565,7 @@ tbody tr:hover {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .download-btn {

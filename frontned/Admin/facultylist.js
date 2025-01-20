@@ -13,7 +13,7 @@ const token = localStorage.getItem('authToken');
         const entryId = row.getAttribute('data-id');
 
         const controller = new AbortController(); const signal = controller.signal; const timeout = setTimeout(() => controller.abort(), 30000);
-  
+   
         // try {
           const response = await fetch(`http://localhost:5000/api/download/${entryId}`, {
             method: 'POST',
@@ -114,7 +114,7 @@ const token = localStorage.getItem('authToken');
         <td>${faculty.firstName} ${faculty.lastName}</td>
         <td>${faculty.facultyId}</td>
         <td> <button class="view-btn" data-id="${faculty.facultyId}"><a href="view.html?facultyid=${faculty._id}">View</a></button></td>
-        <td>${faculty.score || "-"}</td>
+        <td>${faculty.total || "-"}</td>
         <td>${new Date(faculty.createdAt).toLocaleDateString()}</td>
          <td><span class="status-badge ${faculty.fr ? 'status-endorsed' : 'status-pending'}">
         ${faculty.fr ? 'Endrose' : 'pending'}

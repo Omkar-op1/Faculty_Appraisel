@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Appraisal System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="facultylist.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+          <div class="header-text">
+          <h1>Government of National Capital Territory of Delhi</h1>
+            <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+          </div>
+        </div>
+      </header>
+    
+     <nav class="navigation">
+        <div class="nav-content">
+          <ul class="nav-links">
+            <li><a href="AdminHomepage.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="AdminProfile.html" ><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="ManageFaculty.html" class="active"><i class="fas fa-file-alt"></i> Manage Faculty</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Create Appraisal Forms</a></li>
+                    <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+                    <li><a href="ImportantLinks.html"><i class="fas fa-link"></i> Important Links</a></li>
+          </ul>
+          <div class="user-section">
+            <div class="profile-container">
+              <div class="profile-info">
+                <img src="profile.png" alt="Profile" class="profile-icon">
+                <span class="profile-name"></span>
+                <i class="fas fa-chevron-down dropdown-icon"></i>
+              </div>
+              
+              <div class="profile-dropdown hidden">
+                <ul>
+                  <li><a href="FacultyProfilePage.html"><i class="fas fa-user"></i> View Profile</a></li>
+                  <li><a href=""><i class="fas fa-cog"></i> Settings</a></li>
+                  <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="notification-bell">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">3</span>
+            </div>
+          </div>     
+        </div>
+      </nav>
+     
+        </header>
+    
+    <main>
+        <!-- Status Bar -->
+        <section class="status-bar">
+            <div class="status-item">
+                <i class="fas fa-calendar-check"></i>
+                <div class="status-info">
+                    <h4>Current Period</h4>
+                    <p>2024-2025</p>
+                </div>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-hourglass-half"></i>
+                <div class="status-info">
+                    <h4>Time Remaining</h4>
+                    <p id="countdown">30 days</p>
+                </div>
+            </div>
+            <div class="status-item">
+                <i class="fas fa-chart-pie"></i>
+                <div class="status-info">
+                    <h4>Completion Status</h4>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="quick-actions">
+            <h2><i class="fas fa-bolt"></i> Quick Actions</h2>
+            <div class="action-cards">
+                <div class="action-card primary">
+                    <div class="card-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Start Appraisal</h3>
+                        <p>Begin your annual evaluation process</p>
+                        <button onclick="startAppraisal()" class="btn-primary">
+                            <i class="fas fa-arrow-right"></i> Begin Process
+                        </button>
+                    </div>
+                </div>
+                <div class="action-card warning">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Set Deadline</h3>
+                        <p>Choose submission deadline</p>
+                        <div class="date-input">
+                            <input type="date" id="deadlineDate" class="styled-date">
+                            <button onclick="setDeadline()" class="btn-warning">Set Date</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="action-card info">
+                    <div class="card-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Credit Settings</h3>
+                        <p>Adjust section weightages</p>
+                        <button onclick="openCreditSettings()" class="btn-info">
+                            <i class="fas fa-sliders-h"></i> Manage Credits
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Appraisal Sections -->
+        <section class="appraisal-sections">
+            <h2><i class="fas fa-tasks"></i> Appraisal Components</h2>
+            <div class="sections-grid" id="sectionsGrid"></div>
+        </section>
+
+        <!-- Credit Settings Modal -->
+        <div id="creditModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-balance-scale"></i> Credit Allocation Settings</h2>
+                    <span class="close">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="total-credits">
+                        <span>Total Credits: </span>
+                        <span id="totalCredits">100</span>
+                    </div>
+                    <div id="creditSettings"></div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="saveCreditSettings()" class="btn-success">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f0f2f5;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #1a237e;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status-item i {
+            font-size: 2rem;
+            color: #1a237e;
+        }
+
+        .status-info h4 {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .status-info p {
+            color: #1a237e;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            margin-top: 0.5rem;
+        }
+
+        .progress {
+            height: 100%;
+            background: #4caf50;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        /* Action Cards */
+        .action-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        /* Section specific colors */
+        .primary {
+            border-left: 4px solid #1a237e;
+        }
+
+        .primary .card-icon {
+            background: #1a237e;
+        }
+
+        .warning {
+            border-left: 4px solid #f57c00;
+        }
+
+        .warning .card-icon {
+            background: #f57c00;
+        }
+
+        .info {
+            border-left: 4px solid #0288d1;
+        }
+
+        .info .card-icon {
+            background: #0288d1;
+        }
+
+        /* Buttons */
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #1a237e;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #151b60;
+        }
+
+        .btn-warning {
+            background: #f57c00;
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background: #e65100;
+        }
+
+        .btn-info {
+            background: #0288d1;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background: #01579b;
+        }
+
+        .btn-success {
+            background: #2e7d32;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #1b5e20;
+        }
+
+        /* Sections Grid */
+        .sections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .section-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a237e;
+        }
+
+        .section-info {
+            flex: 1;
+        }
+
+        .section-info h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .credits-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #e3f2fd;
+            color: #1a237e;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            background: #1a237e;
+            color: white;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-footer {
+            padding: 1.5rem;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .close {
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .credit-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .credit-input input {
+            width: 80px;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .total-credits {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+            color: #1a237e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            main {
+                padding: 1rem;
+            }
+
+            .action-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .card-icon {
+                margin: 0 auto;
+            }
+
+            .section-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-icon {
+                margin: 0 auto;
+            }
+        }
+    </style>
+    [Previous HTML and CSS code remains the same until the script section...]
+
+    <script>
+        // Appraisal sections data
+        const sections = [
+            { id: 'A', title: 'Teaching Process', credits: 30, icon: 'fas fa-chalkboard-teacher', color: '#1a237e' },
+            { id: 'B', title: 'Student Feedback', credits: 20, icon: 'fas fa-users', color: '#0288d1' },
+            { id: 'C', title: 'Result', credits: 25, icon: 'fas fa-flask', color: '#7b1fa2' },
+            { id: 'D', title: 'Research & Publications ', credits: 10, icon: 'fas fa-tasks', color: '#c62828' },
+            { id: 'E', title: 'Departmental Activites', credits: 5, icon: 'fas fa-graduation-cap', color: '#2e7d32' },
+            { id: 'F', title: 'Institutional Activites', credits: 5, icon: 'fas fa-hands-helping', color: '#f57c00' },
+            { id: 'G', title: 'Contribution society', credits: 5, icon: 'fas fa-award', color: '#00838f' }
+        ];
+    
+        // Initialize sections grid
+        function initializeSections() {
+            const grid = document.getElementById('sectionsGrid');
+            grid.innerHTML = sections.map(section => `
+                <div class="section-card" )" style="border-left: 4px solid ${section.color}">
+                    <div class="section-icon" style="color: ${section.color}">
+                        <i class="${section.icon}"></i>
+                    </div>
+                    <div class="section-info">
+                        <h3>${section.title}</h3>
+                        <span class="credits-badge">${section.credits} Credits</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+    
+        // Handle opening specific section
+        function openSection(sectionId) {
+            const section = sections.find(s => s.id === sectionId);
+            alert(`Opening Section ${sectionId}: ${section.title}\nThis would typically open the detailed form for this section.`);
+        }
+    
+        // Start appraisal process
+        function startAppraisal() {
+            const confirmed = confirm('Starting a new appraisal process will reset any existing progress. Would you like to continue?');
+            if (confirmed) {
+                // Add your appraisal initialization logic here
+                document.querySelector('.progress').style.width = '0%';
+                updateCountdown();
+                showNotification('Appraisal process started successfully!', 'success');
+            }
+        }
+    
+        // Set deadline
+        function setDeadline() {
+            const deadlineInput = document.getElementById('deadlineDate');
+            const deadline = deadlineInput.value;
+            
+            if (!deadline) {
+                showNotification('Please select a valid date', 'error');
+                return;
+            }
+    
+            const deadlineDate = new Date(deadline);
+            const today = new Date();
+            
+            if (deadlineDate <= today) {
+                showNotification('Deadline must be a future date', 'error');
+                return;
+            }
+    
+            // Update countdown
+            updateCountdown(deadlineDate);
+            showNotification('Deadline set successfully!', 'success');
+        }
+    
+        // Update countdown timer
+        function updateCountdown(deadlineDate = null) {
+            if (!deadlineDate) {
+                deadlineDate = new Date();
+                deadlineDate.setDate(deadlineDate.getDate() + 30); // Default 30 days
+            }
+    
+            const today = new Date();
+            const timeLeft = Math.ceil((deadlineDate - today) / (1000 * 60 * 60 * 24));
+            document.getElementById('countdown').textContent = `${timeLeft} days`;
+        }
+    
+        // Credit settings modal
+        const modal = document.getElementById('creditModal');
+        const closeBtn = document.getElementsByClassName('close')[0];
+    
+        function openCreditSettings() {
+            const settingsContainer = document.getElementById('creditSettings');
+            settingsContainer.innerHTML = sections.map(section => `
+                <div class="credit-input">
+                    <label>
+                        <i class="${section.icon}" style="color: ${section.color}"></i>
+                        Section ${section.id}: ${section.title}
+                    </label>
+                    <input type="number" 
+                           id="credit-${section.id}" 
+                           value="${section.credits}" 
+                           min="0" 
+                           max="100" 
+                           onchange="updateTotalCredits()">
+                </div>
+            `).join('');
+            modal.style.display = 'block';
+            updateTotalCredits();
+        }
+    
+        // Update total credits
+        function updateTotalCredits() {
+            let total = 0;
+            sections.forEach(section => {
+                const input = document.getElementById(`credit-${section.id}`);
+                total += parseInt(input.value) || 0;
+            });
+            
+            const totalElement = document.getElementById('totalCredits');
+            totalElement.textContent = total;
+            totalElement.style.color = total === 100 ? '#2e7d32' : '#c62828';
+        }
+    
+        // Save credit settings
+        function saveCreditSettings() {
+            let total = 0;
+            const newCredits = {};
+    
+            sections.forEach(section => {
+                const input = document.getElementById(`credit-${section.id}`);
+                const credits = parseInt(input.value) || 0;
+                total += credits;
+                newCredits[section.id] = credits;
+            });
+    
+            if (total !== 100) {
+                showNotification('Total credits must equal 100', 'error');
+                return;
+            }
+    
+            // Update sections with new credits
+            sections.forEach(section => {
+                section.credits = newCredits[section.id];
+            });
+    
+            // Refresh the display
+            initializeSections();
+            modal.style.display = 'none';
+            showNotification('Credit settings saved successfully!', 'success');
+        }
+    
+        // Notification system
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+    
+            // Remove notification after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    
+        // Modal event listeners
+        closeBtn.onclick = function() {
+            modal.style.display = 'none';
+        }
+    
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    
+        // Add notification styles dynamically
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem;
+                border-radius: 8px;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                z-index: 1000;
+                animation: slideIn 0.3s ease-out;
+            }
+    
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+    
+            .notification.success {
+                border-left: 4px solid #2e7d32;
+            }
+    
+            .notification.success i {
+                color: #2e7d32;
+            }
+    
+            .notification.error {
+                border-left: 4px solid #c62828;
+            }
+    
+            .notification.error i {
+                color: #c62828;
+            }
+    
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyles);
+    
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeSections();
+            updateCountdown();
+        });
+    </script>
+    
+    </body>
+    </html>
