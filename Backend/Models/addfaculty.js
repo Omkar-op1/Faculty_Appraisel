@@ -24,16 +24,17 @@ const FacultySchema = new mongoose.Schema({
   areasOfSpecialization: { type: [String] },
   scholarid:{ type: String },
   role:{type:String},
+  institute_name:{type:String},
   experiences: { type: Number, min: 0 },
   employeeType: { type: String, enum: ['Permanent', 'Contract', 'Part-Time'], trim: true },
   password: { type: String },
-    t:{type:Number, default:0},
-    f:{type:Number, default:0},
-    d:{type:Number, default:0},
-    i:{type:Number, default:0},
-    r:{type:Number, default:0},
-    p:{type:Number, default:0},
-    c:{type:Number, default:0},
+    A:{type:Number, default:0},
+    B:{type:Number, default:0},
+    E:{type:Number, default:0},
+    F:{type:Number, default:0},
+    C:{type:Number, default:0},
+    D:{type:Number, default:0},
+    G:{type:Number, default:0},
     total:{type:Number, default:0},
   teachingProcess: [{
     semester: { type: String },
@@ -89,8 +90,12 @@ const FacultySchema = new mongoose.Schema({
   }],
 
   research: [{
+
     research: { type: String },
-    publicationName: { type: String },
+    publicationType: { type: String },
+    publisherType: { type: String },
+    publication: { type: String },
+    authorType: { type: String },
     category: { type: String },
     document: { type: String },
     score: { type: Number},
@@ -106,6 +111,9 @@ const FacultySchema = new mongoose.Schema({
   }],
 
   recommendation: { type: String, trim: true },
+  recommendedby: { type: String, trim: true },
+  fr:{type:Boolean, default:false},
+  
   feedback: { type: String, trim: true },
 }, { timestamps: true });
 

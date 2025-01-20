@@ -9,13 +9,6 @@
     if (!token) {
         window.location.href = "../../Homepage/homepage.html";
     }
-        const profileInfo = document.querySelector('.profile-info');
-        const profileDropdown = document.querySelector('.profile-dropdown');
-  
-        profileInfo.addEventListener('click', () => {
-          profileDropdown.classList.toggle('hidden');
-        });
-  
         // Close dropdown when clicking outside
         document.addEventListener('click', (event) => {
           if (!profileInfo.contains(event.target)) {

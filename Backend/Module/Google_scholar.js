@@ -98,7 +98,7 @@ const Faculty = require('../Models/addfaculty');
 const {getdb}=require('./db')
 const app = express();
 app.use(cors()); // CORS ko enable karo
-const { updatescore } = require('../Module/finalscore');
+const { updateScore } = require('../Module/finalscore');
 const router = express.Router();
 
 const jwt = require('jsonwebtoken');
@@ -135,29 +135,27 @@ async function fetch(faculty) {
 const data = response.data;
 
         const publications = data.articles || [];
-        // console.log(publications);
+        console.log(publications);
        const s= await addResearchData(faculty,publications[0])
 
           
   
 }
 async function addResearchData(faculty, researchData) {
-    try {
+    // try {
         
      console.log(researchData)
       const transformedData = {
-        research: researchData.title,
-        publicationName: researchData.publication,
-        category: "Research Paper", 
+        publication: researchData.title,
         document: researchData.link, 
         scholar: true 
       };
   
       // Update the faculty document
-      const publicationExists = faculty.research.some(
-        (pub) =>
-          pub.research === transformedData.research
-      );
+      // const publicationExists = faculty.research.some(
+      //   (pub) =>
+      //     pub.research === transformedData.research
+      // );
     
       // if (!publicationExists) {
         // Add the new publication to the array
@@ -166,13 +164,13 @@ async function addResearchData(faculty, researchData) {
         );
     
      const saved=await faculty.save();
-        updatescore(saved);
+        updateScore(saved);
       console.log('Updated Faculty:', result);
       return result;
     
-  }catch (error) {
-      console.error('Error adding research data:');
-    }
+  // }catch (error) {
+  //     console.error('Error adding research data:');
+  //   }
 
 }
 router.post('/fetchg', async (req, res) => {

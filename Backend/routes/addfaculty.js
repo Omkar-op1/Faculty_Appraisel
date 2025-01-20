@@ -4,7 +4,7 @@ const Faculty = require('../Models/addfaculty');
 const multer = require("multer");
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-// const  { uploadFileToDrive }=require('../Module/multer')
+const  { uploadFileToDrive }=require('../Module/multer')
 const { LocalStorage } = require('node-localstorage');
 const localStorage = new LocalStorage('./scratch');
 const JWT_SECRET = 'qwsn23ed23p0ed-f3f[34r34r344f34f3f,k3jif930r423lr3dm3234r';
@@ -13,13 +13,14 @@ const ff=require('../Models/freshFaculty')
 const fs = require('fs');
 
 
+
 const {
   verifyToken,
   generatePassword,
 } = require('../Module/auth');
 const { getdb } = require('../Module/db');
 const sendPasswordEmail = require('../Module/mail');
-const { updatescore } = require('../Module/finalscore');
+const { updateScore } = require('../Module/finalscore');
 const router = express.Router();
 router.post('/addFaculty', verifyToken, async (req, res) => {
     const {
@@ -60,6 +61,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       password,
       scholarid,
       role,
+      institute_name
 
     });
     const savedFaculty = await newFaculty.save();
@@ -109,7 +111,7 @@ const institute = await Institute.findOne({ _id: req.user }).select('basicInfo.i
       faculty.updateOne(data);
     }
     const nf=await faculty.save();
-    updatescore(nf);
+    updateScore(nf);
     res.status(200).json({
       message: 'Details added successfully',
       faculty,
@@ -137,9 +139,11 @@ router.post('/upload',upload.single('file'), async (req, res) => {
       if (!uploadedFile) {
           return res.status(400).send('No file uploaded.');
       }
+      console.log(uploadedFile)
+
       const fileId = await uploadFileToDrive(uploadedFile.path, uploadedFile.originalname);
-      console.log(fileId)
-      fs.unlinkSync(uploadedFile.path);
+      console.log(fileId);
+      // fs.unlinkSync(uploadedFile.path);
 
 
 

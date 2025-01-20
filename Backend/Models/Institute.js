@@ -112,6 +112,39 @@ const instituteSchema = new mongoose.Schema({
   
 
   form: FormSchema,
+
+
+  credits:{
+    Professor:{
+      A:{type:Number , default:0.1},
+      B:{type:Number , default:0.1},
+      C:{type:Number , default:0.1},
+      D:{type:Number , default:0.4},
+      E:{type:Number , default:0.1},
+      F:{type:Number , default:0.1},
+      G:{type:Number , default:0.1},
+    },
+    Associate:{
+      A:{type:Number , default:0.2},
+      B:{type:Number , default:0.1},
+      C:{type:Number , default:0.1},
+      D:{type:Number , default:0.3},
+      E:{type:Number , default:0.1},
+      F:{type:Number , default:0.1},
+      G:{type:Number , default:0.1},
+    },
+    Assitant:{
+      A:{type:Number , default:0.2},
+      B:{type:Number , default:0.2},
+      C:{type:Number , default:0.1},
+      D:{type:Number , default:0.2},
+      E:{type:Number , default:0.1},
+      F:{type:Number , default:0.1},
+      G:{type:Number , default:0.1},
+
+    }
+
+  }
   });
 
 

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Profile System - Government of NCT Delhi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- [Previous CSS remains the same] -->
+     <link rel="stylesheet" href="FacultyProfilePage.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" alt="Government Emblem" class="emblem" />
+          <div class="header-text">
+          <h1>Government of National Capital Territory of Delhi</h1>
+            <h2>राष्ट्रीय राजधानी क्षेत्र दिल्ली सरकार</h2>
+          </div>
+        </div>
+      </header>
+    
+      <!-- Navbar -->
+       <nav class="navigation">
+        <div class="nav-content">
+            <ul class="nav-links"><br>
+                <li><a href="../Faculty/FacultyHomePage.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="AppraisalForm/TeachingProcess.html"><i class="fas fa-file-alt"></i> Appraisal Form</a></li>
+                <li><a href="#"><i class="fas fa-chart-bar"></i> Report</a></li>
+                <li><a href="#"><i class="fas fa-link"></i> Important Links</a></li><br>
+              </ul>     
+              <div class="user-section">
+                <div class="profile-container">
+                  <div class="profile-info">
+                    <img src="profile.png" alt="Profile" class="profile-icon">
+                    <span class="profile-name">John Doe</span>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                  </div>
+                  
+                  <div class="profile-dropdown hidden">
+                    <ul>
+                      <li><a href="#"><i class="fas fa-user"></i> View Profile</a></li>
+                      <li><a href="SETTING.HTML"><i class="fas fa-cog"></i> Settings</a></li>
+                      <li class="logout" id="logoutbutton"><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div class="notification-bell">
+                  <i class="fas fa-bell"></i>
+                  <span class="notification-badge">3</span>
+                </div>
+              </div>     
+        </div>
+      </nav>
+    
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <form class="profile-form" id="facultyProfileForm">
+          <div class="profile-header">
+            <h2 class="pro">Profile</h2>
+            <button type="button" class="master-edit-btn" id="masterEditBtn">
+                <i class="fas fa-edit"></i> Edit Profile
+            </button>
+        </div>
+        <style>
+          .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.master-edit-btn {
+    background-color: #263A6D;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.master-edit-btn:hover {
+    background-color: #1c2d54;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.master-edit-btn i {
+    font-size: 16px;
+}
+
+.master-edit-btn.editing {
+    background-color: #28a745;
+}
+
+/* Initially disable all form inputs */
+.profile-form input,
+.profile-form select {
+ 
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+}
+
+/* Style for enabled inputs when editing */
+.profile-form.editing input:not([disabled]),
+.profile-form.editing select:not([disabled]) {
+    pointer-events: auto;
+    background-color: white;
+    border: 1px solid #263A6D;
+}
+
+        </style>
+    
+            <!-- Personal Information Section -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-user-circle"></i> Personal Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title" class="required">Title</label>
+                        <select id="title" name="title" required>
+                            <option value="">Select</option>
+                            <option value="Dr">Dr</option>
+                            <option value="Prof">Prof</option>
+                            <option value="Mr">Mr</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="required">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="middleName">Middle Name</label>
+                        <input type="text" id="middleName" name="middleName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="required">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Information Section -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-address-card"></i> Contact Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="phone" class="required">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="required">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" class="required">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Address Section -->
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-map-marker-alt"></i> Address Details</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="address1" class="required">Address Line 1</label>
+                        <input type="text" id="address1" name="address1" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="address2">Address Line 2</label>
+                        <input type="text" id="address2" name="address2">
+                    </div>
+                    <div class="form-group">
+                        <label for="city" class="required">City</label>
+                        <input type="text" id="city" name="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="zipCode" class="required">PIN Code</label>
+                        <input type="text" id="zipCode" name="zipCode" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state" class="required">State</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                   <option value="andhra-pradesh">Andhra Pradesh</option>
+                   <option value="arunachal-pradesh">Arunachal Pradesh</option>
+                   <option value="assam">Assam</option>
+                   <option value="bihar">Bihar</option>
+                   <option value="chhattisgarh">Chhattisgarh</option>
+                   <option value="goa">Goa</option>
+                   <option value="gujarat">Gujarat</option>
+                   <option value="haryana">Haryana</option>
+                   <option value="himachal-pradesh">Himachal Pradesh</option>
+                   <option value="jharkhand">Jharkhand</option>
+                   <option value="karnataka">Karnataka</option>
+                   <option value="kerala">Kerala</option>
+                   <option value="madhya-pradesh">Madhya Pradesh</option>
+                   <option value="maharashtra">Maharashtra</option>
+                   <option value="manipur">Manipur</option>
+                   <option value="meghalaya">Meghalaya</option>
+                   <option value="mizoram">Mizoram</option>
+                   <option value="nagaland">Nagaland</option>
+                   <option value="odisha">Odisha</option>
+                   <option value="punjab">Punjab</option>
+                   <option value="rajasthan">Rajasthan</option>
+                   <option value="sikkim">Sikkim</option>
+                   <option value="tamil-nadu">Tamil Nadu</option>
+                   <option value="telangana">Telangana</option>
+                   <option value="tripura">Tripura</option>
+                   <option value="uttar-pradesh">Uttar Pradesh</option>
+                   <option value="uttarakhand">Uttarakhand</option>
+                   <option value="west-bengal">West Bengal</option>
+                   <option value="andaman-nicobar">Andaman and Nicobar Islands</option>
+                   <option value="chandigarh">Chandigarh</option>
+                   <option value="dadra-nagar-haveli-daman-diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                   <option value="delhi">Delhi</option>
+                   <option value="lakshadweep">Lakshadweep</option>
+                   <option value="puducherry">Puducherry</option>
+                   <option value="ladakh">Ladakh</option>
+                   <option value="jammu-kashmir">Jammu and Kashmir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="country" class="required">Country</label>
+                        <select id="country" name="country" required>
+                            <option value="india">India</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Information Section -->
+             
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Professional Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="designation" class="required">Designation</label>
+                        <input type="text" id="designation" name="designation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="department" class="required">Department</label>
+                        <input type="text" id="department" name="department" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="education" class="required">Educational Qualifications</label>
+                        <input type="text" id="education" name="education" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="specialization" class="required">Areas of Specialization</label>
+                        <input type="text" id="specialization" name="specialization" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="experience" class="required">Experience</label>
+                        <select id="experience" name="experience" required>
+                            <option value="">Select</option>
+                            <option value="0-2">0-2 years</option>
+                            <option value="2-5">2-5 years</option>
+                            <option value="5-10">5-10 years</option>
+                            <option value="10+">10+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employeeType" class="required">Employee Type</label>
+                        <select id="employeeType" name="employeeType" required>
+                            <option value="">Select</option>
+                            <option value="permanent">Permanent</option>
+                            <option value="contract">Contract</option>
+                            <option value="visiting">Visiting</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="form-actions">
+                <button type="button" class="btn btn-draft" id="saveAsDraft">
+                    <i class="fas fa-save"></i> Save As Draft
+                </button>
+                <button type="submit" class="btn btn-submit">
+                    <i class="fas fa-paper-plane"></i> Submit
+                </button>
+            </div>
+        </form>
+    </main>
+
+    <script src="editprofile.js"></script>
+</body>
+</html>

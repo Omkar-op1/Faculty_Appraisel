@@ -3,7 +3,7 @@ const Faculty = require('../Models/addfaculty');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const Institute = require('../Models/Institute');
-const { updatescore } = require('../Module/finalscore');
+const { updateScore } = require('../Module/finalscore');
 
 const { getdb } = require('../Module/db');
 const { LocalStorage } = require('node-localstorage');
@@ -22,6 +22,10 @@ router.get('/get-details', async (req, res) => {
       const faculty = await FacultyModel.findOne({ _id: user});
       if (!faculty) {
         return res.status(404).json({ message: 'Faculty not found' });
+      }
+      const institute = await Institute.findOne({ 'basicInfo.instituteName' :faculty.institute_name })
+      if (!institute) {
+        return res.status(404).json({ message: 'Institute not found' });
       }
       if (t==='0') {
        res.json({ key: faculty.teachingProcess });
@@ -46,13 +50,12 @@ router.get('/get-details', async (req, res) => {
       }
       if(t==='7')
       {
-        res.json({ key: faculty });
+        res.json({ key: faculty , i:institute});
       }
   });
 
   router.delete('/delete-details/:entryId', async (req, res) => {
     const { entryId } = req.params; 
-    try {
       const token = req.headers.authorization;
     const t = req.headers['type'];
     if (!token) {
@@ -103,11 +106,13 @@ router.get('/get-details', async (req, res) => {
       if (result.modifiedCount === 0) {
         return res.status(404).send({ message: 'Entry not found' });
       }
-      updatescore(faculty);
+      const nf=await new Promise(resolve => resolve(faculty.save()));;
+      const faculty1 = await FacultyModel.findOne({ _id: user});
+      updateScore(faculty1);
       res.send({ message: 'Entry deleted successfully' });
-    } catch (error) {
-      res.status(500).send({ message: 'Failed to delete entry' });
-    }
+    // } catch (error) {
+    //   res.status(500).send({ message: 'Failed to delete entry' });
+    // }
   });
   router.get('/get-details1', async (req, res) => {
     const token = req.headers.authorization;
@@ -138,7 +143,7 @@ router.get('/get-details', async (req, res) => {
       const fdb = getdb(decoded.db);
       const FacultyModel = Faculty(fdb);
 
-
+      const hod=await FacultyModel.findOne({ _id: user});
       const facultyId = req.query.facultyId;
         const userId = facultyId; 
         console.log(userId)
@@ -150,6 +155,8 @@ router.get('/get-details', async (req, res) => {
       
       faculty.recommendation=req.body.recommendation;
       faculty.feedback=req.body.feedback;
+      faculty.fr=true;
+      faculty.recommendedby = hod.firstname + " " + hod.lastname;
       const nf=await faculty.save();
       console.log(nf);
       return res.status(200).json({ message: 'done' });
