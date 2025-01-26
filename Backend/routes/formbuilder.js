@@ -27,10 +27,10 @@ router.post('/formbuilder',verifyToken, async (req, res) => {
       res.status(500).json({ message: 'Server error, please try again later.', ok: 0 });
     }
   });
-  router.get('/formbuilde', async (req, res) => {
+  router.get('/formbuilde',verifyToken, async (req, res) => {
      const formData = req.body;
      try {
-         const Institute1 = await Institute.findOne({_id:'674eacb7ba24a94305714099'});
+         const Institute1 = await Institute.findOne({_id:req.user});
          if (!Institute1) {
              return res.status(404).json({ error: 'Institute not found' });
          }
