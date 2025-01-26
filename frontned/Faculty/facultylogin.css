@@ -201,7 +201,7 @@ body {
 }
 
 .login-container button {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  background: #102b70;
   color: var(--white);
   border: none;
   padding: 1rem 1.5rem;
@@ -209,8 +209,9 @@ body {
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
 }
+
 
 .login-container button:hover {
   transform: translateY(-3px);
